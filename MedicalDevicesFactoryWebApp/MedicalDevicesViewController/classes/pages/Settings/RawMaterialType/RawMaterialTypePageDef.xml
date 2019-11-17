@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="RawMaterialTypePageDef"
+                Package="pages.Settings.RawMaterialType">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OresType1" RangeSize="10" DataControl="SettingsAppModuleAMDataControl" id="OresType1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OresType1Iterator" id="OresType1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.settings.OresTypeVO" Name="OresType10">
+        <AttrNames>
+          <Item Value="OresType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OresType1Iterator" id="Delete" InstanceName="SettingsAppModuleAMDataControl.OresType1"
+            DataControl="SettingsAppModuleAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="OresType1Iterator" id="CreateInsert" InstanceName="SettingsAppModuleAMDataControl.OresType1"
+            DataControl="SettingsAppModuleAMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" DataControl="SettingsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

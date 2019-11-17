@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Add-Quantity-Report-BTF">
+    <default-activity>Add-Quantity-Report</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="Add-Quantity-Report">
+      <page>/pages/Reports/Add-Quantity-Report.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

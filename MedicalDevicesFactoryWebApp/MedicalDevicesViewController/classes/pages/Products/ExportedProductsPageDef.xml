@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="ExportedProductsPageDef"
+                Package="pages.Products">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MainProducts1" RangeSize="10" DataControl="ProductsAppModuleAMDataControl"
+              id="MainProducts1Iterator"/>
+    <searchRegion Binds="MainProducts1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MainProducts1Query"/>
+    <searchRegion Criteria="MainProductsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MainProducts1Iterator" id="MainProductsVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MainProducts1Iterator" id="MainProducts1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.products.MainProductsVO" Name="MainProducts10">
+        <AttrNames>
+          <Item Value="ProductCode"/>
+          <Item Value="ProductName"/>
+          <Item Value="Quantity"/>
+          <Item Value="CriticalLimit"/>
+          <Item Value="Price"/>
+          <Item Value="Date"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

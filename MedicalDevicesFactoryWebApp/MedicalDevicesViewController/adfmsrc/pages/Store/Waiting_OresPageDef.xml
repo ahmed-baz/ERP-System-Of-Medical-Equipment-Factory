@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="Waiting_OresPageDef"
+                Package="pages.Store">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="WaitingOres1" RangeSize="10" DataControl="StoreAppModuleAMDataControl" id="WaitingOres1Iterator"/>
+    <searchRegion Binds="WaitingOres1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="WaitingOres1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="WaitingOres1Iterator" id="WaitingOres1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.stores.WaitingOresVO" Name="WaitingOres10">
+        <AttrNames>
+          <Item Value="OreId"/>
+          <Item Value="OreCode"/>
+          <Item Value="OreName"/>
+          <Item Value="OresTypeId"/>
+          <Item Value="Length"/>
+          <Item Value="LengthUnit"/>
+          <Item Value="Width"/>
+          <Item Value="WidthUnit"/>
+          <Item Value="Thikness"/>
+          <Item Value="ThiknessUnit"/>
+          <Item Value="Quentity"/>
+          <Item Value="Unit"/>
+          <Item Value="Price"/>
+          <Item Value="Date"/>
+          <Item Value="Active"/>
+          <Item Value="CriticalLimit"/>
+          <Item Value="Supplier"/>
+          <Item Value="BillNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="WaitingOres1Iterator" id="OreId">
+      <AttrNames>
+        <Item Value="OreId"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="StoreAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action IterBinding="WaitingOres1Iterator" id="Delete" InstanceName="StoreAppModuleAMDataControl.WaitingOres1"
+            DataControl="StoreAppModuleAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <methodAction id="setActiveOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setActiveOre_StoreAppModuleAMDataControl_dataProvider_setActiveOre_result"/>
+    <methodAction id="setWaitingOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setWaitingOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setWaitingOre_StoreAppModuleAMDataControl_dataProvider_setWaitingOre_result"/>
+    <methodAction id="deleteReport" RequiresUpdateModel="true" Action="invokeMethod" MethodName="deleteReport"
+                  IsViewObjectMethod="false" DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.deleteReport_StoreActionsAppModuleAMDataControl_dataProvider_deleteReport_result">
+      <NamedData NDName="oreId" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

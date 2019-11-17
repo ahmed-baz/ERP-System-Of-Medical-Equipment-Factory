@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SettingsAppModuleAM"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="Camp1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.CampVO"/>
+  <ViewUsage
+    Name="Departments1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.DepartmentsVO"/>
+  <ViewUsage
+    Name="MilitaryService1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.MilitaryServiceVO"/>
+  <ViewUsage
+    Name="OresType1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.OresTypeVO"/>
+  <ViewUsage
+    Name="Qualification1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.QualificationVO"/>
+  <ViewUsage
+    Name="Specialization1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.SpecializationVO"/>
+  <ViewUsage
+    Name="Tasks1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.TasksVO"/>
+  <ViewUsage
+    Name="Universities1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.UniversitiesVO"/>
+  <ViewUsage
+    Name="Specialization2"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.settings.SpecializationVO"/>
+  <ViewLinkUsage
+    Name="QualificationSpecilizationVuLink1"
+    ViewLinkObjectName="oracle.medical.app.model.bc.uiview.settings.assoc.QualificationSpecilizationVuLink"
+    SrcViewUsageName="oracle.medical.app.model.bc.module.SettingsAppModuleAM.Qualification1"
+    DstViewUsageName="oracle.medical.app.model.bc.module.SettingsAppModuleAM.Specialization2"
+    Reversed="false"/>
+</AppModule>

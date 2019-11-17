@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="IndividualsAppModuleAM"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="oracle.medical.app.model.bc.module.IndividualsAppModuleAMImpl"
+  ComponentInterface="oracle.medical.app.model.bc.module.common.IndividualsAppModuleAM">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="Sergeants1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.sergeants.SergeantsVO"/>
+  <ViewUsage
+    Name="Privates1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.soliders.PrivatesVO"/>
+  <ViewUsage
+    Name="NewSoldier1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.soliders.NewSoldierVO"/>
+  <ViewUsage
+    Name="NewSergeant1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.sergeants.NewSergeantVO"/>
+  <ViewUsage
+    Name="NewOfficer1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.officers.NewOfficerVO"/>
+  <ViewUsage
+    Name="Officers1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO"/>
+  <ViewUsage
+    Name="TerminatedOfficers1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.officers.TerminatedOfficersVO"/>
+  <ViewUsage
+    Name="TerminatedPrivates1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.soliders.TerminatedPrivatesVO"/>
+  <ViewUsage
+    Name="TerminatedSergeants1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.sergeants.TerminatedSergeantsVO"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="filterSoldiers"
+      MethodName="filterSoldiers">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
+      Name="filterSergeants"
+      MethodName="filterSergeants">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
+      Name="filterOfficers"
+      MethodName="filterOfficers">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
+      Name="terminateSoldier"
+      MethodName="terminateSoldier">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

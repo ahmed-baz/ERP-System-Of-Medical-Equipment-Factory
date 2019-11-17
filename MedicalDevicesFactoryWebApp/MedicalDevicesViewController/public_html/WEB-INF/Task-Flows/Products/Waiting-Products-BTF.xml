@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Waiting-Products-BTF">
+    <default-activity>Waiting-Products</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="Waiting-Products">
+      <page>/pages/Products/Waiting-Products.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

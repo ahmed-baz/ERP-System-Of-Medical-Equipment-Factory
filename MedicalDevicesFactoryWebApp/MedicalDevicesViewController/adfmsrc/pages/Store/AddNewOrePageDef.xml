@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="AddNewOrePageDef"
+                Package="pages.Store">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AddNweOres1" RangeSize="25" DataControl="StoreAppModuleAMDataControl" id="AddNweOres1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="OreCode">
+      <AttrNames>
+        <Item Value="OreCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="OreName">
+      <AttrNames>
+        <Item Value="OreName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AddNweOres1Iterator" StaticList="false" Uses="LOV_OresTypeId" id="OresTypeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Quentity">
+      <AttrNames>
+        <Item Value="Quentity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="CriticalLimit">
+      <AttrNames>
+        <Item Value="CriticalLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AddNweOres1Iterator" StaticList="false" Uses="LOV_Unit" id="Unit" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Price">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Supplier">
+      <AttrNames>
+        <Item Value="Supplier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="BillNo">
+      <AttrNames>
+        <Item Value="BillNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Length">
+      <AttrNames>
+        <Item Value="Length"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AddNweOres1Iterator" StaticList="false" Uses="LOV_LengthUnit" id="LengthUnit"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Width">
+      <AttrNames>
+        <Item Value="Width"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AddNweOres1Iterator" StaticList="false" Uses="LOV_WidthUnit" id="WidthUnit"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Thikness">
+      <AttrNames>
+        <Item Value="Thikness"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="AddNweOres1Iterator" StaticList="false" Uses="LOV_ThiknessUnit" id="ThiknessUnit"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AddNweOres1Iterator" id="Image">
+      <AttrNames>
+        <Item Value="Image"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="StoreAppModuleAMDataControl"/>
+    <action IterBinding="AddNweOres1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" DataControl="StoreAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <methodAction id="setActiveOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setActiveOre_StoreAppModuleAMDataControl_dataProvider_setActiveOre_result"/>
+    <methodAction id="setWaitingOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setWaitingOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setWaitingOre_StoreAppModuleAMDataControl_dataProvider_setWaitingOre_result"/>
+  </bindings>
+</pageDefinition>

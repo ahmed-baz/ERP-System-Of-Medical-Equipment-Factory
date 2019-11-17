@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MedicalDevicesModel"
+  Version="12.1.3.10.8"
+  SeparateXMLFiles="true"
+  PackageName="oracle.medical.app.model">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../../../MedicalDevicesModel.jpr"/>
+    <Attr Name="_NamedConnection" Value="AppConnection"/>
+    <Attr Name="_appModuleNames0" Value="oracle.medical.app.model.bc.module.UsersAppModuleAM"/>
+    <Attr Name="_appModuleNames1" Value="oracle.medical.app.model.bc.module.StoreAppModuleAM"/>
+    <Attr Name="_appModuleNames2" Value="oracle.medical.app.model.bc.module.StoreActionsAppModuleAM"/>
+    <Attr Name="_appModuleNames3" Value="oracle.medical.app.model.bc.module.ProductsAppModuleAM"/>
+    <Attr Name="_appModuleNames4" Value="oracle.medical.app.model.bc.module.IndividualsAppModuleAM"/>
+    <Attr Name="_appModuleNames5" Value="oracle.medical.app.model.bc.module.SettingsAppModuleAM"/>
+  </DesignTime>
+  <Containee
+    Name="assoc"
+    PackageName="oracle.medical.app.model.bc.dropdownlist.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="dropdownlist"
+    PackageName="oracle.medical.app.model.bc.dropdownlist"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="officers"
+    PackageName="oracle.medical.app.model.bc.entity.Individuals.assoc.officers"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="other"
+    PackageName="oracle.medical.app.model.bc.entity.Individuals.assoc.other"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="privates"
+    PackageName="oracle.medical.app.model.bc.entity.Individuals.assoc.privates"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="sergeants"
+    PackageName="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="Individuals"
+    PackageName="oracle.medical.app.model.bc.entity.Individuals"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="assoc"
+    PackageName="oracle.medical.app.model.bc.entity.products.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="products"
+    PackageName="oracle.medical.app.model.bc.entity.products"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="assoc"
+    PackageName="oracle.medical.app.model.bc.entity.settings.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="settings"
+    PackageName="oracle.medical.app.model.bc.entity.settings"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="assoc"
+    PackageName="oracle.medical.app.model.bc.entity.storeActions.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="storeActions"
+    PackageName="oracle.medical.app.model.bc.entity.storeActions"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="assoc"
+    PackageName="oracle.medical.app.model.bc.entity.stores.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="stores"
+    PackageName="oracle.medical.app.model.bc.entity.stores"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="assoc"
+    PackageName="oracle.medical.app.model.bc.entity.users.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="users"
+    PackageName="oracle.medical.app.model.bc.entity.users"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="module"
+    PackageName="oracle.medical.app.model.bc.module"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="officers"
+    PackageName="oracle.medical.app.model.bc.uiview.Individuals.officers"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="other"
+    PackageName="oracle.medical.app.model.bc.uiview.Individuals.other"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vulink"
+    PackageName="oracle.medical.app.model.bc.uiview.Individuals.other.vulink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="sergeants"
+    PackageName="oracle.medical.app.model.bc.uiview.Individuals.sergeants"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="soliders"
+    PackageName="oracle.medical.app.model.bc.uiview.Individuals.soliders"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="products"
+    PackageName="oracle.medical.app.model.bc.uiview.products"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vulink"
+    PackageName="oracle.medical.app.model.bc.uiview.products.vulink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="assoc"
+    PackageName="oracle.medical.app.model.bc.uiview.settings.assoc"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="settings"
+    PackageName="oracle.medical.app.model.bc.uiview.settings"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="dropdownlist"
+    PackageName="oracle.medical.app.model.bc.uiview.storeActions.dropdownlist"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="storeActions"
+    PackageName="oracle.medical.app.model.bc.uiview.storeActions"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vulink"
+    PackageName="oracle.medical.app.model.bc.uiview.storeActions.vulink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="dropdownlist"
+    PackageName="oracle.medical.app.model.bc.uiview.stores.dropdownlist"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="stores"
+    PackageName="oracle.medical.app.model.bc.uiview.stores"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vulink"
+    PackageName="oracle.medical.app.model.bc.uiview.stores.vulink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="users"
+    PackageName="oracle.medical.app.model.bc.uiview.users"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="vulink"
+    PackageName="oracle.medical.app.model.bc.uiview.users.vulink"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VL" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>

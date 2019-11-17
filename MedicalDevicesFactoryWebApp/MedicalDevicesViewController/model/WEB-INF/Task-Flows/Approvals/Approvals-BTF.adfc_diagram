@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Approvals</property>
+      <property
+         name="page">/pages/Approvals/Approvals.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Approvals&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">360.0918</property>
+      <property
+         name="x">274.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall9">
+      <property
+         name="taskFlowId">NewUser-BTF</property>
+      <property
+         name="activityId">NewUser-BTF</property>
+      <property
+         name="documentReference">/WEB-INF/Task-Flows/Approvals/NewUser-BTF.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>NewUser-BTF&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">360.89648</property>
+      <property
+         name="x">64.0</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View2"
+      to="TaskFlowCall9">
+      <property
+         name="fromOutcome">NewUser-BTF</property>
+      <property
+         name="sdm:polyPoints">L50,233.0,359.7412,105.0,360.5459,R50</property>
+   </ControlFlowCase>
+</SDM>

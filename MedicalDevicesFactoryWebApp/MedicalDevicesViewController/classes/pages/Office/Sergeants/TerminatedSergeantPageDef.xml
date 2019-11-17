@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="TerminatedSergeantPageDef"
+                Package="pages.Office.Sergeants">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TerminatedSergeants1" RangeSize="10" DataControl="IndividualsAppModuleAMDataControl"
+              id="TerminatedSergeants1Iterator"/>
+    <searchRegion Criteria="TerminatedSergeantsVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="TerminatedSergeants1Iterator"
+                  id="TerminatedSergeantsVOCriteriaQuery"/>
+    <iterator Binds="Sergeants1" RangeSize="25" DataControl="IndividualsAppModuleAMDataControl"
+              id="Sergeants1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TerminatedSergeants1Iterator" id="TerminatedSergeants1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.Individuals.sergeants.TerminatedSergeantsVO"
+                      Name="TerminatedSergeants10">
+        <AttrNames>
+          <Item Value="MilitaryRankId"/>
+          <Item Value="FullName"/>
+          <Item Value="MilitaryNumber"/>
+          <Item Value="RecruitmentDate"/>
+          <Item Value="JoinDate"/>
+          <Item Value="QualificationId"/>
+          <Item Value="SpecializationId"/>
+          <Item Value="MilitaryServiceId"/>
+          <Item Value="Ssn"/>
+          <Item Value="BirthDate"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="MaritalStatusId"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="CityId"/>
+          <Item Value="Address"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="Sergeants1Iterator" StaticList="false" Uses="LOV_CityId" id="CityId" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

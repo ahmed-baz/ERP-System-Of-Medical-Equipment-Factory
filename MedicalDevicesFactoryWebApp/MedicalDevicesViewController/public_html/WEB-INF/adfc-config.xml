@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="LoginPage">
+    <page>/LoginPage.jsf</page>
+  </view>
+  <task-flow-call id="Home-BTF">
+    <task-flow-reference>
+      <document>/WEB-INF/Home-BTF.xml</document>
+      <id>Home-BTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <control-flow-rule id="__3">
+    <from-activity-id>LoginPage</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome>Home-BTF</from-outcome>
+      <to-activity-id>Home-BTF</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__1">
+    <managed-bean-name>LoginBean</managed-bean-name>
+    <managed-bean-class>oracle.medical.app.beans.userlogin.LoginBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>ActionBean</managed-bean-name>
+    <managed-bean-class>oracle.medical.app.beans.ores.ActionsBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name>ProductActionsBean</managed-bean-name>
+    <managed-bean-class>oracle.medical.app.beans.products.ProductActionsBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name>CarouselBean</managed-bean-name>
+    <managed-bean-class>oracle.medical.app.beans.users.CarouselBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

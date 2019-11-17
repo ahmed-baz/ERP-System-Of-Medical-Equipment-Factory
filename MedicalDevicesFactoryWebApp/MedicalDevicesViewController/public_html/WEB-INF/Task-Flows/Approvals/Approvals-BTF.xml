@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Approvals-BTF">
+    <default-activity>Approvals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__7">
+      <managed-bean-name>ApprovalsBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.approvals.ApprovalsBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <view id="Approvals">
+      <page>/pages/Approvals/Approvals.jsff</page>
+    </view>
+    <task-flow-call id="NewUser-BTF">
+      <task-flow-reference>
+        <document>/WEB-INF/Task-Flows/Approvals/NewUser-BTF.xml</document>
+        <id>NewUser-BTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>Approvals</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>NewUser-BTF</from-outcome>
+        <to-activity-id>NewUser-BTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

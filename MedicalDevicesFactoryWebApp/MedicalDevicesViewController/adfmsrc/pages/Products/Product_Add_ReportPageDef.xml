@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="Product_Add_ReportPageDef"
+                Package="pages.Products">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductAdditionReport2" RangeSize="10" DataControl="ProductsAppModuleAMDataControl"
+              id="ProductAdditionReport2Iterator"/>
+    <searchRegion Criteria="ProductAdditionReportVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="ProductAdditionReport2Iterator"
+                  id="ProductAdditionReportVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ProductAdditionReport2Iterator" id="ProductAdditionReport2">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.products.ProductAdditionReportVO"
+                      Name="ProductAdditionReport20">
+        <AttrNames>
+          <Item Value="ProductCode"/>
+          <Item Value="ProductName"/>
+          <Item Value="Quantity"/>
+          <Item Value="OrderNo"/>
+          <Item Value="Date"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

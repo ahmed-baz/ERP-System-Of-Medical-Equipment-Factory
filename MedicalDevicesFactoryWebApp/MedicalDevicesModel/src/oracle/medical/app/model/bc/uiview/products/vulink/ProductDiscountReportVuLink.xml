@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProductDiscountReportVuLink"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  EntityAssociation="oracle.medical.app.model.bc.entity.products.assoc.ProductDiscountAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="oracle.medical.app.model.bc.uiview.products.vulink.ProductDiscountReportVuLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="MainProducts"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.medical.app.model.bc.uiview.products.MainProductsVO">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="MainProducts"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.uiview.products.MainProductsVO.ProductId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ProductDiscountReport"
+    Cardinality="-1"
+    Owner="oracle.medical.app.model.bc.uiview.products.ProductDiscountReportVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ProductDiscountReport"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.uiview.products.ProductDiscountReportVO.ProductId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.medical.app.model.MedicalDevicesModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

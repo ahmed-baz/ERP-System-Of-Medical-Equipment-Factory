@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Waiting-Ores-BTF">
+    <default-activity>Waiting-Ores</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>WaitingOreBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.ores.WaitingOreBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="Waiting-Ores">
+      <page>/pages/Store/Waiting-Ores.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

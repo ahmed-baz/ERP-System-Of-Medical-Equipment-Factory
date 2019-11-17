@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl7">
+        <af:gridRow marginTop="5px" id="gr4">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="end">
+                <af:panelGroupLayout id="pgl4" rendered="#{adfFacesContext.outputMode == 'printable'}">
+                    <af:activeImage id="ai2" source="/resources/images/Date.PNG"/>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="100%" id="gr5">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch" valign="stretch">
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="البحث في تقرير الكميات المضافة للمنتجــــات" id="ph1" icon="/resources/images/search_magnifi-20.png">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.ProductAdditionReportVOCriteriaQuery.queryDescriptor}"
+                                  model="#{bindings.ProductAdditionReportVOCriteriaQuery.queryModel}"
+                                  queryListener="#{bindings.ProductAdditionReportVOCriteriaQuery.processQuery}"
+                                  queryOperationListener="#{bindings.ProductAdditionReportVOCriteriaQuery.processQueryOperation}"
+                                  resultComponentId="::pc1" displayMode="compact" saveQueryMode="hidden"
+                                  rendered="#{adfFacesContext.outputMode != 'printable'}"/>
+                    </af:panelHeader>
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:button id="b3" inlineStyle="padding:2px;margin:2px"
+                                           icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                                           action="#{RegionBean.reportBTF}"/>
+                                <af:button id="b1" inlineStyle="padding:2px;margin:2px"
+                                           icon="/resources/images/download_1-20.png">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
+                                                                       filename="تقرير المنتجات المٌضافـــة.xls"
+                                                                       title=" المنتجات المٌضافـــة"/>
+                                </af:button>
+                                <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                                           icon="/resources/images/print-20px.png">
+                                    <af:showPrintablePageBehavior/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.ProductAdditionReport2.collectionModel}" var="row"
+                                  rows="#{bindings.ProductAdditionReport2.rangeSize}"
+                                  emptyText="#{bindings.ProductAdditionReport2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ProductAdditionReport2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ProductAdditionReport2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ProductAdditionReport2.rangeSize}"
+                                  id="resId1" autoHeightRows="0">
+                            <af:column sortProperty="#{bindings.ProductAdditionReport2.hints.ProductCode.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductAdditionReport2.hints.ProductCode.label}"
+                                       id="resId1c1" align="center">
+                                <af:outputText value="#{row.ProductCode}"
+                                               shortDesc="#{bindings.ProductAdditionReport2.hints.ProductCode.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductAdditionReport2.hints.ProductName.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductAdditionReport2.hints.ProductName.label}"
+                                       id="resId1c2" align="center" width="150">
+                                <af:outputText value="#{row.ProductName}"
+                                               shortDesc="#{bindings.ProductAdditionReport2.hints.ProductName.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductAdditionReport2.hints.Quantity.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductAdditionReport2.hints.Quantity.label}"
+                                       id="resId1c3" align="center">
+                                <af:outputText value="#{row.Quantity}"
+                                               shortDesc="#{bindings.ProductAdditionReport2.hints.Quantity.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ProductAdditionReport2.hints.Quantity.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductAdditionReport2.hints.OrderNo.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductAdditionReport2.hints.OrderNo.label}"
+                                       id="resId1c4" align="center">
+                                <af:outputText value="#{row.OrderNo}"
+                                               shortDesc="#{bindings.ProductAdditionReport2.hints.OrderNo.tooltip}"
+                                               id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ProductAdditionReport2.hints.OrderNo.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductAdditionReport2.hints.Date.name}" sortable="true"
+                                       headerText="#{bindings.ProductAdditionReport2.hints.Date.label}" id="resId1c5"
+                                       align="center">
+                                <af:outputText value="#{row.Date}"
+                                               shortDesc="#{bindings.ProductAdditionReport2.hints.Date.tooltip}"
+                                               id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.ProductAdditionReport2.hints.Date.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" marginBottom="5px" id="gr6">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                <af:panelGroupLayout id="pgl3" rendered="#{adfFacesContext.outputMode == 'printable'}">
+                    <af:activeImage source="/resources/images/signature.PNG" id="ai1"/>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

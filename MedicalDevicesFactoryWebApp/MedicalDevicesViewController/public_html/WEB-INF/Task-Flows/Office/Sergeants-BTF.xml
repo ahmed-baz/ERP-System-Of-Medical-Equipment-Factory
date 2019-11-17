@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Sergeants-BTF">
+    <default-activity>Sergeant</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__11">
+      <managed-bean-name>SergeantsBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.individuals.sergeants.SergeantsBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <view id="Sergeant">
+      <page>/pages/Office/Sergeants.jsff</page>
+    </view>
+    <view id="SelectedSergeant">
+      <page>/pages/Office/Sergeants/SelectedSergeant.jsff</page>
+    </view>
+    <view id="NewSergeant">
+      <page>/pages/Office/Sergeants/NewSergeant.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="TerminatedSergeant">
+      <page>/pages/Office/Sergeants/TerminatedSergeant.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>Sergeant</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>SelectedSergeant</from-outcome>
+        <to-activity-id>SelectedSergeant</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>NewSergeant</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>TerminatedSergeant</from-outcome>
+        <to-activity-id>TerminatedSergeant</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>Sergeants</from-outcome>
+        <to-activity-id>Sergeant</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>NewSergeant</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>NewSergeant</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>NewOne</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

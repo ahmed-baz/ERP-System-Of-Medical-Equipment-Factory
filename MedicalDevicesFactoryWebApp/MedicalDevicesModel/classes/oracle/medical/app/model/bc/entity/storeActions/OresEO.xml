@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OresEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ORES"
+  AliasName="OresEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="OreId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="ORE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="OreCode"
+    Precision="20"
+    ColumnName="ORE_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OreName"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="ORE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OresTypeId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="ORES_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Quentity"
+    IsNotNull="true"
+    Precision="15"
+    Scale="5"
+    ColumnName="QUENTITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="CriticalLimit"
+    IsNotNull="true"
+    Precision="10"
+    Scale="3"
+    ColumnName="CRITICAL_LIMIT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Unit"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="UNIT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Price"
+    IsNotNull="true"
+    Precision="10"
+    Scale="3"
+    ColumnName="PRICE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Supplier"
+    Precision="150"
+    ColumnName="SUPPLIER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Date"
+    IsNotNull="true"
+    ColumnName='"Date"'
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ORES"/>
+  <Attribute
+    Name="BillNo"
+    Precision="10"
+    Scale="0"
+    ColumnName="BILL_NO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Active"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Image"
+    IsQueriable="false"
+    ColumnName="IMAGE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="ORES"/>
+  <Attribute
+    Name="Length"
+    Precision="10"
+    Scale="3"
+    ColumnName="LENGTH"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="LengthUnit"
+    Precision="4"
+    Scale="0"
+    ColumnName="LENGTH_UNIT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Width"
+    Precision="10"
+    Scale="3"
+    ColumnName="WIDTH"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="WidthUnit"
+    Precision="4"
+    Scale="0"
+    ColumnName="WIDTH_UNIT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Thikness"
+    Precision="10"
+    Scale="3"
+    ColumnName="THIKNESS"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="ThiknessUnit"
+    Precision="4"
+    Scale="0"
+    ColumnName="THIKNESS_UNIT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <Attribute
+    Name="Addnew"
+    Precision="1"
+    Scale="0"
+    ColumnName="ADDNEW"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES"/>
+  <AccessorAttribute
+    Name="OresAddition"
+    Association="oracle.medical.app.model.bc.entity.storeActions.assoc.OresAdditionFKAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.storeActions.assoc.OresAdditionFKAssoc.OresAddition"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.storeActions.assoc.OresAdditionFKAssoc.Ores"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="OresDiscount"
+    Association="oracle.medical.app.model.bc.entity.storeActions.assoc.OresDiscountFKAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.storeActions.assoc.OresDiscountFKAssoc.OresDiscount"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.storeActions.assoc.OresDiscountFKAssoc.Ores"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC007121"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007121"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresEO.OreId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="LengthUnit1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007012"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="LENGTH_UNIT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresEO.LengthUnit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OresType">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007142"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORES_TYPE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresEO.OresTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OresUnit1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007012"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORES_UNIT1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresEO.Unit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ThiknessUnit1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007012"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="THIKNESS_UNIT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresEO.ThiknessUnit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WidthUnit1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007012"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="WIDTH_UNIT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresEO.WidthUnit"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.medical.app.model.MedicalDevicesModelBundle"/>
+  </ResourceBundle>
+</Entity>

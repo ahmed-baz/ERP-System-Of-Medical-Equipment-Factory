@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="Discount_RequestsPageDef"
+                Package="pages.StoreActions">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OresDiscount1" RangeSize="15" DataControl="StoreActionsAppModuleAMDataControl"
+              id="OresDiscount1Iterator"/>
+    <searchRegion Binds="OresDiscount1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OresDiscount1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OresDiscount1Iterator" id="OresDiscount1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.storeActions.OresDiscountVO" Name="OresDiscount10">
+        <AttrNames>
+          <Item Value="OreId"/>
+          <Item Value="Code"/>
+          <Item Value="OreName"/>
+          <Item Value="OresType"/>
+          <Item Value="Length"/>
+          <Item Value="LengthUnit"/>
+          <Item Value="Width"/>
+          <Item Value="WidthUnit"/>
+          <Item Value="Thikness"/>
+          <Item Value="ThiknessUnit"/>
+          <Item Value="DiscountQuantity"/>
+          <Item Value="Quentity"/>
+          <Item Value="CriticalLimit"/>
+          <Item Value="Unit"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="DiscountDate"/>
+          <Item Value="OrderNo"/>
+          <Item Value="OreDiscountId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="OresDiscount1Iterator" id="Delete"
+            InstanceName="StoreActionsAppModuleAMDataControl.OresDiscount1"
+            DataControl="StoreActionsAppModuleAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="StoreActionsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <attributeValues IterBinding="OresDiscount1Iterator" id="OreDiscountId">
+      <AttrNames>
+        <Item Value="OreDiscountId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OresDiscount1Iterator" id="OreId">
+      <AttrNames>
+        <Item Value="OreId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OresDiscount1Iterator" id="DiscountQuantity">
+      <AttrNames>
+        <Item Value="DiscountQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="returnAddNewAttrDefault" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="returnAddNewAttrDefault" IsViewObjectMethod="false"
+                  DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.returnAddNewAttrDefault_StoreActionsAppModuleAMDataControl_dataProvider_returnAddNewAttrDefault_result">
+      <NamedData NDName="oreId" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <methodAction id="approveDiscountRequests" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="approveDiscountRequests" IsViewObjectMethod="false"
+                  DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.approveDiscountRequests_StoreActionsAppModuleAMDataControl_dataProvider_approveDiscountRequests_result">
+      <NamedData NDName="requestId" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="oreId" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="quantity" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <methodAction id="discountAllowed" RequiresUpdateModel="true" Action="invokeMethod" MethodName="discountAllowed"
+                  IsViewObjectMethod="false" DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.discountAllowed_StoreActionsAppModuleAMDataControl_dataProvider_discountAllowed_result">
+      <NamedData NDName="oreId" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="quantity" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <methodAction id="setActiveOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setActiveOre_StoreAppModuleAMDataControl_dataProvider_setActiveOre_result"/>
+    <methodAction id="filterDiscountReport" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="filterDiscountReport" IsViewObjectMethod="false"
+                  DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.filterDiscountReport_StoreActionsAppModuleAMDataControl_dataProvider_filterDiscountReport_result"/>
+  </bindings>
+</pageDefinition>

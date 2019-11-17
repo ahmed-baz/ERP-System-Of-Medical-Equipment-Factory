@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="AddRequestPageDef"
+                Package="pages.Products">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductAddition1" RangeSize="25" DataControl="ProductsAppModuleAMDataControl"
+              id="ProductAddition1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ProductAddition1Iterator" id="Quantity">
+      <AttrNames>
+        <Item Value="Quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductAddition1Iterator" id="OrderNo">
+      <AttrNames>
+        <Item Value="OrderNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductAddition1Iterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductAddition1Iterator" id="ProductCode">
+      <AttrNames>
+        <Item Value="ProductCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductAddition1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="ProductsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <methodAction id="nonAcceptedAddRequests" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="nonAcceptedAddRequests" IsViewObjectMethod="false"
+                  DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.nonAcceptedAddRequests_ProductsAppModuleAMDataControl_dataProvider_nonAcceptedAddRequests_result"/>
+    <methodAction id="setActiveProducts" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveProducts"
+                  IsViewObjectMethod="false" DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.setActiveProducts_ProductsAppModuleAMDataControl_dataProvider_setActiveProducts_result"/>
+  </bindings>
+</pageDefinition>

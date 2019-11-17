@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl2">
+    <af:gridRow marginTop="5px" height="50px" id="gr1">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" id="gr2">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch" valign="middle">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text="البحث فــي النتجــــات" id="ph1" icon="/resources/images/search_magnifi-20.png">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.MainProductsVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.MainProductsVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.MainProductsVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.MainProductsVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1" displayMode="compact" saveQueryMode="hidden"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                           icon="/resources/images/undo_arrow_left_edit_back-16.png" action="Products"/>
+                <af:button text="Export To Excel" id="b1" icon="/resources/images/download_1-20.png"
+                           inlineStyle="padding:2px;margin:2px">
+                  <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
+                                                     filename="منتجات مصنع الأجهــزة الطبيـــة ق.م.xls"
+                                                     title="منتجات مصنع الأجهــزة الطبيـــة ق.م"/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.MainProducts1.collectionModel}" var="row"
+                      rows="#{bindings.MainProducts1.rangeSize}"
+                      emptyText="#{bindings.MainProducts1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.MainProducts1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.MainProducts1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.MainProducts1.rangeSize}"
+                      filterModel="#{bindings.MainProducts1Query.queryDescriptor}"
+                      queryListener="#{bindings.MainProducts1Query.processQuery}" filterVisible="true" varStatus="vs"
+                      id="t1" width="100%" scrollPolicy="page">
+              <af:column id="c7" align="center" headerText="#" width="20">
+                <af:outputText value="#{vs.index+1}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.ProductCode.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.MainProducts1.hints.ProductCode.label}" id="c1"
+                         align="center">
+                <af:outputText value="#{row.ProductCode}"
+                               shortDesc="#{bindings.MainProducts1.hints.ProductCode.tooltip}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.ProductName.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.MainProducts1.hints.ProductName.label}" id="c2"
+                         align="center" width="200">
+                <af:outputText value="#{row.ProductName}"
+                               shortDesc="#{bindings.MainProducts1.hints.ProductName.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.Quantity.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.MainProducts1.hints.Quantity.label}" id="c3" align="center">
+                <af:outputText value="#{row.Quantity}" shortDesc="#{bindings.MainProducts1.hints.Quantity.tooltip}"
+                               id="ot3">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.MainProducts1.hints.Quantity.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.CriticalLimit.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.MainProducts1.hints.CriticalLimit.label}" id="c4"
+                         align="center">
+                <af:outputText value="#{row.CriticalLimit}"
+                               shortDesc="#{bindings.MainProducts1.hints.CriticalLimit.tooltip}" id="ot4">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.MainProducts1.hints.CriticalLimit.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.Price.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.MainProducts1.hints.Price.label}" id="c5" align="center">
+                <af:outputText value="#{row.Price}" shortDesc="#{bindings.MainProducts1.hints.Price.tooltip}" id="ot5">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.MainProducts1.hints.Price.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.Date.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.MainProducts1.hints.Date.label}" id="c6" align="center">
+                <f:facet name="filter">
+                  <af:inputDate value="#{bindings.MainProducts1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Date.value}"
+                                id="id1">
+                    <af:convertDateTime pattern="#{bindings.MainProducts1.hints.Date.format}"/>
+                  </af:inputDate>
+                </f:facet>
+                <af:outputText value="#{row.Date}" shortDesc="#{bindings.MainProducts1.hints.Date.tooltip}" id="ot6">
+                  <af:convertDateTime pattern="#{bindings.MainProducts1.hints.Date.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="50px" marginBottom="5px" id="gr3">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+</ui:composition>

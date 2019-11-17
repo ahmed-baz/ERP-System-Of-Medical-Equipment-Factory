@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow marginTop="5px" height="30px" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" halign="end" valign="middle">
+                <af:button id="b1" action="Officers" icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                           inlineStyle="padding:2px;margin:2px"/>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" valign="stretch" halign="stretch">
+                <af:panelGroupLayout id="pgl2">
+                    <af:panelHeader text="البحث في الضباط من  قوة الأحتياط" id="ph1"
+                                    icon="/resources/images/search_magnifi-20.png">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.TerminatedOfficersVOCriteriaQuery.queryDescriptor}"
+                                  model="#{bindings.TerminatedOfficersVOCriteriaQuery.queryModel}"
+                                  queryListener="#{bindings.TerminatedOfficersVOCriteriaQuery.processQuery}"
+                                  queryOperationListener="#{bindings.TerminatedOfficersVOCriteriaQuery.processQueryOperation}"
+                                  resultComponentId="::pc1" displayMode="compact" saveQueryMode="hidden"/>
+                    </af:panelHeader>
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.TerminatedOfficers1.collectionModel}" var="row"
+                                  rows="#{bindings.TerminatedOfficers1.rangeSize}"
+                                  emptyText="#{bindings.TerminatedOfficers1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.TerminatedOfficers1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.TerminatedOfficers1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.TerminatedOfficers1.rangeSize}"
+                                  id="resId1" varStatus="vs" width="100%" scrollPolicy="page" autoHeightRows="0">
+                            <af:column id="c1" width="20" align="center">
+                                <af:button id="b2"/>
+                            </af:column>
+                            <af:column id="c2" width="20" align="center" headerText="#">
+                                <af:outputText value="#{vs.index+1}" id="ot6"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.MilitaryRankId.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.TerminatedOfficers1.hints.MilitaryRankId.label}"
+                                       id="resId1c1" align="center" width="100">
+                                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                                    <af:selectOneChoice value="#{row.bindings.MilitaryRankType.inputValue}"
+                                                        label="#{row.bindings.MilitaryRankType.label}"
+                                                        required="#{bindings.TerminatedOfficers1.hints.MilitaryRankType.mandatory}"
+                                                        shortDesc="#{bindings.TerminatedOfficers1.hints.MilitaryRankType.tooltip}"
+                                                        readOnly="true" id="soc2">
+                                        <f:selectItems value="#{row.bindings.MilitaryRankType.items}" id="si2"/>
+                                        <f:validator binding="#{row.bindings.MilitaryRankType.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:selectOneChoice value="#{row.bindings.MilitaryRankId.inputValue}"
+                                                        label="#{row.bindings.MilitaryRankId.label}"
+                                                        required="#{bindings.TerminatedOfficers1.hints.MilitaryRankId.mandatory}"
+                                                        shortDesc="#{bindings.TerminatedOfficers1.hints.MilitaryRankId.tooltip}"
+                                                        readOnly="true" id="soc1" contentStyle="margin:5px">
+                                        <f:selectItems value="#{row.bindings.MilitaryRankId.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.MilitaryRankId.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:panelGroupLayout>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.FullName.name}"
+                                       sortable="true" headerText="#{bindings.TerminatedOfficers1.hints.FullName.label}"
+                                       id="resId1c3" align="center" width="151">
+                                <af:outputText value="#{row.FullName}"
+                                               shortDesc="#{bindings.TerminatedOfficers1.hints.FullName.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.MilitaryNumber.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.TerminatedOfficers1.hints.MilitaryNumber.label}"
+                                       id="resId1c4" align="center" width="99">
+                                <af:outputText value="#{row.MilitaryNumber}"
+                                               shortDesc="#{bindings.TerminatedOfficers1.hints.MilitaryNumber.tooltip}"
+                                               id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.TerminatedOfficers1.hints.MilitaryNumber.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.RecruitmentDate.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.TerminatedOfficers1.hints.RecruitmentDate.label}"
+                                       id="resId1c5" align="center" width="100">
+                                <af:outputText value="#{row.RecruitmentDate}"
+                                               shortDesc="#{bindings.TerminatedOfficers1.hints.RecruitmentDate.tooltip}"
+                                               id="ot3">
+                                    <af:convertDateTime pattern="#{bindings.TerminatedOfficers1.hints.RecruitmentDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.TerminationDate.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.TerminatedOfficers1.hints.TerminationDate.label}"
+                                       id="resId1c7" align="center" width="100">
+                                <af:outputText value="#{row.TerminationDate}"
+                                               shortDesc="#{bindings.TerminatedOfficers1.hints.TerminationDate.tooltip}"
+                                               id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.TerminatedOfficers1.hints.TerminationDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.QualificationId.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.TerminatedOfficers1.hints.QualificationId.label}"
+                                       id="resId1c8" align="center" width="150">
+                                <af:selectOneChoice value="#{row.bindings.QualificationId.inputValue}"
+                                                    label="#{row.bindings.QualificationId.label}"
+                                                    required="#{bindings.TerminatedOfficers1.hints.QualificationId.mandatory}"
+                                                    shortDesc="#{bindings.TerminatedOfficers1.hints.QualificationId.tooltip}"
+                                                    readOnly="true" id="soc3">
+                                    <f:selectItems value="#{row.bindings.QualificationId.items}" id="si3"/>
+                                    <f:validator binding="#{row.bindings.QualificationId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.SpecializationId.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.TerminatedOfficers1.hints.SpecializationId.label}"
+                                       id="resId1c9" align="center" width="150">
+                                <af:selectOneChoice value="#{row.bindings.SpecializationId.inputValue}"
+                                                    label="#{row.bindings.SpecializationId.label}"
+                                                    required="#{bindings.TerminatedOfficers1.hints.SpecializationId.mandatory}"
+                                                    shortDesc="#{bindings.TerminatedOfficers1.hints.SpecializationId.tooltip}"
+                                                    readOnly="true" id="soc4">
+                                    <f:selectItems value="#{row.bindings.SpecializationId.items}" id="si4"/>
+                                    <f:validator binding="#{row.bindings.SpecializationId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.TerminatedOfficers1.hints.MilitaryServiceId.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.TerminatedOfficers1.hints.MilitaryServiceId.label}"
+                                       id="resId1c10" align="center" width="200">
+                                <af:selectOneChoice value="#{row.bindings.MilitaryServiceId.inputValue}"
+                                                    label="#{row.bindings.MilitaryServiceId.label}"
+                                                    required="#{bindings.TerminatedOfficers1.hints.MilitaryServiceId.mandatory}"
+                                                    shortDesc="#{bindings.TerminatedOfficers1.hints.MilitaryServiceId.tooltip}"
+                                                    readOnly="true" id="soc5">
+                                    <f:selectItems value="#{row.bindings.MilitaryServiceId.items}" id="si5"/>
+                                    <f:validator binding="#{row.bindings.MilitaryServiceId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <f:facet name="detailStamp">
+                                <af:panelFormLayout id="pfl1" rows="8">
+                                    <af:inputText value="#{row.bindings.Ssn.inputValue}"
+                                                  label="#{bindings.TerminatedOfficers1.hints.Ssn.label}"
+                                                  required="#{bindings.TerminatedOfficers1.hints.Ssn.mandatory}"
+                                                  readOnly="true"
+                                                  columns="#{bindings.TerminatedOfficers1.hints.Ssn.displayWidth}"
+                                                  maximumLength="#{bindings.TerminatedOfficers1.hints.Ssn.precision}"
+                                                  shortDesc="#{bindings.TerminatedOfficers1.hints.Ssn.tooltip}"
+                                                  id="it1" labelStyle="text-align:left">
+                                        <f:validator binding="#{row.bindings.Ssn.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.TerminatedOfficers1.hints.Ssn.format}"/>
+                                    </af:inputText>
+                                    <af:separator id="s7"/>
+                                    <af:inputDate value="#{row.bindings.BirthDate.inputValue}" readOnly="true"
+                                                  label="#{bindings.TerminatedOfficers1.hints.BirthDate.label}"
+                                                  required="#{bindings.TerminatedOfficers1.hints.BirthDate.mandatory}"
+                                                  columns="#{bindings.TerminatedOfficers1.hints.BirthDate.displayWidth}"
+                                                  shortDesc="#{bindings.TerminatedOfficers1.hints.BirthDate.tooltip}"
+                                                  id="id1" labelStyle="text-align:left">
+                                        <f:validator binding="#{row.bindings.BirthDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.TerminatedOfficers1.hints.BirthDate.format}"/>
+                                    </af:inputDate>
+                                    <af:separator id="s6"/>
+                                    <af:selectOneChoice value="#{row.bindings.MaritalStatusId.inputValue}"
+                                                        label="#{row.bindings.MaritalStatusId.label}"
+                                                        required="#{bindings.TerminatedOfficers1.hints.MaritalStatusId.mandatory}"
+                                                        shortDesc="#{bindings.TerminatedOfficers1.hints.MaritalStatusId.tooltip}"
+                                                        readOnly="true" id="soc7" labelStyle="text-align:left">
+                                        <f:selectItems value="#{row.bindings.MaritalStatusId.items}" id="si7"/>
+                                        <f:validator binding="#{row.bindings.MaritalStatusId.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:separator id="s1"/>
+                                    <af:inputDate value="#{row.bindings.JoinDate.inputValue}" readOnly="true"
+                                                  label="#{bindings.TerminatedOfficers1.hints.JoinDate.label}"
+                                                  required="#{bindings.TerminatedOfficers1.hints.JoinDate.mandatory}"
+                                                  columns="#{bindings.TerminatedOfficers1.hints.JoinDate.displayWidth}"
+                                                  shortDesc="#{bindings.TerminatedOfficers1.hints.JoinDate.tooltip}"
+                                                  id="id2" labelStyle="text-align:left">
+                                        <f:validator binding="#{row.bindings.JoinDate.validator}"/>
+                                        <af:convertDateTime pattern="#{bindings.TerminatedOfficers1.hints.JoinDate.format}"/>
+                                    </af:inputDate>
+                                    <af:separator id="s2"/>
+                                    <af:selectOneChoice value="#{row.bindings.CityId.inputValue}"
+                                                        label="#{row.bindings.CityId.label}"
+                                                        required="#{bindings.TerminatedOfficers1.hints.CityId.mandatory}"
+                                                        shortDesc="#{bindings.TerminatedOfficers1.hints.CityId.tooltip}"
+                                                        readOnly="true" id="soc6" labelStyle="text-align:left">
+                                        <f:selectItems value="#{row.bindings.CityId.items}" id="si6"/>
+                                        <f:validator binding="#{row.bindings.CityId.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:separator id="s4"/>
+                                    <af:inputText value="#{row.bindings.Address.inputValue}"
+                                                  label="#{bindings.TerminatedOfficers1.hints.Address.label}"
+                                                  required="#{bindings.TerminatedOfficers1.hints.Address.mandatory}"
+                                                  readOnly="true"
+                                                  columns="#{bindings.TerminatedOfficers1.hints.Address.displayWidth}"
+                                                  maximumLength="#{bindings.TerminatedOfficers1.hints.Address.precision}"
+                                                  shortDesc="#{bindings.TerminatedOfficers1.hints.Address.tooltip}"
+                                                  id="it2" labelStyle="text-align:left">
+                                        <f:validator binding="#{row.bindings.Address.validator}"/>
+                                    </af:inputText>
+                                    <af:separator id="s8"/>
+                                    <af:inputText value="#{row.bindings.PhoneNumber.inputValue}"
+                                                  label="Phone"
+                                                  required="#{bindings.TerminatedOfficers1.hints.PhoneNumber.mandatory}"
+                                                  readOnly="true"
+                                                  columns="#{bindings.TerminatedOfficers1.hints.PhoneNumber.displayWidth}"
+                                                  maximumLength="#{bindings.TerminatedOfficers1.hints.PhoneNumber.precision}"
+                                                  shortDesc="#{bindings.TerminatedOfficers1.hints.PhoneNumber.tooltip}"
+                                                  id="it3" labelStyle="text-align:left">
+                                        <f:validator binding="#{row.bindings.PhoneNumber.validator}"/>
+                                    </af:inputText>
+                                    <af:separator id="s3"/>
+                                    <af:selectOneChoice value="#{row.bindings.UniversityId.inputValue}"
+                                                        label="#{row.bindings.UniversityId.label}"
+                                                        required="#{bindings.TerminatedOfficers1.hints.UniversityId.mandatory}"
+                                                        shortDesc="#{bindings.TerminatedOfficers1.hints.UniversityId.tooltip}"
+                                                        readOnly="true" id="soc8" labelStyle="text-align:left">
+                                        <f:selectItems value="#{row.bindings.UniversityId.items}" id="si8"/>
+                                        <f:validator binding="#{row.bindings.UniversityId.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:separator id="s5"/>
+                                </af:panelFormLayout>
+                            </f:facet>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

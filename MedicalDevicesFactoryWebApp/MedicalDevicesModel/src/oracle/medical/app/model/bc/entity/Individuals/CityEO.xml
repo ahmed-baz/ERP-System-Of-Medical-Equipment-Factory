@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CityEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CITY"
+  AliasName="CityEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CityId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="CITY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CITY"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="City"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="CITY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Officers"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.CityOfficersAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.CityOfficersAssoc.Officers"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.CityOfficersAssoc.City"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Privates"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.CityPrivatesAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.CityPrivatesAssoc.Privates"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.CityPrivatesAssoc.City"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Sergeants"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.CitySergeantsAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.CitySergeantsAssoc.Sergeants"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.CitySergeantsAssoc.City"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC007033"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007033"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.CityEO.CityId"/>
+    </AttrArray>
+  </Key>
+</Entity>

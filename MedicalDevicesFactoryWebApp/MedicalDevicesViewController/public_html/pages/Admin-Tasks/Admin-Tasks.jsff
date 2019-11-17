@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelDashboard id="pd1" rowHeight="200px">
+    <af:panelBox text="قائمة الإنتظار للخامات" id="pb1" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+        <af:link id="l1" action="#{RegionBean.waitingOresBTF}" icon="/resources/images/ore-128px.png"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="طلبات الإضافة  للخامات" id="pb3" showDisclosure="false">
+      <af:panelGroupLayout id="pgl3" halign="center" layout="vertical">
+        <af:link id="l3" icon="/resources/images/demo/products3-128px.png" action="#{RegionBean.addRequestsBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="طلبات السحب من الخامات" id="pb2" showDisclosure="false">
+      <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+        <af:link id="l2" icon="/resources/images/demo/products4-128px.png" action="#{RegionBean.discountRequestsBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="قائمة الإنتظار للمنتجات" id="pb4" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl4" halign="center" layout="vertical">
+        <af:link id="l4" action="#{RegionBean.waitingProductsBTF}" icon="/resources/images/demo/products1-128px.png"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="طلبات الإضافة  للمنتجات" id="pb6" showDisclosure="false">
+      <af:panelGroupLayout id="pgl6" halign="center" layout="vertical">
+        <af:link id="l6" icon="/resources/images/demo/add-product-128px.png" action="#{RegionBean.productsAddRequestsBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="طلبات السحب من المنتجات" id="pb5" showDisclosure="false">
+      <af:panelGroupLayout id="pgl5" halign="center" layout="vertical">
+        <af:link id="l5" icon="/resources/images/demo/products2-128px.png"
+                 action="#{RegionBean.productsDiscountRequestsBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+  </af:panelDashboard>
+</ui:composition>

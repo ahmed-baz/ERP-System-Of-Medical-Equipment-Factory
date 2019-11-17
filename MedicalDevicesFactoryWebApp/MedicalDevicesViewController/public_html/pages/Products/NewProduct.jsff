@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl3">
+    <af:gridRow marginTop="5px" height="30px" id="gr3">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr4">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6" halign="stretch">
+        <af:panelBox id="pb1" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:panelGridLayout id="pgl1">
+            <af:gridRow marginTop="5px" height="5%" id="gr1">
+              <af:gridCell marginStart="5px" width="50%" id="gc1"/>
+              <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2" halign="end" valign="stretch">
+                <af:panelGroupLayout id="pgl2">
+                  <af:button actionListener="#{bindings.Rollback.execute}" disabled="false" immediate="true" id="b2"
+                             inlineStyle="padding:2px;margin:2px" icon="/resources/images/rollback.gif"
+                             action="Rollback">
+                    <af:resetActionListener/>
+                  </af:button>
+                  <af:button id="b5" icon="/resources/images/save.png" inlineStyle="padding:2px;margin:2px"
+                             action="#{ProductsBean.saveNewProduct}" immediate="false"/>
+                  <af:button id="b1" icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                             inlineStyle="padding:2px;margin:2px" action="Products" immediate="true"/>
+                  <af:separator id="s2"/>
+                </af:panelGroupLayout>
+              </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="95%" marginBottom="5px" id="gr2">
+              <af:gridCell marginStart="5px" width="50%" id="gc3" valign="middle">
+                <af:panelFormLayout id="pfl1">
+                  <af:inputText value="#{bindings.ProductId.inputValue}" label="#{bindings.ProductId.hints.label}"
+                                required="#{bindings.ProductId.hints.mandatory}" columns="40"
+                                maximumLength="#{bindings.ProductId.hints.precision}"
+                                shortDesc="#{bindings.ProductId.hints.tooltip}" id="it1" labelStyle="text-align:left"
+                                rendered="false">
+                    <f:validator binding="#{bindings.ProductId.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductId.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.ProductCode.inputValue}" label="#{bindings.ProductCode.hints.label}"
+                                required="#{bindings.ProductCode.hints.mandatory}" columns="40"
+                                maximumLength="#{bindings.ProductCode.hints.precision}"
+                                shortDesc="#{bindings.ProductCode.hints.tooltip}" id="it2" labelStyle="text-align:left">
+                    <f:validator binding="#{bindings.ProductCode.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.ProductName.inputValue}" label="#{bindings.ProductName.hints.label}"
+                                required="#{bindings.ProductName.hints.mandatory}" columns="40"
+                                maximumLength="#{bindings.ProductName.hints.precision}"
+                                shortDesc="#{bindings.ProductName.hints.tooltip}" id="it3" labelStyle="text-align:left">
+                    <f:validator binding="#{bindings.ProductName.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.Quantity.inputValue}" label="#{bindings.Quantity.hints.label}"
+                                required="#{bindings.Quantity.hints.mandatory}" columns="40"
+                                maximumLength="#{bindings.Quantity.hints.precision}"
+                                shortDesc="#{bindings.Quantity.hints.tooltip}" id="it4" labelStyle="text-align:left">
+                    <f:validator binding="#{bindings.Quantity.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Quantity.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.CriticalLimit.inputValue}"
+                                label="#{bindings.CriticalLimit.hints.label}"
+                                required="#{bindings.CriticalLimit.hints.mandatory}" columns="40"
+                                maximumLength="#{bindings.CriticalLimit.hints.precision}"
+                                shortDesc="#{bindings.CriticalLimit.hints.tooltip}" id="it5"
+                                labelStyle="text-align:left">
+                    <f:validator binding="#{bindings.CriticalLimit.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CriticalLimit.format}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.Price.inputValue}" label="#{bindings.Price.hints.label}"
+                                required="#{bindings.Price.hints.mandatory}" columns="40"
+                                maximumLength="#{bindings.Price.hints.precision}"
+                                shortDesc="#{bindings.Price.hints.tooltip}" id="it6" labelStyle="text-align:left">
+                    <f:validator binding="#{bindings.Price.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Price.format}"/>
+                  </af:inputText>
+                  <af:inputDate value="#{bindings.Date.inputValue}" label="#{bindings.Date.hints.label}"
+                                required="#{bindings.Date.hints.mandatory}" columns="40"
+                                shortDesc="#{bindings.Date.hints.tooltip}" id="id1" labelStyle="text-align:left">
+                    <f:validator binding="#{bindings.Date.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.Date.format}"/>
+                  </af:inputDate>
+                </af:panelFormLayout>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc4" valign="middle">
+                <af:panelBox id="pb2" showDisclosure="false">
+                  <af:panelGroupLayout id="pgl16" layout="vertical" halign="center">
+                    <af:image source="/resources/images/projectsIcon.png" id="i2"
+                              inlineStyle="width:140px;height:120px"/>
+                    <af:inputFile label="New Image" id="if1" value="#{ProductsBean.myFile}"/>
+                    <af:separator id="s1"/>
+                  </af:panelGroupLayout>
+                </af:panelBox>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
+            binding="#{ProductsBean.savedIcon}" partialTriggers="b5">
+    <af:dialog id="d1" type="none">
+      <f:facet name="buttonBar">
+        <af:button actionListener="#{bindings.CreateInsert.execute}" disabled="#{!bindings.CreateInsert.enabled}"
+                   id="b3" inlineStyle="padding:2px;margin:2px" icon="/resources/images/Add-16px.png"
+                   action="#{ProductsBean.cancelSavedMessage}"/>
+        <af:button text="OK" id="b7" inlineStyle="padding:2px;margin:2px" action="Products"/>
+      </f:facet>
+      <af:panelGroupLayout id="pgl9" layout="vertical" halign="center">
+        <af:image source="/resources/images/JD-16-128.png" id="i1"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

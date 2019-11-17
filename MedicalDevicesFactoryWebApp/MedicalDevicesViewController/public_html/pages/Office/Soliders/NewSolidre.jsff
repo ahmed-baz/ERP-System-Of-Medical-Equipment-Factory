@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl3">
+    <af:gridRow marginTop="5px" height="50px" id="gr3">
+      <af:gridCell id="gc1" columnSpan="2" width="50%" halign="center" valign="middle">
+        <af:outputText value="إضافـــة جنـــــدي" id="ot1"
+                       inlineStyle="font-size:x-large; font-weight:bold;color:blue;"/>
+        <af:separator id="s3"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" columnSpan="2" marginEnd="5px" id="gc5" valign="middle" halign="end" width="50%">
+        <af:panelGroupLayout id="pgl2">
+          <af:button disabled="false" immediate="true" id="b2" inlineStyle="padding:2px;margin:2px"
+                     icon="/resources/images/rollback.gif" actionListener="#{bindings.Rollback.execute}"
+                     action="NewOne">
+            <af:resetActionListener/>
+          </af:button>
+          <af:button id="b5" icon="/resources/images/save.png" inlineStyle="padding:2px;margin:2px"
+                     action="#{NewPrivateBean.saveNewPrivate}"/>
+          <af:button id="b1" icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                     inlineStyle="padding:2px;margin:2px" action="Soliders" immediate="true"/>
+          <af:separator id="s2"/>
+        </af:panelGroupLayout>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr4">
+      <af:gridCell marginStart="5px" width="75%" id="gc6" halign="center" valign="middle">
+        <af:panelGroupLayout id="pgl1" halign="center" layout="vertical" valign="middle">
+          <af:panelFormLayout id="pfl2" rows="10">
+            <af:inputText value="#{bindings.FullName.inputValue}" label="#{bindings.FullName.hints.label}"
+                          required="true" columns="30" maximumLength="#{bindings.FullName.hints.precision}"
+                          shortDesc="#{bindings.FullName.hints.tooltip}" id="it1" labelStyle="text-align:left">
+              <f:validator binding="#{bindings.FullName.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.BirthDate.inputValue}" label="#{bindings.BirthDate.hints.label}"
+                          columns="30" shortDesc="#{bindings.BirthDate.hints.tooltip}" id="id1"
+                          labelStyle="text-align:left" required="true">
+              <f:validator binding="#{bindings.BirthDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.BirthDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Ssn.inputValue}" label="#{bindings.Ssn.hints.label}" columns="30"
+                          maximumLength="#{bindings.Ssn.hints.precision}" shortDesc="#{bindings.Ssn.hints.tooltip}"
+                          id="it3" labelStyle="text-align:left" required="true">
+              <f:validator binding="#{bindings.Ssn.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.Ssn.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.PhoneNumber.inputValue}" label="#{bindings.PhoneNumber.hints.label}"
+                          columns="30" maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                          shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it5" labelStyle="text-align:left"
+                          required="true">
+              <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.MaritalStatusId.inputValue}" label="#{bindings.MaritalStatusId.label}"
+                                shortDesc="#{bindings.MaritalStatusId.hints.tooltip}" id="soc10"
+                                labelStyle="text-align:left" required="true">
+              <f:selectItems value="#{bindings.MaritalStatusId.items}" id="si10"/>
+              <f:validator binding="#{bindings.MaritalStatusId.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.CityId.inputValue}" label="#{bindings.CityId.label}"
+                                shortDesc="#{bindings.CityId.hints.tooltip}" id="soc9" labelStyle="text-align:left"
+                                required="true">
+              <f:selectItems value="#{bindings.CityId.items}" id="si9"/>
+              <f:validator binding="#{bindings.CityId.validator}"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
+                          required="#{bindings.Address.hints.mandatory}" columns="30"
+                          maximumLength="#{bindings.Address.hints.precision}"
+                          shortDesc="#{bindings.Address.hints.tooltip}" id="it4" labelStyle="text-align:left">
+              <f:validator binding="#{bindings.Address.validator}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.QualificationId.inputValue}" label="#{bindings.QualificationId.label}"
+                                shortDesc="#{bindings.QualificationId.hints.tooltip}" id="soc2"
+                                labelStyle="text-align:left" autoSubmit="true">
+              <f:selectItems value="#{bindings.QualificationId.items}" id="si2"/>
+              <f:validator binding="#{bindings.QualificationId.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.SpecializationId.inputValue}"
+                                label="#{bindings.SpecializationId.label}"
+                                shortDesc="#{bindings.SpecializationId.hints.tooltip}" id="soc3"
+                                labelStyle="text-align:left" partialTriggers="soc2">
+              <f:selectItems value="#{bindings.SpecializationId.items}" id="si3"/>
+              <f:validator binding="#{bindings.SpecializationId.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.UniversityId.inputValue}" label="#{bindings.UniversityId.label}"
+                                shortDesc="#{bindings.UniversityId.hints.tooltip}" id="soc4"
+                                labelStyle="text-align:left">
+              <f:selectItems value="#{bindings.UniversityId.items}" id="si4"/>
+              <f:validator binding="#{bindings.UniversityId.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.MilitaryRankId.inputValue}" label="#{bindings.MilitaryRankId.label}"
+                                shortDesc="#{bindings.MilitaryRankId.hints.tooltip}" id="soc1"
+                                labelStyle="text-align:left" required="true">
+              <f:selectItems value="#{bindings.MilitaryRankId.items}" id="si1"/>
+              <f:validator binding="#{bindings.MilitaryRankId.validator}"/>
+            </af:selectOneChoice>
+            <af:inputText value="#{bindings.MilitaryNumber.inputValue}" label="#{bindings.MilitaryNumber.hints.label}"
+                          columns="30" maximumLength="#{bindings.MilitaryNumber.hints.precision}"
+                          shortDesc="#{bindings.MilitaryNumber.hints.tooltip}" id="it2" labelStyle="text-align:left"
+                          required="true">
+              <f:validator binding="#{bindings.MilitaryNumber.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.MilitaryNumber.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TripleNumber.inputValue}" label="#{bindings.TripleNumber.hints.label}"
+                          columns="#{bindings.TripleNumber.hints.displayWidth}"
+                          maximumLength="#{bindings.TripleNumber.hints.precision}"
+                          shortDesc="#{bindings.TripleNumber.hints.tooltip}" id="it6" labelStyle="text-align:left"
+                          required="true">
+              <f:validator binding="#{bindings.TripleNumber.validator}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.RecruitmentDate.inputValue}" label="#{bindings.RecruitmentDate.hints.label}"
+                          columns="30" shortDesc="#{bindings.RecruitmentDate.hints.tooltip}" id="id2"
+                          labelStyle="text-align:left" required="true">
+              <f:validator binding="#{bindings.RecruitmentDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.RecruitmentDate.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.JoinDate.inputValue}" label="#{bindings.JoinDate.hints.label}" columns="30"
+                          shortDesc="#{bindings.JoinDate.hints.tooltip}" id="id3" labelStyle="text-align:left"
+                          required="true">
+              <f:validator binding="#{bindings.JoinDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.JoinDate.format}"/>
+            </af:inputDate>
+            <af:inputDate value="#{bindings.TerminationDate.inputValue}" label="#{bindings.TerminationDate.hints.label}"
+                          columns="30" shortDesc="#{bindings.TerminationDate.hints.tooltip}" id="id4"
+                          labelStyle="text-align:left" required="true">
+              <f:validator binding="#{bindings.TerminationDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.TerminationDate.format}"/>
+            </af:inputDate>
+            <af:selectOneChoice value="#{bindings.MilitaryServiceId.inputValue}"
+                                label="#{bindings.MilitaryServiceId.label}"
+                                shortDesc="#{bindings.MilitaryServiceId.hints.tooltip}" id="soc5"
+                                labelStyle="text-align:left" required="true">
+              <f:selectItems value="#{bindings.MilitaryServiceId.items}" id="si5"/>
+              <f:validator binding="#{bindings.MilitaryServiceId.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.TrainingCenterId.inputValue}"
+                                label="#{bindings.TrainingCenterId.label}"
+                                shortDesc="#{bindings.TrainingCenterId.hints.tooltip}" id="soc6"
+                                labelStyle="text-align:left" required="true">
+              <f:selectItems value="#{bindings.TrainingCenterId.items}" id="si6"/>
+              <f:validator binding="#{bindings.TrainingCenterId.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.TaskId.inputValue}" label="#{bindings.TaskId.label}"
+                                shortDesc="#{bindings.TaskId.hints.tooltip}" id="soc8" required="false"
+                                labelStyle="text-align:left">
+              <f:selectItems value="#{bindings.TaskId.items}" id="si8"/>
+              <f:validator binding="#{bindings.TaskId.validator}"/>
+            </af:selectOneChoice>
+            <af:selectOneChoice value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.label}"
+                                shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="soc7"
+                                labelStyle="text-align:left" required="false">
+              <f:selectItems value="#{bindings.DepartmentId.items}" id="si7"/>
+              <f:validator binding="#{bindings.DepartmentId.validator}"/>
+            </af:selectOneChoice>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc7" valign="middle">
+        <af:panelBox id="pb2" showDisclosure="false">
+          <af:panelGroupLayout id="pgl16" layout="vertical" halign="center">
+            <af:image source="/resources/images/soldier-128px.png" id="i2"/>
+            <af:inputFile label="New Image" id="if1" value="#{NewPrivateBean.myFile}"/>
+            <af:separator id="s1"/>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached" partialTriggers="b5"
+            binding="#{NewPrivateBean.savedIconpopup}">
+    <af:dialog id="d1" type="none">
+      <f:facet name="buttonBar">
+        <af:button text="OK" id="b7" inlineStyle="padding:2px;margin:2px" action="Soliders"/>
+      </f:facet>
+      <af:panelGroupLayout id="pgl9" layout="vertical" halign="center">
+        <af:image source="/resources/images/JD-16-128.png" id="i1"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

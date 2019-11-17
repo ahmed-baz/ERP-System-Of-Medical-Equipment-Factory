@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Products-BTF">
+    <default-activity>Products</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__10">
+      <managed-bean-name>ProductsBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.products.ProductsBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name>SelectedProductBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.products.SelectedProductBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="Products">
+      <page>/pages/Products/Products.jsff</page>
+    </view>
+    <view id="Selected-Product">
+      <page>/pages/Products/Selected-Product.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="NewProduct">
+      <page>/pages/Products/NewProduct.jsff</page>
+    </view>
+    <task-flow-call id="AddRequests-BTF">
+      <task-flow-reference>
+        <document>/WEB-INF/Task-Flows/Products/AddRequests-BTF.xml</document>
+        <id>AddRequests-BTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="DiscountRequest-BTF">
+      <task-flow-reference>
+        <document>/WEB-INF/Task-Flows/Products/DiscountRequest-BTF.xml</document>
+        <id>DiscountRequest-BTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <view id="ExportedProducts">
+      <page>/pages/Products/ExportedProducts.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>Products</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Selected-Product</from-outcome>
+        <to-activity-id>Selected-Product</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>NewProduct</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>ExportedProducts</from-outcome>
+        <to-activity-id>ExportedProducts</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>Products</from-outcome>
+        <to-activity-id>Products</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>NewProduct</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>NewProduct</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__15">
+      <from-activity-id>Selected-Product</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome>AddRequests-BTF</from-outcome>
+        <to-activity-id>AddRequests-BTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>DiscountRequest-BTF</from-outcome>
+        <to-activity-id>DiscountRequest-BTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

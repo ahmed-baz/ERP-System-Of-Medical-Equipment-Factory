@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="Products_BTF_Products_BTF_CreateInsert2PageDef" Package="Task_Flows.Products" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="MainProducts1" RangeSize="25" DataControl="ProductsAppModuleAMDataControl"
+              id="MainProducts1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MainProducts1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

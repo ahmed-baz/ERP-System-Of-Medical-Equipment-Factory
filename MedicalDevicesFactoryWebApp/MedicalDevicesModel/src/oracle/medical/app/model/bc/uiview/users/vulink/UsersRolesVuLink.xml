@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UsersRolesVuLink"
+  Version="12.1.3.2.1"
+  InheritPersonalization="merge"
+  EntityAssociation="oracle.medical.app.model.bc.entity.users.assoc.UsersRolesAssoc">
+  <ViewLinkDefEnd
+    Name="Roles"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.medical.app.model.bc.uiview.users.RolesVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Roles"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.uiview.users.RolesVO.RoleId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Users"
+    Cardinality="-1"
+    Owner="oracle.medical.app.model.bc.uiview.users.UsersVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Users"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.uiview.users.UsersVO.RoleId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

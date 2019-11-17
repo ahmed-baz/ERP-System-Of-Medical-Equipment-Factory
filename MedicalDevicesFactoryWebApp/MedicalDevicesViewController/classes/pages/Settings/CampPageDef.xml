@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="CampPageDef"
+                Package="pages.Settings">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Camp1" RangeSize="25" DataControl="SettingsAppModuleAMDataControl" id="Camp1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Camp1Iterator" id="Camp1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.settings.CampVO" Name="Camp10">
+        <AttrNames>
+          <Item Value="CampId"/>
+          <Item Value="Camp"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

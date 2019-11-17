@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="طلبات الإضافة للخامات" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button id="b1" icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                     action="#{RegionBean.adminTasksBTF}" inlineStyle="padding:2px;margin:2px"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.OresAddition1.collectionModel}" var="row" rows="#{bindings.OresAddition1.rangeSize}"
+                emptyText="#{bindings.OresAddition1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.OresAddition1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.OresAddition1.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.OresAddition1.rangeSize}"
+                filterModel="#{bindings.OresAddition1Query.queryDescriptor}"
+                queryListener="#{bindings.OresAddition1Query.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+                width="100%" scrollPolicy="page" autoHeightRows="-1">
+        <af:column id="c4" align="center" width="20">
+          <af:button id="b2"/>
+        </af:column>
+        <af:column id="c18" width="20" align="center" headerText="#">
+          <af:outputText value="#{vs.index+1}" id="ot14"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.OreId.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.OreId.label}" id="c1" rendered="false" width="80"
+                   align="center">
+          <af:outputText value="#{row.OreId}" shortDesc="#{bindings.OresAddition1.hints.OreId.tooltip}" id="ot1">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.OreId.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.Code.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.Code.label}" id="c2" width="80" align="center">
+          <af:outputText value="#{row.Code}" shortDesc="#{bindings.OresAddition1.hints.Code.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.OreName.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.OreName.label}" id="c3" width="80" align="center">
+          <af:panelGroupLayout id="pgl1">
+            <af:outputText value="#{row.OreName}" shortDesc="#{bindings.OresAddition1.hints.OreName.tooltip}" id="ot3"
+                           inlineStyle="margin-left:5px"/>
+            <af:selectOneChoice value="#{row.bindings.OresType.inputValue}" label="#{row.bindings.OresType.label}"
+                                required="#{bindings.OresAddition1.hints.OresType.mandatory}"
+                                shortDesc="#{bindings.OresAddition1.hints.OresType.tooltip}" readOnly="true" id="soc1">
+              <f:selectItems value="#{row.bindings.OresType.items}" id="si1"/>
+              <f:validator binding="#{row.bindings.OresType.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.Length.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.Length.label}" id="c5" width="60" align="center">
+          <af:panelGroupLayout id="pgl2">
+            <af:outputText value="#{row.Length}" shortDesc="#{bindings.OresAddition1.hints.Length.tooltip}" id="ot4">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.Length.format}"/>
+            </af:outputText>
+            <af:selectOneChoice value="#{row.bindings.LengthUnit.inputValue}" label="#{row.bindings.LengthUnit.label}"
+                                required="#{bindings.OresAddition1.hints.LengthUnit.mandatory}"
+                                shortDesc="#{bindings.OresAddition1.hints.LengthUnit.tooltip}" readOnly="true" id="soc2"
+                                contentStyle="margin-left:5px">
+              <f:selectItems value="#{row.bindings.LengthUnit.items}" id="si2"/>
+              <f:validator binding="#{row.bindings.LengthUnit.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.Width.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.Width.label}" id="c7" width="60" align="center">
+          <af:panelGroupLayout id="pgl3">
+            <af:outputText value="#{row.Width}" shortDesc="#{bindings.OresAddition1.hints.Width.tooltip}" id="ot5">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.Width.format}"/>
+            </af:outputText>
+            <af:selectOneChoice value="#{row.bindings.WidthUnit.inputValue}" label="#{row.bindings.WidthUnit.label}"
+                                required="#{bindings.OresAddition1.hints.WidthUnit.mandatory}"
+                                shortDesc="#{bindings.OresAddition1.hints.WidthUnit.tooltip}" readOnly="true" id="soc3"
+                                contentStyle="margin-left:5px">
+              <f:selectItems value="#{row.bindings.WidthUnit.items}" id="si3"/>
+              <f:validator binding="#{row.bindings.WidthUnit.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.Thikness.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.Thikness.label}" id="c9" width="60" align="center">
+          <af:panelGroupLayout id="pgl4">
+            <af:outputText value="#{row.Thikness}" shortDesc="#{bindings.OresAddition1.hints.Thikness.tooltip}"
+                           id="ot6">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.Thikness.format}"/>
+            </af:outputText>
+            <af:selectOneChoice value="#{row.bindings.ThiknessUnit.inputValue}"
+                                label="#{row.bindings.ThiknessUnit.label}"
+                                required="#{bindings.OresAddition1.hints.ThiknessUnit.mandatory}"
+                                shortDesc="#{bindings.OresAddition1.hints.ThiknessUnit.tooltip}" readOnly="true"
+                                id="soc4" contentStyle="margin-left:5px">
+              <f:selectItems value="#{row.bindings.ThiknessUnit.items}" id="si4"/>
+              <f:validator binding="#{row.bindings.ThiknessUnit.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.AdditionQuantity.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.OresAddition1.hints.AdditionQuantity.label}" id="c11"
+                   width="100" align="center">
+          <af:outputText value="#{row.AdditionQuantity}"
+                         shortDesc="#{bindings.OresAddition1.hints.AdditionQuantity.tooltip}" id="ot7"
+                         inlineStyle="color:blue;">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.AdditionQuantity.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.Quantity.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.Quantity.label}" id="c12" width="60" align="center">
+          <af:outputText value="#{row.Quantity}" shortDesc="#{bindings.OresAddition1.hints.Quantity.tooltip}" id="ot8">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.Quantity.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.CriticalLimit.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.CriticalLimit.label}" id="c13" width="80" align="center">
+          <af:outputText value="#{row.CriticalLimit}" shortDesc="#{bindings.OresAddition1.hints.CriticalLimit.tooltip}"
+                         id="ot9" inlineStyle="color:red;">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.CriticalLimit.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.Unit.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.Unit.label}" id="c14" width="80" align="center">
+          <af:selectOneChoice value="#{row.bindings.Unit.inputValue}" label="#{row.bindings.Unit.label}"
+                              required="#{bindings.OresAddition1.hints.Unit.mandatory}"
+                              shortDesc="#{bindings.OresAddition1.hints.Unit.tooltip}" readOnly="true" id="soc5">
+            <f:selectItems value="#{row.bindings.Unit.items}" id="si5"/>
+            <f:validator binding="#{row.bindings.Unit.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.BillNo.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.BillNo.label}" id="c15" width="80" align="center">
+          <af:outputText value="#{row.BillNo}" shortDesc="#{bindings.OresAddition1.hints.BillNo.tooltip}" id="ot10">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.OresAddition1.hints.BillNo.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.Supervisor.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.Supervisor.label}" id="c16" width="80" align="center"
+                   rendered="false">
+          <af:outputText value="#{row.Supervisor}" shortDesc="#{bindings.OresAddition1.hints.Supervisor.tooltip}"
+                         id="ot11"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.OresAddition1.hints.AdditionDate.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.OresAddition1.hints.AdditionDate.label}" id="c17" width="80" align="center">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.OresAddition1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.AdditionDate.value}"
+                          id="id1">
+              <af:convertDateTime pattern="#{bindings.OresAddition1.hints.AdditionDate.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.AdditionDate}" shortDesc="#{bindings.OresAddition1.hints.AdditionDate.tooltip}"
+                         id="ot12">
+            <af:convertDateTime pattern="#{bindings.OresAddition1.hints.AdditionDate.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column id="c19" width="50" align="center" headerText="Approve">
+          <af:button id="b3" inlineStyle="padding:2px;margin:2px" icon="/resources/images/approve.gif"
+                     action="#{ActionBean.approveAddRequest}"/>
+        </af:column>
+        <af:column id="c20" width="50" align="center" headerText="Cancel">
+          <af:button id="b4" inlineStyle="padding:2px;margin:2px" icon="/resources/images/remove_from_shortlist.gif"
+                     action="#{ActionBean.deleteAddRequest}"/>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+  </af:panelHeader>
+</ui:composition>

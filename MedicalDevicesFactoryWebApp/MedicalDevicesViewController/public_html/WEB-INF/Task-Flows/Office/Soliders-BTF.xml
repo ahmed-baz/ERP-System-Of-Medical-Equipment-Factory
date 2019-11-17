@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Soliders-BTF">
+    <default-activity>Soliders</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__8">
+      <managed-bean-name>NewPrivateBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.individuals.privates.NewPrivateBean</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__13">
+      <managed-bean-name>SelectedSoldierBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.individuals.privates.SelectedSoldierBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="Soliders">
+      <page>/pages/Office/Soliders.jsff</page>
+    </view>
+    <view id="SelectedSolider">
+      <page>/pages/Office/Soliders/SelectedSolider.jsff</page>
+    </view>
+    <view id="NewSolidre">
+      <page>/pages/Office/Soliders/NewSolidre.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="TermenatedSoliders">
+      <page>/pages/Office/Soliders/TermenatedSoliders.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>Soliders</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>SelectedSolider</from-outcome>
+        <to-activity-id>SelectedSolider</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>NewSolidre</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome>TermenatedSoliders</from-outcome>
+        <to-activity-id>TermenatedSoliders</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>SelectedSolider</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>Soliders</from-outcome>
+        <to-activity-id>Soliders</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>Soliders</from-outcome>
+        <to-activity-id>Soliders</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>NewSolidre</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>NewSolidre</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>NewOne</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

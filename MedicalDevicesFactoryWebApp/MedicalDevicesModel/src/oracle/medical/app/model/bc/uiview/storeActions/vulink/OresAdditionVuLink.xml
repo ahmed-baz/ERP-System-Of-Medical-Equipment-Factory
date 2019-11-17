@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OresAdditionVuLink"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  EntityAssociation="oracle.medical.app.model.bc.entity.storeActions.assoc.OresAdditionFKAssoc">
+  <ViewLinkDefEnd
+    Name="Ores"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.medical.app.model.bc.uiview.storeActions.OresVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Ores"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.uiview.storeActions.OresVO.OreId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="OresAddition"
+    Cardinality="-1"
+    Owner="oracle.medical.app.model.bc.uiview.storeActions.OresAdditionVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="OresAddition"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.uiview.storeActions.OresAdditionVO.OreId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

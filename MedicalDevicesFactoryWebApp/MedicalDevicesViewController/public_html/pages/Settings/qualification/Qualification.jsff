@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="30px" id="gr1">
+      <af:gridCell marginStart="5px" width="65%" id="gc1"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc2"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" id="gr2">
+      <af:gridCell marginStart="5px" width="65%" id="gc3" valign="middle" halign="stretch">
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                           icon="/resources/images/undo_arrow_left_edit_back-16.png" action="Settings"/>
+                <af:button actionListener="#{bindings.CreateInsert.execute}"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/images/Add.gif"
+                           inlineStyle="padding:2px;margin:2px"/>
+                <af:button actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}" id="b5"
+                           inlineStyle="padding:2px;margin:2px" icon="/resources/images/delete-16px.png"/>
+                <af:button id="b3" inlineStyle="padding:2px;margin:2px" icon="/resources/images/save.png"
+                           action="#{SettingsBean.saveQualifcications}"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.Qualification1.collectionModel}" var="row"
+                      rows="#{bindings.Qualification1.rangeSize}"
+                      emptyText="#{bindings.Qualification1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.Qualification1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Qualification1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.Qualification1.rangeSize}" id="t1" width="100%" scrollPolicy="page"
+                      partialTriggers="::b4 ::b5" varStatus="vs" autoHeightRows="-1">
+              <af:column id="c2" width="30" align="center" sortable="true">
+                <af:button id="b1"/>
+              </af:column>
+              <af:column id="c3" headerText="#" width="30" align="center">
+                <af:outputText value="#{vs.index+1}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Qualification1.hints.Qualification.name}" sortable="true"
+                         headerText="#{bindings.Qualification1.hints.Qualification.label}" id="c1" align="center"
+                         width="220">
+                <af:inputText value="#{row.bindings.Qualification.inputValue}"
+                              label="#{bindings.Qualification1.hints.Qualification.label}"
+                              required="#{bindings.Qualification1.hints.Qualification.mandatory}"
+                              columns="#{bindings.Qualification1.hints.Qualification.displayWidth}"
+                              maximumLength="#{bindings.Qualification1.hints.Qualification.precision}"
+                              shortDesc="#{bindings.Qualification1.hints.Qualification.tooltip}" id="it3"
+                              contentStyle="text-align:center;">
+                  <f:validator binding="#{row.bindings.Qualification.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+            <f:facet name="viewMenu"/>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc4" halign="center" valign="middle">
+        <af:panelBox id="pb1" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+            <af:image source="/resources/images/qualification-128px.png" id="i1"/>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr3">
+      <af:gridCell marginStart="5px" width="65%" id="gc5"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc6"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+            contentDelivery="lazyUncached" binding="#{SettingsBean.qualifcication_popup}">
+    <af:dialog id="d5" type="ok">
+      <f:facet name="buttonBar"/>
+      <af:panelGroupLayout id="pgl19" halign="center" layout="vertical">
+        <af:activeImage source="/resources/images/JD-16-128.png" id="ai1"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelDashboard id="pd1" rowHeight="200px">
+    <af:panelBox text="مكتـــب الأفـــــراد" id="pb1" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+        <af:link id="l1" icon="/resources/images/stuff-128px.png" action="#{RegionBean.officeBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="الخامــــــــــــات" id="pb8" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '102' or LoginBean.user.roleId eq '103' ? true : false}">
+      <af:panelGroupLayout id="pgl8" halign="center" layout="vertical">
+        <af:link id="l8" icon="/resources/images/demo/products4-128px.png" action="#{RegionBean.oresBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="المنتجـــــــــــــات" id="pb2" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103' or LoginBean.user.roleId eq '105' ? true : false}">
+      <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+        <af:link id="l2" icon="/resources/images/demo/add-product-128px.png" action="#{RegionBean.productsBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="مهام المدير" id="pb5" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl5" halign="center" layout="vertical">
+        <af:link id="l5" icon="/resources/images/admin-tasks-128px.png" action="#{RegionBean.adminTasksBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="التقارير" id="pb4" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl4" halign="center" layout="vertical">
+        <af:link id="l4" icon="/resources/images/report-128px.png" action="#{RegionBean.reportBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="المستخدمين" id="pb7" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl7" halign="center" layout="vertical">
+        <af:link id="l7" icon="/resources/images/approvals-128px.png" action="#{RegionBean.approvalsBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+  </af:panelDashboard>
+</ui:composition>

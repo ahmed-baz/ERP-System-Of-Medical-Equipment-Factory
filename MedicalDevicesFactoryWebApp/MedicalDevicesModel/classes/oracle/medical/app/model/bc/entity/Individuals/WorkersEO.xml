@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WorkersEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="WORKERS"
+  AliasName="WorkersEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="WorkerId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="WORKER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WORKERS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="FullName"
+    IsNotNull="true"
+    Precision="255"
+    ColumnName="FULL_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="NVARCHAR2"
+    TableName="WORKERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Ssn"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="14"
+    Scale="0"
+    ColumnName="SSN"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WORKERS"/>
+  <Attribute
+    Name="PhoneNumber"
+    Precision="15"
+    ColumnName="PHONE_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WORKERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Address"
+    Precision="255"
+    ColumnName="ADDRESS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WORKERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Image"
+    IsQueriable="false"
+    ColumnName="IMAGE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="WORKERS"/>
+  <Attribute
+    Name="Active"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="WORKERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DepartmentId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="DEPARTMENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WORKERS"/>
+  <Attribute
+    Name="CityId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="CITY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WORKERS"/>
+  <Attribute
+    Name="MaritalStatusId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="MARITAL_STATUS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WORKERS"/>
+  <AccessorAttribute
+    Name="City"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.CityWorkersAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.CityWorkersAssoc.City"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.CityWorkersAssoc.Workers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MaritalStatus"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.WorkersMaritalStatusAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.WorkersMaritalStatusAssoc.MaritalStatus"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.WorkersMaritalStatusAssoc.Workers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Departments"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.DeptWorkersAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.DeptWorkersAssoc.Departments"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.workers.DeptWorkersAssoc.Workers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC007078"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007078"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.WorkersEO.WorkerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007079">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C007079"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.WorkersEO.Ssn"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CityWorkers">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007033"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CITY_WORKERS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.WorkersEO.CityId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DeptWorkers">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007089"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DEPT_WORKERS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.WorkersEO.DepartmentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WorkersMaritalStatus">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007135"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="WORKERS_MARITAL_STATUS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.WorkersEO.MaritalStatusId"/>
+    </AttrArray>
+  </Key>
+</Entity>

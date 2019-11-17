@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="مصنع الأجهزة الطبيــــــة ق.م" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1" usesUpload="true">
+      <af:panelSplitter id="ps3" splitterPosition="150">
+        <f:facet name="first">
+          <af:panelGridLayout id="pgl2">
+            <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr1">
+              <af:gridCell marginStart="5px" width="150px" marginEnd="5px" id="gc2" halign="stretch" valign="stretch">
+                <af:panelGroupLayout id="pgl1">
+                  <af:panelBox id="pb1" showDisclosure="false">
+                    <af:panelGroupLayout id="pgl4" layout="vertical" halign="center">
+                      <af:image id="i2" inlineStyle="width:110px;height:90px"
+                                source="/userimageservlet?id=#{LoginBean.user.userId.value}"/>
+                    </af:panelGroupLayout>
+                  </af:panelBox>
+                  <af:panelFormLayout id="pfl1">
+                    <af:panelGroupLayout id="pgl8" halign="center" layout="vertical">
+                      <af:outputFormatted value="#{LoginBean.user.userName}" id="of1"
+                                          inlineStyle="font-weight:bold; font-size:15px;"/>
+                    </af:panelGroupLayout>
+                    <af:separator id="s5"/>
+                    <af:panelGroupLayout id="pgl3" layout="vertical" halign="center">
+                      <af:outputText value="#{LoginBean.user.militeryRank}" id="ot1"
+                                     inlineStyle="font-size:15px; font-weight:bold; text-align:center;"/>
+                    </af:panelGroupLayout>
+                    <af:separator id="s1"/>
+                    <af:panelGroupLayout id="pgl5" layout="vertical" halign="center">
+                      <af:link id="l1" inlineStyle="font-size:15px; font-weight:bold; text-align:center;"
+                               action="#{RegionBean.uaerProfileBTF}"
+                               text="#{LoginBean.user.firstName} #{LoginBean.user.lastName}" disabled="false"/>
+                    </af:panelGroupLayout>
+                    <af:separator id="s2"/>
+                    <af:panelGroupLayout id="pgl6" layout="vertical" halign="center">
+                      <af:outputText value="#{LoginBean.user.role}" id="ot2"
+                                     inlineStyle="font-size:15px; font-weight:bold; text-align:center;"/>
+                    </af:panelGroupLayout>
+                    <af:separator id="s3"/>
+                  </af:panelFormLayout>
+                </af:panelGroupLayout>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:decorativeBox id="db3" theme="medium">
+            <f:facet name="center">
+              <af:panelGridLayout id="pgl7">
+                <af:gridRow marginTop="5px" height="50px" id="gr6">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc9" valign="middle" halign="stretch">
+                    <af:separator id="s6"/>
+                    <af:menuBar id="mb1">
+                      <af:menu text="مكتب الأفراد" id="m2"
+                               rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+                        <af:commandMenuItem text="الضبــــاط" id="cmi1" action="#{RegionBean.officersBTF}"
+                                            immediate="true"/>
+                        <af:commandMenuItem text="الراتب العالـي" id="cmi2" action="#{RegionBean.sergeantsBTF}"
+                                            immediate="true"/>
+                        <af:commandMenuItem text="الجنـــود" id="cmi3" action="#{RegionBean.solidersBTF}"
+                                            immediate="true"/>
+                      </af:menu>
+                      <af:menu text="مخزن الخامات" id="m3"
+                               rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '102' or LoginBean.user.roleId eq '103'? true : false}">
+                        <af:commandMenuItem text="الخامات" id="cmi4" action="#{RegionBean.oresBTF}" immediate="true"/>
+                        <af:commandMenuItem text="قائمة الإنتظار للخامات" id="cmi9"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.waitingOresBTF}" immediate="true"/>
+                        <af:commandMenuItem text="طلبات الإضافة للخامات" id="cmi10"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.addRequestsBTF}" immediate="true"/>
+                        <af:commandMenuItem text="طلبات السحب من الخامات" id="cmi11"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.discountRequestsBTF}" immediate="true"/>
+                        <af:commandMenuItem text="تقرير الكميات الواردة للخامات" id="cmi12"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.addQuantityReportBTF}" immediate="true"/>
+                        <af:commandMenuItem text="تقرير الكميات المُخصمة من الخامات" id="cmi13"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.discountQuantityReportBTF}" immediate="true"/>
+                      </af:menu>
+                      <af:menu text="مخزن المنتجات" id="m4"
+                               rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103' or LoginBean.user.roleId eq '105'? true : false}">
+                        <af:commandMenuItem text="المنتجات" id="cmi5" action="#{RegionBean.productsBTF}"
+                                            immediate="true"/>
+                        <af:commandMenuItem text="قائمة الإنتظار للمنتجات" id="cmi14"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.waitingProductsBTF}" immediate="true"/>
+                        <af:commandMenuItem text="طلبات الإضافة للمنتجات" id="cmi15"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.productsAddRequestsBTF}" immediate="true"/>
+                        <af:commandMenuItem text="طلبات السحب من المنتجات" id="cmi16"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.productsDiscountRequestsBTF}" immediate="true"/>
+                        <af:commandMenuItem text="التوريد الداخلي لمخزن المنتج النهائي" id="cmi17"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.productAddReportBTF}" immediate="true"/>
+                        <af:commandMenuItem text="التوريد الخارجي من مخزن المنتج النهائي" id="cmi18"
+                                            rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103'? true : false}"
+                                            action="#{RegionBean.productDiscountReportBTF}" immediate="true"/>
+                      </af:menu>
+                      <af:menu text="مهـــام المديــــــر" id="m5"
+                               rendered="#{LoginBean.user.roleId eq '100' ? true : false}">
+                        <af:commandMenuItem text="الطلبات" id="cmi6" action="#{RegionBean.adminTasksBTF}"
+                                            immediate="true"/>
+                        <af:commandMenuItem text="التقارير" id="cmi7" action="#{RegionBean.reportBTF}"
+                                            immediate="true"/>
+                        <af:commandMenuItem text="المستخدمين" id="cmi8" action="#{RegionBean.approvalsBTF}"
+                                            immediate="true"/>
+                      </af:menu>
+                    </af:menuBar>
+                    <af:separator id="s4"/>
+                  </af:gridCell>
+                  <af:gridCell id="gc1" width="50%" halign="end" valign="middle">
+                    <af:navigationPane hint="buttons" id="np1">
+                      <af:commandNavigationItem id="HomeID" text="Home" icon="/resources/images/home_20px.png"
+                                                action="#{RegionBean.mainHomeBTF}" selected="true" immediate="true"/>
+                      <af:commandNavigationItem id="settings" text="Settings" icon="/resources/images/settings-20px.png"
+                                                action="#{RegionBean.settingsBTF}" immediate="true"
+                                                rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103' or LoginBean.user.roleId eq '104'? true : false}"/>
+                      <af:commandNavigationItem id="user" text="User Profile"
+                                                icon="/resources/images/user_profile_20px.png"
+                                                action="#{RegionBean.uaerProfileBTF}" immediate="true"/>
+                      <af:commandNavigationItem id="Logout" text="Logout" icon="/resources/images/logout_20px.png"
+                                                action="Logout" actionListener="#{LogoutBean.onLogoutAction}"
+                                                immediate="true"/>
+                    </af:navigationPane>
+                  </af:gridCell>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr7">
+                  <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10" halign="stretch"
+                               valign="stretch" rowSpan="1" columnSpan="2">
+                    <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </f:facet>
+          </af:decorativeBox>
+        </f:facet>
+      </af:panelSplitter>
+    </af:form>
+  </af:document>
+</f:view>

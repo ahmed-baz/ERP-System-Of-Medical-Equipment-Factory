@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="Uaer_Profile_BTF_Uaer_Profile_BTF_ExecuteWithParamsPageDef" Package="Task_Flows.Uaer_Profile"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="UserProfile1" RangeSize="25" DataControl="UsersAppModuleAMDataControl" id="UserProfile1Iterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="UserProfile1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="pUserName" NDValue="#{LoginBean.user.userName} " NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

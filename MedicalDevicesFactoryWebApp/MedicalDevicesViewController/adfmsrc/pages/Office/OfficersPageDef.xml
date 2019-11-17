@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="OfficersPageDef"
+                Package="pages.Office">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Officers1" RangeSize="10" DataControl="IndividualsAppModuleAMDataControl" id="Officers1Iterator"/>
+    <searchRegion Criteria="OfficersVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Officers1Iterator" id="OfficersVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Officers1Iterator" id="Officers1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO" Name="Officers10">
+        <AttrNames>
+          <Item Value="MilitaryRankId"/>
+          <Item Value="MilitaryNumber"/>
+          <Item Value="FullName"/>
+          <Item Value="JoinDate"/>
+          <Item Value="QualificationId"/>
+          <Item Value="SpecializationId"/>
+          <Item Value="MilitaryRankType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

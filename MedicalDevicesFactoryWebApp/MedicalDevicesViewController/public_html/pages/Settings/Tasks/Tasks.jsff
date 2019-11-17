@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="30px" id="gr1">
+      <af:gridCell marginStart="5px" width="65%" id="gc1"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc2"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" id="gr2">
+      <af:gridCell marginStart="5px" width="65%" id="gc3" valign="middle" halign="stretch">
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                           icon="/resources/images/undo_arrow_left_edit_back-16.png" action="Settings"/>
+                <af:button actionListener="#{bindings.CreateInsert.execute}"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/images/Add.gif"
+                           inlineStyle="padding:2px;margin:2px"/>
+                <af:button actionListener="#{bindings.Delete.execute}" disabled="#{!bindings.Delete.enabled}" id="b5"
+                           inlineStyle="padding:2px;margin:2px" icon="/resources/images/delete-16px.png"/>
+                <af:button id="b3" inlineStyle="padding:2px;margin:2px" icon="/resources/images/save.png"
+                           action="#{SettingsBean.saveTasks}"/>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.Tasks1.collectionModel}" var="row" rows="#{bindings.Tasks1.rangeSize}"
+                      emptyText="#{bindings.Tasks1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.Tasks1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Tasks1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.Tasks1.rangeSize}" id="t1" width="100%" varStatus="vs" scrollPolicy="page"
+                      autoHeightRows="-1">
+              <af:column id="c2" align="center" width="30">
+                <af:button id="b1"/>
+              </af:column>
+              <af:column id="c3" align="center" width="30">
+                <af:outputText value="#{vs.index+1}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Tasks1.hints.Task.name}" sortable="true"
+                         headerText="#{bindings.Tasks1.hints.Task.label}" id="c1" align="center" width="200">
+                <af:inputText value="#{row.bindings.Task.inputValue}" label="#{bindings.Tasks1.hints.Task.label}"
+                              required="#{bindings.Tasks1.hints.Task.mandatory}"
+                              columns="#{bindings.Tasks1.hints.Task.displayWidth}"
+                              maximumLength="#{bindings.Tasks1.hints.Task.precision}"
+                              shortDesc="#{bindings.Tasks1.hints.Task.tooltip}" id="it1"
+                              contentStyle="text-align:center;">
+                  <f:validator binding="#{row.bindings.Task.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc4" halign="center" valign="middle">
+        <af:panelBox id="pb1" showDisclosure="false">
+          <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+            <af:image source="/resources/images/tasks-data-128px.png" id="i1"/>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr3">
+      <af:gridCell marginStart="5px" width="65%" id="gc5"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc6"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+            contentDelivery="lazyUncached" binding="#{SettingsBean.task_popup}">
+    <af:dialog id="d5" type="ok">
+      <af:panelGroupLayout id="pgl19" halign="center" layout="vertical">
+        <af:activeImage source="/resources/images/JD-16-128.png" id="ai1"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

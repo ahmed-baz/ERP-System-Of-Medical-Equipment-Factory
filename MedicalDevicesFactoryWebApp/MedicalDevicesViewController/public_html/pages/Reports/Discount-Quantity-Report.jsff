@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <f:view>
+        <af:panelGridLayout id="pgl7">
+            <af:gridRow marginTop="5px" id="gr4">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="end">
+                    <af:panelGroupLayout id="pgl4" rendered="#{adfFacesContext.outputMode == 'printable'}">
+                        <af:activeImage id="ai2" source="/resources/images/Date.PNG"/>
+                    </af:panelGroupLayout>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="100%" id="gr5">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch" valign="stretch">
+                    <af:panelGroupLayout layout="vertical" id="pgl2">
+                        <af:panelHeader text="البحث فــي تقرير الكميات المسحوبة من  الخامــــات" id="ph1"
+                                        icon="/resources/images/search_magnifi-20.png">
+                            <f:facet name="context"/>
+                            <f:facet name="menuBar"/>
+                            <f:facet name="toolbar"/>
+                            <f:facet name="legend"/>
+                            <f:facet name="info"/>
+                            <af:query id="qryId1" headerText="Search" disclosed="true"
+                                      value="#{bindings.DiscountQuantityReportVOCriteriaQuery.queryDescriptor}"
+                                      model="#{bindings.DiscountQuantityReportVOCriteriaQuery.queryModel}"
+                                      queryListener="#{bindings.DiscountQuantityReportVOCriteriaQuery.processQuery}"
+                                      queryOperationListener="#{bindings.DiscountQuantityReportVOCriteriaQuery.processQueryOperation}"
+                                      resultComponentId="::pc1" rendered="#{adfFacesContext.outputMode != 'printable'}"
+                                      displayMode="compact" saveQueryMode="hidden"/>
+                        </af:panelHeader>
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t1">
+                                    <af:button id="b3" inlineStyle="padding:2px;margin:2px"
+                                               icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                                               action="#{RegionBean.reportBTF}"/>
+                                    <af:button id="b1" inlineStyle="padding:2px;margin:2px"
+                                               icon="/resources/images/download_1-20.png">
+                                        <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
+                                                                           filename="تقرير الخامات المٌخصمـــة.xls"
+                                                                           title="الخامات المٌخصمـــة"/>
+                                    </af:button>
+                                    <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                                               icon="/resources/images/print-20px.png">
+                                        <af:showPrintablePageBehavior/>
+                                    </af:button>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.DiscountQuantityReport2.collectionModel}" var="row"
+                                      rows="#{bindings.DiscountQuantityReport2.rangeSize}"
+                                      emptyText="#{bindings.DiscountQuantityReport2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.DiscountQuantityReport2.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.DiscountQuantityReport2.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.DiscountQuantityReport2.rangeSize}"
+                                      id="resId1" scrollPolicy="page">
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.OreCode.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.OreCode.label}"
+                                           id="resId1c1" align="center" width="80">
+                                    <af:outputText value="#{row.OreCode}"
+                                                   shortDesc="#{bindings.DiscountQuantityReport2.hints.OreCode.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.OreName.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.OreName.label}"
+                                           id="resId1c2" align="center" width="150">
+                                    <af:outputText value="#{row.OreName}"
+                                                   shortDesc="#{bindings.DiscountQuantityReport2.hints.OreName.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.OresTypeId.name}"
+                                           sortable="true" id="resId1c3" align="center" width="80" headerText="Type">
+                                    <af:selectOneChoice value="#{row.bindings.OresTypeId.inputValue}"
+                                                        label="#{row.bindings.OresTypeId.label}"
+                                                        required="#{bindings.DiscountQuantityReport2.hints.OresTypeId.mandatory}"
+                                                        shortDesc="#{bindings.DiscountQuantityReport2.hints.OresTypeId.tooltip}"
+                                                        readOnly="true" id="soc1">
+                                        <f:selectItems value="#{row.bindings.OresTypeId.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.OresTypeId.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.Length.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.Length.label}"
+                                           id="resId1c4" align="center" width="60">
+                                    <af:panelGroupLayout id="pgl1">
+                                        <af:outputText value="#{row.Length}"
+                                                       shortDesc="#{bindings.DiscountQuantityReport2.hints.Length.tooltip}"
+                                                       id="ot3">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.DiscountQuantityReport2.hints.Length.format}"/>
+                                        </af:outputText>
+                                        <af:selectOneChoice value="#{row.bindings.LengthUnit.inputValue}"
+                                                            label="#{row.bindings.LengthUnit.label}"
+                                                            required="#{bindings.DiscountQuantityReport2.hints.LengthUnit.mandatory}"
+                                                            shortDesc="#{bindings.DiscountQuantityReport2.hints.LengthUnit.tooltip}"
+                                                            readOnly="true" id="soc2" inlineStyle="margin-left:2px">
+                                            <f:selectItems value="#{row.bindings.LengthUnit.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.LengthUnit.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelGroupLayout>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.Width.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.Width.label}"
+                                           id="resId1c6" align="center" width="60">
+                                    <af:panelGroupLayout id="pgl5">
+                                        <af:outputText value="#{row.Width}"
+                                                       shortDesc="#{bindings.DiscountQuantityReport2.hints.Width.tooltip}"
+                                                       id="ot4">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.DiscountQuantityReport2.hints.Width.format}"/>
+                                        </af:outputText>
+                                        <af:selectOneChoice value="#{row.bindings.WidthUnit.inputValue}"
+                                                            label="#{row.bindings.WidthUnit.label}"
+                                                            required="#{bindings.DiscountQuantityReport2.hints.WidthUnit.mandatory}"
+                                                            shortDesc="#{bindings.DiscountQuantityReport2.hints.WidthUnit.tooltip}"
+                                                            readOnly="true" id="soc3" inlineStyle="margin-left:2px">
+                                            <f:selectItems value="#{row.bindings.WidthUnit.items}" id="si3"/>
+                                            <f:validator binding="#{row.bindings.WidthUnit.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelGroupLayout>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.Thikness.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.Thikness.label}"
+                                           id="resId1c8" align="center" width="60">
+                                    <af:panelGroupLayout id="pgl6">
+                                        <af:outputText value="#{row.Thikness}"
+                                                       shortDesc="#{bindings.DiscountQuantityReport2.hints.Thikness.tooltip}"
+                                                       id="ot5">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.DiscountQuantityReport2.hints.Thikness.format}"/>
+                                        </af:outputText>
+                                        <af:selectOneChoice value="#{row.bindings.ThiknessUnit.inputValue}"
+                                                            label="#{row.bindings.ThiknessUnit.label}"
+                                                            required="#{bindings.DiscountQuantityReport2.hints.ThiknessUnit.mandatory}"
+                                                            shortDesc="#{bindings.DiscountQuantityReport2.hints.ThiknessUnit.tooltip}"
+                                                            readOnly="true" id="soc4" inlineStyle="margin-left:2px">
+                                            <f:selectItems value="#{row.bindings.ThiknessUnit.items}" id="si4"/>
+                                            <f:validator binding="#{row.bindings.ThiknessUnit.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:panelGroupLayout>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.DiscountQuantity.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.DiscountQuantity.label}"
+                                           id="resId1c10" align="center" width="60">
+                                    <af:outputText value="#{row.DiscountQuantity}"
+                                                   shortDesc="#{bindings.DiscountQuantityReport2.hints.DiscountQuantity.tooltip}"
+                                                   id="ot6">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.DiscountQuantityReport2.hints.DiscountQuantity.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.Unit.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.Unit.label}"
+                                           id="resId1c11" align="center" width="50">
+                                    <af:selectOneChoice value="#{row.bindings.Unit.inputValue}"
+                                                        label="#{row.bindings.Unit.label}"
+                                                        required="#{bindings.DiscountQuantityReport2.hints.Unit.mandatory}"
+                                                        shortDesc="#{bindings.DiscountQuantityReport2.hints.Unit.tooltip}"
+                                                        readOnly="true" id="soc5">
+                                        <f:selectItems value="#{row.bindings.Unit.items}" id="si5"/>
+                                        <f:validator binding="#{row.bindings.Unit.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.DepartmentId.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.DepartmentId.label}"
+                                           id="resId1c12" align="center">
+                                    <af:selectOneChoice value="#{row.bindings.DepartmentId.inputValue}"
+                                                        label="#{row.bindings.DepartmentId.label}"
+                                                        required="#{bindings.DiscountQuantityReport2.hints.DepartmentId.mandatory}"
+                                                        shortDesc="#{bindings.DiscountQuantityReport2.hints.DepartmentId.tooltip}"
+                                                        readOnly="true" id="soc6">
+                                        <f:selectItems value="#{row.bindings.DepartmentId.items}" id="si6"/>
+                                        <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.OrderNo.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.OrderNo.label}"
+                                           id="resId1c13" align="center">
+                                    <af:outputText value="#{row.OrderNo}"
+                                                   shortDesc="#{bindings.DiscountQuantityReport2.hints.OrderNo.tooltip}"
+                                                   id="ot7">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.DiscountQuantityReport2.hints.OrderNo.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.DiscountQuantityReport2.hints.DiscountDate.name}"
+                                           sortable="true"
+                                           headerText="#{bindings.DiscountQuantityReport2.hints.DiscountDate.label}"
+                                           id="resId1c14" align="center">
+                                    <af:outputText value="#{row.DiscountDate}"
+                                                   shortDesc="#{bindings.DiscountQuantityReport2.hints.DiscountDate.tooltip}"
+                                                   id="ot8">
+                                        <af:convertDateTime pattern="#{bindings.DiscountQuantityReport2.hints.DiscountDate.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:panelGroupLayout>
+                </af:gridCell>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" marginBottom="5px" id="gr6">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                    <af:panelGroupLayout id="pgl3" rendered="#{adfFacesContext.outputMode == 'printable'}">
+                        <af:activeImage source="/resources/images/signature.PNG" id="ai1"/>
+                    </af:panelGroupLayout>
+                </af:gridCell>
+            </af:gridRow>
+        </af:panelGridLayout>
+    </f:view>
+</ui:composition>

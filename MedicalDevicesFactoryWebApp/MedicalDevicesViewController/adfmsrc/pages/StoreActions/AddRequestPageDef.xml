@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="AddRequestPageDef"
+                Package="pages.StoreActions">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AddQuantity1" RangeSize="25" DataControl="StoreAppModuleAMDataControl" id="AddQuantity1Iterator"/>
+    <iterator Binds="MainOres1" RangeSize="25" DataControl="StoreAppModuleAMDataControl" id="MainOres1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AddQuantity1Iterator" id="AdditionQuantity">
+      <AttrNames>
+        <Item Value="AdditionQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddQuantity1Iterator" id="BillNo">
+      <AttrNames>
+        <Item Value="BillNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddQuantity1Iterator" id="AdditionDate">
+      <AttrNames>
+        <Item Value="AdditionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="OreName">
+      <AttrNames>
+        <Item Value="OreName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="MainOres1Iterator" StaticList="false" Uses="LOV_OresTypeId" id="OresTypeId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="MainOres1Iterator" id="OreCode">
+      <AttrNames>
+        <Item Value="OreCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="StoreAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <methodAction id="setMainActiveOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setMainActiveOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setMainActiveOre_StoreAppModuleAMDataControl_dataProvider_setMainActiveOre_result"/>
+    <methodAction id="filterAddQuantity" RequiresUpdateModel="true" Action="invokeMethod" MethodName="filterAddQuantity"
+                  IsViewObjectMethod="false" DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.filterAddQuantity_StoreActionsAppModuleAMDataControl_dataProvider_filterAddQuantity_result"/>
+  </bindings>
+</pageDefinition>

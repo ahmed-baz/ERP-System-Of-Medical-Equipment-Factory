@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="QualificationEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="QUALIFICATION"
+  AliasName="QualificationEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="QualificationId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="QUALIFICATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="QUALIFICATION"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Qualification"
+    IsNotNull="true"
+    Precision="255"
+    ColumnName="QUALIFICATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="QUALIFICATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Privates"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivatesQualificationAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivatesQualificationAssoc.Privates"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivatesQualificationAssoc.Qualification"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Sergeants"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsQualificationAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsQualificationAssoc.Sergeants"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsQualificationAssoc.Qualification"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Officers"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.OfficersQualificationAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.OfficersQualificationAssoc.Officers"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.OfficersQualificationAssoc.Qualification"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Specialization"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.other.QualificationSpecilizationAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.other.QualificationSpecilizationAssoc.Specialization"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.other.QualificationSpecilizationAssoc.Qualification"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC007027"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007027"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.QualificationEO.QualificationId"/>
+    </AttrArray>
+  </Key>
+</Entity>

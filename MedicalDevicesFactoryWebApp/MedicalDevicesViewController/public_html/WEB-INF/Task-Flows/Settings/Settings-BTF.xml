@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Settings-BTF">
+    <default-activity>Settings</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__3">
+      <managed-bean-name>SettingsBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.settings.SettingsBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="Settings">
+      <page>/pages/Settings/Settings.jsff</page>
+    </view>
+    <view id="Qualification">
+      <page>/pages/Settings/qualification/Qualification.jsff</page>
+    </view>
+    <view id="Camps">
+      <page>/pages/Settings/Camps/Camps.jsff</page>
+    </view>
+    <view id="MilitaryService">
+      <page>/pages/Settings/MilitaryService/MilitaryService.jsff</page>
+    </view>
+    <view id="Specialization">
+      <page>/pages/Settings/Specialization/Specialization.jsff</page>
+    </view>
+    <view id="University">
+      <page>/pages/Settings/University/University.jsff</page>
+    </view>
+    <view id="Tasks">
+      <page>/pages/Settings/Tasks/Tasks.jsff</page>
+    </view>
+    <view id="RawMaterialType">
+      <page>/pages/Settings/RawMaterialType/RawMaterialType.jsff</page>
+    </view>
+    <view id="Departments">
+      <page>/pages/Settings/Departments/Departments.jsff</page>
+    </view>
+    <control-flow-rule id="__5">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>Settings</from-outcome>
+        <to-activity-id>Settings</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__1">
+      <from-activity-id>Settings</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Qualification</from-outcome>
+        <to-activity-id>Qualification</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>Camps</from-outcome>
+        <to-activity-id>Camps</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>MilitaryService</from-outcome>
+        <to-activity-id>MilitaryService</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>Specialization</from-outcome>
+        <to-activity-id>Specialization</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>University</from-outcome>
+        <to-activity-id>University</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>Tasks</from-outcome>
+        <to-activity-id>Tasks</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>RawMaterialType</from-outcome>
+        <to-activity-id>RawMaterialType</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>Departments</from-outcome>
+        <to-activity-id>Departments</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

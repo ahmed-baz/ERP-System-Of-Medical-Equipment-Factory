@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Discount-Quantity-Report</property>
+      <property
+         name="page">/pages/Reports/Discount-Quantity-Report.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Discount-Quantity-Report&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">211.5459</property>
+      <property
+         name="x">336.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+</SDM>

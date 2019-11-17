@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.2.1" id="DataBindings"
+             SeparateXMLFiles="false" Package="oracle.medical.app.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/Home.jsf" usageId="oracle_medical_app_view_HomePageDef"/>
+    <page path="/pages/Office/Office.jsff" usageId="oracle_medical_app_view_OfficePageDef"/>
+    <page path="/LoginPage.jsf" usageId="oracle_medical_app_view_LoginPagePageDef"/>
+    <page path="/pages/Store/Ores.jsff" usageId="oracle_medical_app_view_OresPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Store/Ores-BTF.xml#Ores-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_Ores_BTF_Ores_BTF_CreateInsertPageDef"/>
+    <page path="/pages/Store/AddNewOre.jsff" usageId="oracle_medical_app_view_AddNewOrePageDef"/>
+    <page path="/pages/Store/Waiting-Ores.jsff" usageId="oracle_medical_app_view_Waiting_OresPageDef"/>
+    <page path="/pages/Admin-Tasks/Admin-Tasks.jsff" usageId="oracle_medical_app_view_Admin_TasksPageDef"/>
+    <page path="/pages/Store/ExportOres.jsff" usageId="oracle_medical_app_view_ExportOresPageDef"/>
+    <page path="/pages/Store/SelectedOre.jsff" usageId="oracle_medical_app_view_SelectedOrePageDef"/>
+    <page path="/pages/StoreActions/Discount-Requests.jsff" usageId="oracle_medical_app_view_Discount_RequestsPageDef"/>
+    <page path="/pages/StoreActions/Add-Requests.jsff" usageId="oracle_medical_app_view_Add_RequestsPageDef"/>
+    <page path="/pages/Reports/Add-Quantity-Report.jsff" usageId="oracle_medical_app_view_Add_Quantity_ReportPageDef"/>
+    <page path="/pages/Reports/Discount-Quantity-Report.jsff"
+          usageId="oracle_medical_app_view_Discount_Quantity_ReportPageDef"/>
+    <page path="/pages/Reports/Report.jsff" usageId="oracle_medical_app_view_ReportPageDef"/>
+    <page path="/pages/Products/Products.jsff" usageId="oracle_medical_app_view_ProductsPageDef"/>
+    <page path="/pages/Products/Selected-Product.jsff" usageId="oracle_medical_app_view_Selected_ProductPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Products/Products-BTF.xml#Products-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_Products_BTF_Products_BTF_CreateInsertPageDef"/>
+    <page path="/pages/Products/NewProduct.jsff" usageId="oracle_medical_app_view_NewProductPageDef"/>
+    <page path="/pages/Products/Waiting-Products.jsff" usageId="oracle_medical_app_view_Waiting_ProductsPageDef"/>
+    <page path="/pages/Office/Soliders.jsff" usageId="oracle_medical_app_view_SolidersPageDef"/>
+    <page path="/pages/Office/Soliders/SelectedSolider.jsff" usageId="oracle_medical_app_view_SelectedSoliderPageDef"/>
+    <page path="/pages/Office/Soliders/NewSolidre.jsff" usageId="oracle_medical_app_view_NewSolidrePageDef"/>
+    <page path="/pages/Products/Products-Add-Requests.jsff"
+          usageId="oracle_medical_app_view_Products_Add_RequestsPageDef"/>
+    <page path="/pages/Products/Products-Discount-Requests.jsff"
+          usageId="oracle_medical_app_view_Products_Discount_RequestsPageDef"/>
+    <page path="/pages/Approvals/Approvals.jsff" usageId="oracle_medical_app_view_ApprovalsPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Products/AddRequests-BTF.xml#AddRequests-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_AddRequests_BTF_AddRequests_BTF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Products/DiscountRequest-BTF.xml#DiscountRequest-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_DiscountRequest_BTF_DiscountRequest_BTF_CreateInsertPageDef"/>
+    <page path="/pages/Products/DiscountRequest.jsf" usageId="oracle_medical_app_view_DiscountRequestPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Store/AddRequest-BTF.xml#AddRequest-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_AddRequest_BTF_AddRequest_BTF_CreateInsertPageDef"/>
+    <page path="/pages/StoreActions/AddRequest.jsf" usageId="oracle_medical_app_view_AddRequestPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Store/DiscountRequest-BTF.xml#DiscountRequest-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_DiscountRequest_BTF_DiscountRequest_BTF_CreateInsertPageDef1"/>
+    <page path="/pages/StoreActions/DiscountRequest.jsf" usageId="oracle_medical_app_view_DiscountRequestPageDef1"/>
+    <page path="/pages/Products/Product-Discount-Report.jsff"
+          usageId="oracle_medical_app_view_Product_Discount_ReportPageDef"/>
+    <page path="/pages/Products/Product-Add-Report.jsff" usageId="oracle_medical_app_view_Product_Add_ReportPageDef"/>
+    <page path="/pages/Products/ExportedProducts.jsff" usageId="oracle_medical_app_view_ExportedProductsPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Office/Soliders-BTF.xml#Soliders-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_Soliders_BTF_Soliders_BTF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Uaer-Profile/Uaer-Profile-BTF.xml#Uaer-Profile-BTF@ExecuteWithParams"
+          usageId="oracle_medical_app_view_Uaer_Profile_BTF_Uaer_Profile_BTF_ExecuteWithParamsPageDef"/>
+    <page path="/pages/Uaer-Profile/Uaer-Profile.jsff" usageId="oracle_medical_app_view_Uaer_ProfilePageDef"/>
+    <page path="/pages/Products/AddRequest.jsf" usageId="oracle_medical_app_view_AddRequestPageDef1"/>
+    <page path="/pages/Office/Sergeants.jsff" usageId="oracle_medical_app_view_SergeantsPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Office/Sergeants-BTF.xml#Sergeants-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_Sergeants_BTF_Sergeants_BTF_CreateInsertPageDef"/>
+    <page path="/pages/Office/Sergeants/SelectedSergeant.jsff"
+          usageId="oracle_medical_app_view_SelectedSergeantPageDef"/>
+    <page path="/pages/Office/Sergeants/NewSergeant.jsff" usageId="oracle_medical_app_view_NewSergeantPageDef"/>
+    <page path="/WEB-INF/Task-Flows/Office/Officers-BTF.xml#Officers-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_Officers_BTF_Officers_BTF_CreateInsertPageDef"/>
+    <page path="/pages/Office/Officers.jsff" usageId="oracle_medical_app_view_OfficersPageDef"/>
+    <page path="/pages/Office/Officers/SelectedOfficer.jsff" usageId="oracle_medical_app_view_SelectedOfficerPageDef"/>
+    <page path="/pages/Office/Officers/NewOfficer.jsff" usageId="oracle_medical_app_view_NewOfficerPageDef"/>
+    <page path="/pages/Settings/qualification/Qualification.jsff"
+          usageId="oracle_medical_app_view_QualificationPageDef"/>
+    <page path="/pages/Office/Officers/TerminatedOfficers.jsff"
+          usageId="oracle_medical_app_view_TerminatedOfficersPageDef"/>
+    <page path="/pages/Office/Sergeants/TerminatedSergeant.jsff"
+          usageId="oracle_medical_app_view_TerminatedSergeantPageDef"/>
+    <page path="/pages/Office/Soliders/TermenatedSoliders.jsff"
+          usageId="oracle_medical_app_view_TermenatedSolidersPageDef"/>
+    <page path="/pages/Settings/Camps/Camps.jsff" usageId="oracle_medical_app_view_CampsPageDef"/>
+    <page path="/pages/Settings/Departments/Departments.jsff" usageId="oracle_medical_app_view_DepartmentsPageDef"/>
+    <page path="/pages/Settings/MilitaryService/MilitaryService.jsff"
+          usageId="oracle_medical_app_view_MilitaryServicePageDef"/>
+    <page path="/pages/Settings/RawMaterialType/RawMaterialType.jsff"
+          usageId="oracle_medical_app_view_RawMaterialTypePageDef"/>
+    <page path="/pages/Settings/University/University.jsff" usageId="oracle_medical_app_view_UniversityPageDef"/>
+    <page path="/pages/Settings/Tasks/Tasks.jsff" usageId="oracle_medical_app_view_TasksPageDef"/>
+    <page path="/pages/Settings/Specialization/Specialization.jsff"
+          usageId="oracle_medical_app_view_SpecializationPageDef"/>
+    <page path="/pages/Approvals/NewUser.jsf" usageId="oracle_medical_app_view_NewUserPageDef1"/>
+    <page path="/WEB-INF/Task-Flows/Approvals/NewUser-BTF.xml#NewUser-BTF@CreateInsert"
+          usageId="oracle_medical_app_view_NewUser_BTF_NewUser_BTF_CreateInsertPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="oracle_medical_app_view_HomePageDef" path="oracle.medical.app.view.pageDefs.HomePageDef"/>
+    <page id="oracle_medical_app_view_OfficePageDef" path="pages.Office.OfficePageDef"/>
+    <page id="oracle_medical_app_view_LoginPagePageDef" path="oracle.medical.app.view.pageDefs.LoginPagePageDef"/>
+    <page id="oracle_medical_app_view_OresPageDef" path="pages.Store.OresPageDef"/>
+    <page id="oracle_medical_app_view_Ores_BTF_Ores_BTF_CreateInsertPageDef"
+          path="Task_Flows.Store.Ores_BTF_Ores_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_AddNewOrePageDef" path="pages.Store.AddNewOrePageDef"/>
+    <page id="oracle_medical_app_view_Waiting_OresPageDef" path="pages.Store.Waiting_OresPageDef"/>
+    <page id="oracle_medical_app_view_Admin_TasksPageDef" path="pages.Admin_Tasks.Admin_TasksPageDef"/>
+    <page id="oracle_medical_app_view_ExportOresPageDef" path="pages.Store.ExportOresPageDef"/>
+    <page id="oracle_medical_app_view_SelectedOrePageDef" path="pages.Store.SelectedOrePageDef"/>
+    <page id="oracle_medical_app_view_Discount_RequestsPageDef" path="pages.StoreActions.Discount_RequestsPageDef"/>
+    <page id="oracle_medical_app_view_Add_RequestsPageDef" path="pages.StoreActions.Add_RequestsPageDef"/>
+    <page id="oracle_medical_app_view_Add_Quantity_ReportPageDef" path="pages.Reports.Add_Quantity_ReportPageDef"/>
+    <page id="oracle_medical_app_view_Discount_Quantity_ReportPageDef"
+          path="pages.Reports.Discount_Quantity_ReportPageDef"/>
+    <page id="oracle_medical_app_view_ReportPageDef" path="pages.Reports.ReportPageDef"/>
+    <page id="oracle_medical_app_view_ProductsPageDef" path="pages.Products.ProductsPageDef"/>
+    <page id="oracle_medical_app_view_Selected_ProductPageDef" path="pages.Products.Selected_ProductPageDef"/>
+    <page id="oracle_medical_app_view_Products_BTF_Products_BTF_CreateInsertPageDef"
+          path="Task_Flows.Products.Products_BTF_Products_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_NewProductPageDef" path="pages.Products.NewProductPageDef"/>
+    <page id="oracle_medical_app_view_Waiting_ProductsPageDef" path="pages.Products.Waiting_ProductsPageDef"/>
+    <page id="oracle_medical_app_view_SolidersPageDef" path="pages.Office.SolidersPageDef"/>
+    <page id="oracle_medical_app_view_SelectedSoliderPageDef" path="pages.Office.Soliders.SelectedSoliderPageDef"/>
+    <page id="oracle_medical_app_view_NewSolidrePageDef" path="pages.Office.Soliders.NewSolidrePageDef"/>
+    <page id="oracle_medical_app_view_Products_Add_RequestsPageDef" path="pages.Products.Products_Add_RequestsPageDef"/>
+    <page id="oracle_medical_app_view_Products_Discount_RequestsPageDef"
+          path="pages.Products.Products_Discount_RequestsPageDef"/>
+    <page id="oracle_medical_app_view_ApprovalsPageDef" path="pages.Approvals.ApprovalsPageDef"/>
+    <page id="oracle_medical_app_view_AddRequests_BTF_AddRequests_BTF_CreateInsertPageDef"
+          path="Task_Flows.Products.AddRequests_BTF_AddRequests_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_AddRequestsPageDef" path="pages.Products.AddRequestsPageDef"/>
+    <page id="oracle_medical_app_view_DiscountRequest_BTF_DiscountRequest_BTF_CreateInsertPageDef"
+          path="Task_Flows.Products.DiscountRequest_BTF_DiscountRequest_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_DiscountRequestPageDef" path="pages.Products.DiscountRequestPageDef"/>
+    <page id="oracle_medical_app_view_AddRequest_BTF_AddRequest_BTF_CreateInsertPageDef"
+          path="Task_Flows.Store.AddRequest_BTF_AddRequest_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_AddRequestPageDef" path="pages.StoreActions.AddRequestPageDef"/>
+    <page id="oracle_medical_app_view_DiscountRequest_BTF_DiscountRequest_BTF_CreateInsertPageDef1"
+          path="Task_Flows.Store.DiscountRequest_BTF_DiscountRequest_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_DiscountRequestPageDef1" path="pages.StoreActions.DiscountRequestPageDef"/>
+    <page id="oracle_medical_app_view_Product_Discount_ReportPageDef"
+          path="pages.Products.Product_Discount_ReportPageDef"/>
+    <page id="oracle_medical_app_view_Product_Add_ReportPageDef" path="pages.Products.Product_Add_ReportPageDef"/>
+    <page id="oracle_medical_app_view_ExportedProductsPageDef" path="pages.Products.ExportedProductsPageDef"/>
+    <page id="oracle_medical_app_view_AddNewUserPageDef" path="pages.Approvals.AddNewUserPageDef"/>
+    <page id="oracle_medical_app_view_Soliders_BTF_Soliders_BTF_CreateInsertPageDef"
+          path="Task_Flows.Office.Soliders_BTF_Soliders_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_Uaer_Profile_BTF_Uaer_Profile_BTF_ExecuteWithParamsPageDef"
+          path="Task_Flows.Uaer_Profile.Uaer_Profile_BTF_Uaer_Profile_BTF_ExecuteWithParamsPageDef"/>
+    <page id="oracle_medical_app_view_Uaer_ProfilePageDef" path="pages.Uaer_Profile.Uaer_ProfilePageDef"/>
+    <page id="oracle_medical_app_view_AddRequestPageDef1" path="pages.Products.AddRequestPageDef"/>
+    <page id="oracle_medical_app_view_SergeantsPageDef" path="pages.Office.SergeantsPageDef"/>
+    <page id="oracle_medical_app_view_Sergeants_BTF_Sergeants_BTF_CreateInsertPageDef"
+          path="Task_Flows.Office.Sergeants_BTF_Sergeants_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_SelectedSergeantPageDef" path="pages.Office.Sergeants.SelectedSergeantPageDef"/>
+    <page id="oracle_medical_app_view_NewSergeantPageDef" path="pages.Office.Sergeants.NewSergeantPageDef"/>
+    <page id="oracle_medical_app_view_Officers_BTF_Officers_BTF_CreateInsertPageDef"
+          path="Task_Flows.Office.Officers_BTF_Officers_BTF_CreateInsertPageDef"/>
+    <page id="oracle_medical_app_view_OfficersPageDef" path="pages.Office.OfficersPageDef"/>
+    <page id="oracle_medical_app_view_SelectedOfficerPageDef" path="pages.Office.Officers.SelectedOfficerPageDef"/>
+    <page id="oracle_medical_app_view_NewOfficerPageDef" path="pages.Office.Officers.NewOfficerPageDef"/>
+    <page id="oracle_medical_app_view_QualificationPageDef" path="pages.Settings.qualification.QualificationPageDef"/>
+    <page id="oracle_medical_app_view_TerminatedOfficersPageDef"
+          path="pages.Office.Officers.TerminatedOfficersPageDef"/>
+    <page id="oracle_medical_app_view_TerminatedSergeantPageDef"
+          path="pages.Office.Sergeants.TerminatedSergeantPageDef"/>
+    <page id="oracle_medical_app_view_TermenatedSolidersPageDef"
+          path="pages.Office.Soliders.TermenatedSolidersPageDef"/>
+    <page id="oracle_medical_app_view_CampsPageDef" path="pages.Settings.Camps.CampsPageDef"/>
+    <page id="oracle_medical_app_view_DepartmentsPageDef" path="pages.Settings.Departments.DepartmentsPageDef"/>
+    <page id="oracle_medical_app_view_MilitaryServicePageDef"
+          path="pages.Settings.MilitaryService.MilitaryServicePageDef"/>
+    <page id="oracle_medical_app_view_RawMaterialTypePageDef"
+          path="pages.Settings.RawMaterialType.RawMaterialTypePageDef"/>
+    <page id="oracle_medical_app_view_UniversityPageDef" path="pages.Settings.University.UniversityPageDef"/>
+    <page id="oracle_medical_app_view_TasksPageDef" path="pages.Settings.Tasks.TasksPageDef"/>
+    <page id="oracle_medical_app_view_SpecializationPageDef"
+          path="pages.Settings.Specialization.SpecializationPageDef"/>
+    <page id="oracle_medical_app_view_NewUserPageDef1" path="pages.Approvals.NewUserPageDef1"/>
+    <page id="oracle_medical_app_view_NewUser_BTF_NewUser_BTF_CreateInsertPageDef"
+          path="Task_Flows.Approvals.NewUser_BTF_NewUser_BTF_CreateInsertPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="UsersAppModuleAMDataControl" Package="oracle.medical.app.model.bc.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="UsersAppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="StoreAppModuleAMDataControl" Package="oracle.medical.app.model.bc.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="StoreAppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="StoreActionsAppModuleAMDataControl" Package="oracle.medical.app.model.bc.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="StoreActionsAppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ProductsAppModuleAMDataControl" Package="oracle.medical.app.model.bc.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ProductsAppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="IndividualsAppModuleAMDataControl" Package="oracle.medical.app.model.bc.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="IndividualsAppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="SettingsAppModuleAMDataControl" Package="oracle.medical.app.model.bc.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="SettingsAppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

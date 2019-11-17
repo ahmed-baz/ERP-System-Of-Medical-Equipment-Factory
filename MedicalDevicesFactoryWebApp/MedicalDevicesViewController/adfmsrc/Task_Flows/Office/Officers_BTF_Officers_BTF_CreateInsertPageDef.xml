@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="Officers_BTF_Officers_BTF_CreateInsertPageDef" Package="Task_Flows.Office" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="NewOfficer1" RangeSize="25" DataControl="IndividualsAppModuleAMDataControl"
+              id="NewOfficer1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="NewOfficer1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

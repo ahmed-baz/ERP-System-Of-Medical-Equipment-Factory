@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelDashboard id="pd1" rowHeight="250px" columns="4">
+    <af:panelBox text="تقرير الكميات الواردة للخامات" id="pb1" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+        <af:link id="l1" icon="/resources/images/discount-quantity-128px.png.png" action="#{RegionBean.addQuantityReportBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="تقرير الكميات المُخصمة من الخامات" id="pb2" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+        <af:link id="l2"
+                 action="#{RegionBean.discountQuantityReportBTF}"
+                 icon="/resources/images/demo/discount-product-128px.png"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="التوريد الداخلي لمخزن المنتج النهائي" id="pb3" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl3" halign="center" layout="vertical">
+        <af:link id="l3" icon="/resources/images/demo/add-product-128px.png"
+                 action="#{RegionBean.productAddReportBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="التوريد الخارجي من مخزن المنتج النهائي" id="pb4" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl4" halign="center" layout="vertical">
+        <af:link id="l4" icon="/resources/images/demo/products2-128px.png"
+                 action="#{RegionBean.productDiscountReportBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+  </af:panelDashboard>
+</ui:composition>

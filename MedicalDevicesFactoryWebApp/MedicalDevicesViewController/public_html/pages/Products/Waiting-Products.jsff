@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelHeader text="المنتجات المنتظرة" id="ph1">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="toolbar">
+                <af:toolbar id="t2">
+                    <af:button id="b4" action="#{RegionBean.adminTasksBTF}"
+                               icon="/resources/images/undo_arrow_left_edit_back-16.png" immediate="true"/>
+                    <af:button id="b3" icon="/resources/images/save.png"
+                               action="#{ProductActionsBean.saveWaintingProducts}"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.WaitingProducts1.collectionModel}" var="row"
+                      rows="#{bindings.WaitingProducts1.rangeSize}"
+                      emptyText="#{bindings.WaitingProducts1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.WaitingProducts1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.WaitingProducts1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.WaitingProducts1.rangeSize}"
+                      filterModel="#{bindings.WaitingProducts1Query.queryDescriptor}"
+                      queryListener="#{bindings.WaitingProducts1Query.processQuery}" filterVisible="true" varStatus="vs"
+                      id="t1" autoHeightRows="0">
+                <af:column id="c8" align="center" width="20">
+                    <af:button id="b1"/>
+                </af:column>
+                <af:column id="c9" align="center" width="20">
+                    <af:outputText value="#{vs.index+1}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.WaitingProducts1.hints.ProductCode.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.WaitingProducts1.hints.ProductCode.label}" id="c1"
+                           align="center">
+                    <af:outputText value="#{row.ProductCode}"
+                                   shortDesc="#{bindings.WaitingProducts1.hints.ProductCode.tooltip}" id="ot1"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.WaitingProducts1.hints.ProductName.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.WaitingProducts1.hints.ProductName.label}" id="c2"
+                           align="center">
+                    <af:outputText value="#{row.ProductName}"
+                                   shortDesc="#{bindings.WaitingProducts1.hints.ProductName.tooltip}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.WaitingProducts1.hints.Quantity.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.WaitingProducts1.hints.Quantity.label}" id="c3"
+                           align="center">
+                    <af:outputText value="#{row.Quantity}"
+                                   shortDesc="#{bindings.WaitingProducts1.hints.Quantity.tooltip}" id="ot3">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WaitingProducts1.hints.Quantity.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.WaitingProducts1.hints.CriticalLimit.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.WaitingProducts1.hints.CriticalLimit.label}" id="c4"
+                           align="center">
+                    <af:outputText value="#{row.CriticalLimit}"
+                                   shortDesc="#{bindings.WaitingProducts1.hints.CriticalLimit.tooltip}" id="ot4">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WaitingProducts1.hints.CriticalLimit.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.WaitingProducts1.hints.Price.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.WaitingProducts1.hints.Price.label}" id="c5"
+                           align="center">
+                    <af:outputText value="#{row.Price}" shortDesc="#{bindings.WaitingProducts1.hints.Price.tooltip}"
+                                   id="ot5">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.WaitingProducts1.hints.Price.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.WaitingProducts1.hints.Date.name}" filterable="true" sortable="true"
+                           headerText="#{bindings.WaitingProducts1.hints.Date.label}" id="c6" align="center">
+                    <f:facet name="filter">
+                        <af:inputDate value="#{bindings.WaitingProducts1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Date.value}"
+                                      id="id1">
+                            <af:convertDateTime pattern="#{bindings.WaitingProducts1.hints.Date.format}"/>
+                        </af:inputDate>
+                    </f:facet>
+                    <af:outputText value="#{row.Date}" shortDesc="#{bindings.WaitingProducts1.hints.Date.tooltip}"
+                                   id="ot6">
+                        <af:convertDateTime pattern="#{bindings.WaitingProducts1.hints.Date.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.WaitingProducts1.hints.Active.name}" filterable="true"
+                           sortable="true" headerText="#{bindings.WaitingProducts1.hints.Active.label}" id="c7"
+                           align="center">
+                    <af:selectOneChoice value="#{row.bindings.Active.inputValue}" label="#{row.bindings.Active.label}"
+                                        required="#{bindings.WaitingProducts1.hints.Active.mandatory}"
+                                        shortDesc="#{bindings.WaitingProducts1.hints.Active.tooltip}" id="soc1" contentStyle="color:red">
+                        <f:selectItems value="#{row.bindings.Active.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.Active.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column id="c20" width="50" align="center" headerText="Cancel">
+                    <af:button id="b5" inlineStyle="padding:2px;margin:2px"
+                               icon="/resources/images/remove_from_shortlist.gif"
+                               action="#{ProductActionsBean.confirmDeleteAction}"/>
+                </af:column>
+            </af:table>
+        </af:panelCollection>
+    </af:panelHeader>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
+              binding="#{ProductActionsBean.savedpopup}">
+        <af:dialog id="d2" type="none">
+            <f:facet name="buttonBar">
+                <af:button text="Go to Products" id="b2" action="#{RegionBean.productsBTF}"
+                           inlineStyle="padding:2px;margin:2px"/>
+                <af:button text="OK" id="b6" inlineStyle="padding:2px;margin:2px"
+                           action="#{ProductActionsBean.cancelSavedPopup}"/>
+            </f:facet>
+            <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+                <af:image source="/resources/images/JD-16-128.png" id="i1"/>
+            </af:panelGroupLayout>
+        </af:dialog>
+    </af:popup>
+</ui:composition>

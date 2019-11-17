@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="30px" id="gr1">
+      <af:gridCell marginStart="5px" width="65%" id="gc1"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc2"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" id="gr2">
+      <af:gridCell marginStart="5px" width="65%" id="gc3" valign="middle" halign="stretch">
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                           icon="/resources/images/undo_arrow_left_edit_back-16.png" action="Settings"/>
+                <af:button actionListener="#{bindings.CreateInsert.execute}"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/images/Add.gif"
+                           inlineStyle="padding:2px;margin:2px"/>
+                <af:button actionListener="#{bindings.Delete.execute}" id="b5" icon="/resources/images/delete-16px.png"
+                           inlineStyle="padding:2px;margin:2px"/>
+                <af:button id="b3" inlineStyle="padding:2px;margin:2px" icon="/resources/images/save.png"
+                           action="#{SettingsBean.saveSpecilization}"/>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.Specialization1.collectionModel}" var="row"
+                      rows="#{bindings.Specialization1.rangeSize}"
+                      emptyText="#{bindings.Specialization1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.Specialization1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Specialization1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.Specialization1.rangeSize}" id="t1" varStatus="vs" width="100%"
+                      scrollPolicy="page" autoHeightRows="-1" partialTriggers="::b5">
+              <af:column id="c3" align="center" width="20">
+                <af:button id="b1"/>
+              </af:column>
+              <af:column id="c4" align="center" width="20">
+                <af:outputText value="#{vs.index+1}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Specialization1.hints.QualificationId.name}" sortable="true"
+                         headerText="#{bindings.Specialization1.hints.QualificationId.label}" id="c1" align="center"
+                         width="250">
+                <af:selectOneChoice value="#{row.bindings.QualificationId.inputValue}"
+                                    label="#{row.bindings.QualificationId.label}"
+                                    required="#{bindings.Specialization1.hints.QualificationId.mandatory}"
+                                    shortDesc="#{bindings.Specialization1.hints.QualificationId.tooltip}" id="soc1"
+                                    contentStyle="text-align:center">
+                  <f:selectItems value="#{row.bindings.QualificationId.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.QualificationId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.Specialization1.hints.Specialization.name}" sortable="true"
+                         headerText="#{bindings.Specialization1.hints.Specialization.label}" id="c2" align="center"
+                         width="250" displayIndex="-1">
+                <af:inputText value="#{row.bindings.Specialization.inputValue}"
+                              label="#{bindings.Specialization1.hints.Specialization.label}"
+                              required="#{bindings.Specialization1.hints.Specialization.mandatory}"
+                              columns="#{bindings.Specialization1.hints.Specialization.displayWidth}"
+                              maximumLength="#{bindings.Specialization1.hints.Specialization.precision}"
+                              shortDesc="#{bindings.Specialization1.hints.Specialization.tooltip}" id="it1"
+                              contentStyle="text-align:center">
+                  <f:validator binding="#{row.bindings.Specialization.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc4" halign="center" valign="middle">
+        <af:panelBox id="pb1" showDisclosure="false">
+          <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+            <af:image source="/resources/images/demo/report1-128px.png" id="i1"/>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr3">
+      <af:gridCell marginStart="5px" width="65%" id="gc5"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc6"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+            contentDelivery="lazyUncached" binding="#{SettingsBean.specilization_popup}">
+    <af:dialog id="d5" type="ok">
+      <af:panelGroupLayout id="pgl19" halign="center" layout="vertical">
+        <af:activeImage source="/resources/images/JD-16-128.png" id="ai1"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="ProductsPageDef"
+                Package="pages.Products">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MainProducts1" RangeSize="8" DataControl="ProductsAppModuleAMDataControl"
+              id="MainProducts1Iterator"/>
+    <searchRegion Binds="MainProducts1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="MainProducts1Query"/>
+    <searchRegion Criteria="MainProductsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MainProducts1Iterator" id="MainProductsVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MainProducts1Iterator" id="MainProducts1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.products.MainProductsVO" Name="MainProducts10">
+        <AttrNames>
+          <Item Value="ProductCode"/>
+          <Item Value="ProductName"/>
+          <Item Value="Quantity"/>
+          <Item Value="CriticalLimit"/>
+          <Item Value="Price"/>
+          <Item Value="Date"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="MainProducts1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="ProductCode">
+      <AttrNames>
+        <Item Value="ProductCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Quantity">
+      <AttrNames>
+        <Item Value="Quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="CriticalLimit">
+      <AttrNames>
+        <Item Value="CriticalLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Price">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="MainProducts1Iterator" StaticList="false" Uses="LOV_Active" id="Active" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action id="Commit" DataControl="ProductsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <methodAction id="setActiveProducts" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveProducts"
+                  IsViewObjectMethod="false" DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.setActiveProducts_ProductsAppModuleAMDataControl_dataProvider_setActiveProducts_result"/>
+    <methodAction id="setWaitingProducts" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setWaitingProducts" IsViewObjectMethod="false"
+                  DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.setWaitingProducts_ProductsAppModuleAMDataControl_dataProvider_setWaitingProducts_result"/>
+    <methodAction id="deleteRequests" RequiresUpdateModel="true" Action="invokeMethod" MethodName="deleteRequests"
+                  IsViewObjectMethod="false" DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.deleteRequests_ProductsAppModuleAMDataControl_dataProvider_deleteRequests_result">
+      <NamedData NDName="productId" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

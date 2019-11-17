@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DiscountQuantityReportVO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Variable
+    Name="pOrderNumber"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
+  <Variable
+    Name="pCode"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pRawMaterial"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="DepartmentsVO1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.storeActions.dropdownlist.DepartmentsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OresTypeVO1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.storeActions.dropdownlist.OresTypeVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UnitsVO1"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.storeActions.dropdownlist.UnitsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_DepartmentId"
+    ListVOName="DepartmentsVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
+    <AttrArray Name="AttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DepartmentName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Unit"
+    ListVOName="UnitsVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Unit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Unit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ThiknessUnit"
+    ListVOName="UnitsVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ThiknessUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Unit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WidthUnit"
+    ListVOName="UnitsVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WidthUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Unit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_LengthUnit"
+    ListVOName="UnitsVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LengthUnit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Unit"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OresTypeId"
+    ListVOName="OresTypeVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OresTypeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OresTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OresType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="OresDiscountEO"
+    Entity="oracle.medical.app.model.bc.entity.storeActions.OresDiscountEO"/>
+  <EntityUsage
+    Name="OresEO"
+    Entity="oracle.medical.app.model.bc.entity.storeActions.OresEO"
+    Association="oracle.medical.app.model.bc.entity.storeActions.assoc.OresDiscountFKAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.storeActions.assoc.OresDiscountFKAssoc.Ores"
+    SourceUsage="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.OresDiscountEO"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresDiscountEO.OreId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="oracle.medical.app.model.bc.entity.storeActions.OresEO.OreId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="OreDiscountId"
+    PrecisionRule="true"
+    EntityAttrName="OreDiscountId"
+    EntityUsage="OresDiscountEO"
+    AliasName="ORE_DISCOUNT_ID"/>
+  <ViewAttribute
+    Name="OreId"
+    PrecisionRule="true"
+    EntityAttrName="OreId"
+    EntityUsage="OresDiscountEO"
+    AliasName="ORE_ID"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="OresDiscountEO"
+    AliasName="DEPARTMENT_ID"
+    LOVName="LOV_DepartmentId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.DepartmentId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DiscountQuantity"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DiscountQuantity"
+    EntityUsage="OresDiscountEO"
+    AliasName="DISCOUNT_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.DiscountQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderNo"
+    PrecisionRule="true"
+    EntityAttrName="OrderNo"
+    EntityUsage="OresDiscountEO"
+    AliasName="ORDER_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.OrderNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Accepted"
+    PrecisionRule="true"
+    EntityAttrName="Accepted"
+    EntityUsage="OresDiscountEO"
+    AliasName="ACCEPTED"/>
+  <ViewAttribute
+    Name="DiscountDate"
+    PrecisionRule="true"
+    EntityAttrName="DiscountDate"
+    EntityUsage="OresDiscountEO"
+    AliasName="DISCOUNT_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.DiscountDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.DiscountDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.DiscountDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OreId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OreId"
+    EntityUsage="OresEO"
+    AliasName="ORE_ID1"/>
+  <ViewAttribute
+    Name="OreCode"
+    PrecisionRule="true"
+    EntityAttrName="OreCode"
+    EntityUsage="OresEO"
+    AliasName="ORE_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.OreCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OreName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OreName"
+    EntityUsage="OresEO"
+    AliasName="ORE_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.OreName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OresTypeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OresTypeId"
+    EntityUsage="OresEO"
+    AliasName="ORES_TYPE_ID"
+    LOVName="LOV_OresTypeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO.OresTypeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Length"
+    PrecisionRule="true"
+    EntityAttrName="Length"
+    EntityUsage="OresEO"
+    AliasName="LENGTH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LengthUnit"
+    PrecisionRule="true"
+    EntityAttrName="LengthUnit"
+    EntityUsage="OresEO"
+    AliasName="LENGTH_UNIT"
+    LOVName="LOV_LengthUnit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Width"
+    PrecisionRule="true"
+    EntityAttrName="Width"
+    EntityUsage="OresEO"
+    AliasName="WIDTH">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WidthUnit"
+    PrecisionRule="true"
+    EntityAttrName="WidthUnit"
+    EntityUsage="OresEO"
+    AliasName="WIDTH_UNIT"
+    LOVName="LOV_WidthUnit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Thikness"
+    PrecisionRule="true"
+    EntityAttrName="Thikness"
+    EntityUsage="OresEO"
+    AliasName="THIKNESS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ThiknessUnit"
+    PrecisionRule="true"
+    EntityAttrName="ThiknessUnit"
+    EntityUsage="OresEO"
+    AliasName="THIKNESS_UNIT"
+    LOVName="LOV_ThiknessUnit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Unit"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Unit"
+    EntityUsage="OresEO"
+    AliasName="UNIT"
+    LOVName="LOV_Unit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="DiscountQuantityReportVOCriteria"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="DiscountQuantityReportVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="OrderNo"
+        ViewAttribute="OrderNo"
+        Operator="="
+        Conjunction="AND"
+        Value=":pOrderNumber"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OreCode"
+        ViewAttribute="OreCode"
+        Operator="="
+        Conjunction="AND"
+        Value=":pCode"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OreName"
+        ViewAttribute="OreName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":pRawMaterial"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="Ores"
+    ViewLink="oracle.medical.app.model.bc.uiview.storeActions.vulink.DiscountQuantityReportVuLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="DiscountQuantityReportVOWhereCriteria"
+      ViewObjectName="oracle.medical.app.model.bc.uiview.storeActions.DiscountQuantityReportVO"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="DiscountQuantityReportVOWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="DiscountQuantityReportVOWhereCriteria_DiscountQuantityReportVOWhereCriteria_row_0_Accepted"
+          ViewAttribute="Accepted"
+          Operator="="
+          Conjunction="AND"
+          Value="'Y'"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.medical.app.model.MedicalDevicesModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

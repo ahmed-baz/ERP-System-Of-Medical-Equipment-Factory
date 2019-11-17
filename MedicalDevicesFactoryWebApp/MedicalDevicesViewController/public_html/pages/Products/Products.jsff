@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="20px" id="gr1">
+      <af:gridCell marginStart="5px" width="25%" id="gc1" halign="start" valign="middle">
+        <af:toolbar id="t1"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="50%" id="gc2" halign="center" valign="middle">
+        <af:button text="إضافة منتج جديد" id="b4" inlineStyle="padding:2px;margin:2px" action="NewProduct"
+                   icon="/resources/images/Add.gif"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc3" halign="end" valign="middle">
+        <af:button text="Export" id="b1" inlineStyle="padding:2px;margin:2px" action="ExportedProducts"/>
+        <af:button id="b8" inlineStyle="padding:2px;margin:2px" action="#{RegionBean.mainHomeBTF}"
+                   icon="/resources/images/undo_arrow_left_edit_back-16.png"/>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="80px" marginBottom="5px" id="gr2">
+      <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc4" halign="stretch" valign="stretch"
+                   width="100%">
+        <af:panelGroupLayout layout="vertical" id="pgl3">
+          <af:panelHeader text="البحث فــي النتجــــات" id="ph1" icon="/resources/images/search_magnifi-20.png">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:query id="qryId2" headerText="Search" disclosed="true"
+                      value="#{bindings.MainProductsVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.MainProductsVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.MainProductsVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.MainProductsVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1" displayMode="compact" saveQueryMode="hidden" rows="2"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.MainProducts1.collectionModel}" var="row"
+                      rows="#{bindings.MainProducts1.rangeSize}"
+                      emptyText="#{bindings.MainProducts1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.MainProducts1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.MainProducts1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.MainProducts1.rangeSize}"
+                      filterModel="#{bindings.MainProducts1Query.queryDescriptor}"
+                      queryListener="#{bindings.MainProducts1Query.processQuery}" varStatus="vs"
+                      id="t2" width="100%" scrollPolicy="page" autoHeightRows="0" columnSelection="single">
+              <af:column id="c8" align="center" width="20">
+                <af:button id="b3"/>
+              </af:column>
+              <af:column id="c7" align="center" width="20" headerText="#">
+                <af:outputText value="#{vs.index+1}" id="ot7"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.ProductCode.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.MainProducts1.hints.ProductCode.label}" id="c1"
+                         align="center" width="110">
+                <af:link shortDesc="#{bindings.MainProducts1.hints.ProductCode.tooltip}" id="ot1"
+                         text="#{row.ProductCode}" action="Selected-Product"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.ProductName.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.MainProducts1.hints.ProductName.label}" id="c2"
+                         align="center" width="200">
+                <af:link shortDesc="#{bindings.MainProducts1.hints.ProductName.tooltip}" id="ot2"
+                         text="#{row.ProductName}" action="Selected-Product"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.Quantity.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.MainProducts1.hints.Quantity.label}" id="c3" align="center" width="110">
+                <af:outputText value="#{row.Quantity}" shortDesc="#{bindings.MainProducts1.hints.Quantity.tooltip}"
+                               id="ot3">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.MainProducts1.hints.Quantity.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.CriticalLimit.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.MainProducts1.hints.CriticalLimit.label}" id="c4"
+                         align="center" width="110">
+                <af:outputText value="#{row.CriticalLimit}"
+                               shortDesc="#{bindings.MainProducts1.hints.CriticalLimit.tooltip}" id="ot4">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.MainProducts1.hints.CriticalLimit.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.Price.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.MainProducts1.hints.Price.label}" id="c5" align="center" width="110">
+                <af:outputText value="#{row.Price}" shortDesc="#{bindings.MainProducts1.hints.Price.tooltip}" id="ot5">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.MainProducts1.hints.Price.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.MainProducts1.hints.Date.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.MainProducts1.hints.Date.label}" id="c6" align="center" width="110">
+                <f:facet name="filter">
+                  <af:inputDate value="#{bindings.MainProducts1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Date.value}"
+                                id="id1">
+                    <af:convertDateTime pattern="#{bindings.MainProducts1.hints.Date.format}"/>
+                  </af:inputDate>
+                </f:facet>
+                <af:outputText value="#{row.Date}" shortDesc="#{bindings.MainProducts1.hints.Date.tooltip}" id="ot6">
+                  <af:convertDateTime pattern="#{bindings.MainProducts1.hints.Date.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column id="c9" align="center" width="70" headerText="Edit"
+                         rendered="#{LoginBean.user.roleId eq '100' or LoginBean.user.roleId eq '103' ? true : false}">
+                <af:button id="b2" inlineStyle="padding:2px;margin:2px" icon="/resources/images/edit.gif">
+                  <af:showPopupBehavior popupId=":::p2" triggerType="action"/>
+                </af:button>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
+            binding="#{ProductsBean.updateproductpopup}">
+    <af:dialog id="d2" type="none">
+      <f:facet name="buttonBar">
+        <af:button id="b7" inlineStyle="padding:2px;margin:2px" icon="/resources/images/save.png"
+                   action="#{ProductsBean.saveupdatedproduct}"/>
+        <af:button text="Cancel" id="b9" inlineStyle="padding:2px;margin:2px"
+                   action="#{ProductsBean.cancelupdateproductpopup}"/>
+      </f:facet>
+      <af:panelFormLayout id="pfl1" rows="7">
+        <af:inputText value="#{bindings.ProductId.inputValue}" label="#{bindings.ProductId.hints.label}"
+                      required="#{bindings.ProductId.hints.mandatory}"
+                      columns="#{bindings.ProductId.hints.displayWidth}"
+                      maximumLength="#{bindings.ProductId.hints.precision}"
+                      shortDesc="#{bindings.ProductId.hints.tooltip}" id="it6" rendered="false">
+          <f:validator binding="#{bindings.ProductId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.ProductCode.inputValue}" label="#{bindings.ProductCode.hints.label}"
+                      required="#{bindings.ProductCode.hints.mandatory}"
+                      columns="30"
+                      maximumLength="#{bindings.ProductCode.hints.precision}"
+                      shortDesc="#{bindings.ProductCode.hints.tooltip}" id="it1" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.ProductCode.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.ProductName.inputValue}" label="#{bindings.ProductName.hints.label}"
+                      required="#{bindings.ProductName.hints.mandatory}"
+                      columns="30"
+                      maximumLength="#{bindings.ProductName.hints.precision}"
+                      shortDesc="#{bindings.ProductName.hints.tooltip}" id="it2" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.ProductName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Quantity.inputValue}" label="#{bindings.Quantity.hints.label}"
+                      required="#{bindings.Quantity.hints.mandatory}" columns="30"
+                      maximumLength="#{bindings.Quantity.hints.precision}"
+                      shortDesc="#{bindings.Quantity.hints.tooltip}" id="it3" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.Quantity.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.Quantity.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.CriticalLimit.inputValue}" label="#{bindings.CriticalLimit.hints.label}"
+                      required="#{bindings.CriticalLimit.hints.mandatory}"
+                      columns="30"
+                      maximumLength="#{bindings.CriticalLimit.hints.precision}"
+                      shortDesc="#{bindings.CriticalLimit.hints.tooltip}" id="it4" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.CriticalLimit.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.CriticalLimit.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Price.inputValue}" label="#{bindings.Price.hints.label}"
+                      required="#{bindings.Price.hints.mandatory}" columns="30"
+                      maximumLength="#{bindings.Price.hints.precision}" shortDesc="#{bindings.Price.hints.tooltip}"
+                      id="it5" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.Price.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.Price.format}"/>
+        </af:inputText>
+        <af:inputDate value="#{bindings.Date.inputValue}" label="#{bindings.Date.hints.label}"
+                      required="#{bindings.Date.hints.mandatory}" columns="30"
+                      shortDesc="#{bindings.Date.hints.tooltip}" id="id3" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.Date.validator}"/>
+          <af:convertDateTime pattern="#{bindings.Date.format}"/>
+        </af:inputDate>
+        <af:selectOneRadio value="#{bindings.Active.inputValue}" label="#{bindings.Active.label}"
+                           required="#{bindings.Active.hints.mandatory}" shortDesc="#{bindings.Active.hints.tooltip}"
+                           id="sor1" labelStyle="text-align:left" layout="horizontal">
+          <f:selectItems value="#{bindings.Active.items}" id="si1"/>
+          <f:validator binding="#{bindings.Active.validator}"/>
+        </af:selectOneRadio>
+        <af:panelBox id="pb1" showDisclosure="false" inlineStyle="width:420px">
+          <af:panelGroupLayout id="pgl16" layout="vertical" halign="center">
+            <af:image id="i2" inlineStyle="width:140px;height:120px"/>
+            <af:inputFile label="New Image" id="if1"/>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:panelFormLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

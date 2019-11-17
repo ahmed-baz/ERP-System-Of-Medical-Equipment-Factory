@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <af:panelGridLayout id="pgl7">
+        <af:gridRow marginTop="5px" id="gr4">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="end">
+                <af:panelGroupLayout id="pgl4" rendered="#{adfFacesContext.outputMode == 'printable'}">
+                    <af:activeImage id="ai2" source="/resources/images/Date.PNG"/>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" height="100%" id="gr5">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc5" halign="stretch" valign="stretch">
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="البحث في تقرير الكميات المسحوبة من المنتجــــات" id="ph1"
+                                    icon="/resources/images/search_magnifi-20.png">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.ProductDiscountReportVOCriteriaQuery.queryDescriptor}"
+                                  model="#{bindings.ProductDiscountReportVOCriteriaQuery.queryModel}"
+                                  queryListener="#{bindings.ProductDiscountReportVOCriteriaQuery.processQuery}"
+                                  queryOperationListener="#{bindings.ProductDiscountReportVOCriteriaQuery.processQueryOperation}"
+                                  resultComponentId="::pc1" displayMode="compact" saveQueryMode="hidden"
+                                  rendered="#{adfFacesContext.outputMode != 'printable'}"/>
+                    </af:panelHeader>
+                    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:button id="b3" inlineStyle="padding:2px;margin:2px"
+                                           icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                                           action="#{RegionBean.reportBTF}"/>
+                                <af:button id="b1" inlineStyle="padding:2px;margin:2px"
+                                           icon="/resources/images/download_1-20.png">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="resId1"
+                                                                       filename="تقرير المنتجات المٌخصمـــة.xls"
+                                                                       title="المنتجات المٌخصمـــة"/>
+                                </af:button>
+                                <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                                           icon="/resources/images/print-20px.png">
+                                    <af:showPrintablePageBehavior/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.ProductDiscountReport2.collectionModel}" var="row"
+                                  rows="#{bindings.ProductDiscountReport2.rangeSize}"
+                                  emptyText="#{bindings.ProductDiscountReport2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ProductDiscountReport2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ProductDiscountReport2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ProductDiscountReport2.rangeSize}"
+                                  id="resId1" width="100%" autoHeightRows="0">
+                            <af:column sortProperty="#{bindings.ProductDiscountReport2.hints.ProductCode.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductDiscountReport2.hints.ProductCode.label}"
+                                       id="resId1c1" align="center">
+                                <af:outputText value="#{row.ProductCode}"
+                                               shortDesc="#{bindings.ProductDiscountReport2.hints.ProductCode.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductDiscountReport2.hints.ProductName.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductDiscountReport2.hints.ProductName.label}"
+                                       id="resId1c2" align="center" width="150">
+                                <af:outputText value="#{row.ProductName}"
+                                               shortDesc="#{bindings.ProductDiscountReport2.hints.ProductName.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductDiscountReport2.hints.Quantity.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductDiscountReport2.hints.Quantity.label}"
+                                       id="resId1c3" align="center">
+                                <af:outputText value="#{row.Quantity}"
+                                               shortDesc="#{bindings.ProductDiscountReport2.hints.Quantity.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ProductDiscountReport2.hints.Quantity.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductDiscountReport2.hints.OrderNo.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductDiscountReport2.hints.OrderNo.label}"
+                                       id="resId1c4" align="center">
+                                <af:outputText value="#{row.OrderNo}"
+                                               shortDesc="#{bindings.ProductDiscountReport2.hints.OrderNo.tooltip}"
+                                               id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ProductDiscountReport2.hints.OrderNo.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductDiscountReport2.hints.Client.name}"
+                                       sortable="true"
+                                       headerText="#{bindings.ProductDiscountReport2.hints.Client.label}" id="resId1c5"
+                                       align="center">
+                                <af:outputText value="#{row.Client}"
+                                               shortDesc="#{bindings.ProductDiscountReport2.hints.Client.tooltip}"
+                                               id="ot5"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ProductDiscountReport2.hints.Date.name}" sortable="true"
+                                       headerText="#{bindings.ProductDiscountReport2.hints.Date.label}" id="resId1c6"
+                                       align="center">
+                                <af:outputText value="#{row.Date}"
+                                               shortDesc="#{bindings.ProductDiscountReport2.hints.Date.tooltip}"
+                                               id="ot6">
+                                    <af:convertDateTime pattern="#{bindings.ProductDiscountReport2.hints.Date.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow marginTop="5px" marginBottom="5px" id="gr6">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc6">
+                <af:panelGroupLayout id="pgl3" rendered="#{adfFacesContext.outputMode == 'printable'}">
+                    <af:activeImage source="/resources/images/signature.PNG" id="ai1"/>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>

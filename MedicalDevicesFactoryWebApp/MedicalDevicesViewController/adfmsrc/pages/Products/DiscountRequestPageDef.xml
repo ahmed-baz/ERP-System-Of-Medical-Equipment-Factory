@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="DiscountRequestPageDef"
+                Package="pages.Products">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductDiscount1" RangeSize="25" DataControl="ProductsAppModuleAMDataControl"
+              id="ProductDiscount1Iterator"/>
+    <iterator id="MainProducts1Iterator" Binds="MainProducts1" DataControl="ProductsAppModuleAMDataControl"
+              RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ProductDiscount1Iterator" id="Quantity">
+      <AttrNames>
+        <Item Value="Quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductDiscount1Iterator" id="OrderNo">
+      <AttrNames>
+        <Item Value="OrderNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductDiscount1Iterator" id="Client">
+      <AttrNames>
+        <Item Value="Client"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductDiscount1Iterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductDiscount1Iterator" id="Limit">
+      <AttrNames>
+        <Item Value="Limit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Addnew">
+      <AttrNames>
+        <Item Value="Addnew"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductDiscount1Iterator" id="ProductCode">
+      <AttrNames>
+        <Item Value="ProductCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductDiscount1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="ProductsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <methodAction id="setActiveProducts" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveProducts"
+                  IsViewObjectMethod="false" DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.setActiveProducts_ProductsAppModuleAMDataControl_dataProvider_setActiveProducts_result"/>
+  </bindings>
+</pageDefinition>

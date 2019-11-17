@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SergeantsEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SERGEANTS"
+  AliasName="SergeantsEO"
+  BindingStyle="OracleName"
+  RowClass="oracle.medical.app.model.bc.entity.Individuals.SergeantsEOImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="SergeantId"
+    Precision="10"
+    Scale="0"
+    ColumnName="SERGEANT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="FullName"
+    IsNotNull="true"
+    Precision="255"
+    ColumnName="FULL_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERGEANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MilitaryNumber"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="13"
+    Scale="0"
+    ColumnName="MILITARY_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="Ssn"
+    IsUnique="true"
+    Precision="14"
+    Scale="0"
+    ColumnName="SSN"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="BirthDate"
+    IsNotNull="true"
+    ColumnName="BIRTH_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="RecruitmentDate"
+    IsNotNull="true"
+    ColumnName="RECRUITMENT_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="JoinDate"
+    IsNotNull="true"
+    ColumnName="JOIN_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="CityId"
+    Precision="4"
+    Scale="0"
+    ColumnName="CITY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="Address"
+    Precision="255"
+    ColumnName="ADDRESS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERGEANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PhoneNumber"
+    Precision="15"
+    ColumnName="PHONE_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERGEANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Image"
+    IsQueriable="false"
+    ColumnName="IMAGE"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="QualificationId"
+    Precision="4"
+    Scale="0"
+    ColumnName="QUALIFICATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="SpecializationId"
+    Precision="4"
+    Scale="0"
+    ColumnName="SPECIALIZATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="DepartmentId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="DEPARTMENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="MilitaryRankId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="MILITARY_RANK_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="MilitaryServiceId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="MILITARY_SERVICE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="MaritalStatusId"
+    Precision="4"
+    Scale="0"
+    ColumnName="MARITAL_STATUS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS"/>
+  <Attribute
+    Name="UniversityId"
+    Precision="10"
+    Scale="0"
+    ColumnName="UNIVERSITY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERGEANTS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Active"
+    Precision="1"
+    ColumnName="ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERGEANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="City"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.CitySergeantsAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.CitySergeantsAssoc.City"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.CitySergeantsAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MaritalStatus"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsMaritalStatusAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsMaritalStatusAssoc.MaritalStatus"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsMaritalStatusAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MilitaryService"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsMilitaryServiceAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsMilitaryServiceAssoc.MilitaryService"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsMilitaryServiceAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MilitaryRanks"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsRankAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsRankAssoc.MilitaryRanks"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsRankAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Universities"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.UniversitySergeantsAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.UniversitySergeantsAssoc.Universities"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.UniversitySergeantsAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Specialization"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SpecializationSergeantsAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SpecializationSergeantsAssoc.Specialization"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SpecializationSergeantsAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Qualification"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsQualificationAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsQualificationAssoc.Qualification"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsQualificationAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Departments"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.DeptSergeantsAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.DeptSergeantsAssoc.Departments"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.DeptSergeantsAssoc.Sergeants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MilitaryNumberEOKey"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SERGEANTS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.MilitaryNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="PhoneNumberEOKey"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SERGEANTS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.PhoneNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SSNEOKey"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SSNEOKey"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.Ssn"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007103"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007103"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.SergeantId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007104">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C007104"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.MilitaryNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007105">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C007105"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.Ssn"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CitySergeants">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007033"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CITY_SERGEANTS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.CityId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DeptSergeants">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007089"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DEPT_SERGEANTS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.DepartmentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SergeantsMaritalStatus">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007135"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SERGEANTS_MARITAL_STATUS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.MaritalStatusId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SergeantsMilitaryService">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007108"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SERGEANTS_MILITARY_SERVICE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.MilitaryServiceId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SergeantsQualification">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007027"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SERGEANTS_QUALIFICATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.QualificationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SergeantsRank">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007001"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SERGEANTS_RANK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.MilitaryRankId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SpecializationSergeants">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007024"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SPECIALIZATION_SERGEANTS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.SpecializationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UniversitySergeants">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007138"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="UNIVERSITY_SERGEANTS"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO.UniversityId"/>
+    </AttrArray>
+  </Key>
+  <validation:UniqueKeyValidationBean
+    Name="SergeantsEORule0"
+    ResId="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO_Rule_0"
+    KeyName="MilitaryNumberEOKey">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="MilitaryNumber"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
+  <validation:UniqueKeyValidationBean
+    Name="SergeantsEORule1"
+    ResId="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO_Rule_1"
+    KeyName="PhoneNumberEOKey">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="PhoneNumber"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
+  <validation:UniqueKeyValidationBean
+    Name="SergeantsEORule2"
+    ResId="oracle.medical.app.model.bc.entity.Individuals.SergeantsEO_Rule_2"
+    KeyName="SSNEOKey">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="Ssn"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.medical.app.model.MedicalDevicesModelBundle"/>
+  </ResourceBundle>
+</Entity>

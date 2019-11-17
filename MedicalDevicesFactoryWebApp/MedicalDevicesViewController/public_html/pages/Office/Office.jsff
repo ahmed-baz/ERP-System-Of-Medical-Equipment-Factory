@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelDashboard id="pd1" columns="3" rowHeight="220px">
+    <af:panelBox text="الضبــــاط" id="pb1" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl1" halign="center" layout="vertical">
+        <af:link id="l1" icon="/resources/images/officer-128px.png" action="#{RegionBean.officersBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="الراتب العالي" id="pb2" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+        <af:link id="l2" icon="/resources/images/Sergeant-128px.png" action="#{RegionBean.sergeantsBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="الجنود" id="pb3" showDisclosure="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl3" halign="center" layout="vertical">
+        <af:link id="l3" icon="/resources/images/soldier-128px.png" action="#{RegionBean.solidersBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="قوة التأمين" id="pb4" showDisclosure="false" rendered="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl4" halign="center" layout="vertical">
+        <af:link id="l4" icon="/resources/images/officer-128px.png"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="العاملين المدنيين" id="pb5" showDisclosure="false" rendered="false">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl5" halign="center" layout="vertical">
+        <af:link id="l5" icon="/resources/images/workers-128px.png" action="#{RegionBean.civilianBTF}"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+  </af:panelDashboard>
+</ui:composition>

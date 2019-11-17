@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="NewQualificationPagePageDef"
+                Package="pages.Settings.qualification">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Qualification1" RangeSize="25" DataControl="SettingsAppModuleAMDataControl"
+              id="Qualification1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Qualification1Iterator" id="Qualification">
+      <AttrNames>
+        <Item Value="Qualification"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="SettingsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="Soliders_BTF_Soliders_BTF_CreateInsertPageDef" Package="Task_Flows.Office" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="NewSoldier1" RangeSize="25" DataControl="IndividualsAppModuleAMDataControl"
+              id="NewSoldier1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="NewSoldier1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

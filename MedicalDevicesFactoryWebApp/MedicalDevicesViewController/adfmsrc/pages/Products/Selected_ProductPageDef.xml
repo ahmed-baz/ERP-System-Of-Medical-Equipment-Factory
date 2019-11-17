@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="Selected_ProductPageDef"
+                Package="pages.Products">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MainProducts1" RangeSize="25" DataControl="ProductsAppModuleAMDataControl"
+              id="MainProducts1Iterator"/>
+    <iterator Binds="ProductDiscount1" RangeSize="25" DataControl="ProductsAppModuleAMDataControl"
+              id="ProductDiscount1Iterator"/>
+    <iterator Binds="ProductAddition1" RangeSize="10" DataControl="ProductsAppModuleAMDataControl"
+              id="ProductAddition1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="MainProducts1Iterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="ProductCode">
+      <AttrNames>
+        <Item Value="ProductCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Quantity">
+      <AttrNames>
+        <Item Value="Quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="CriticalLimit">
+      <AttrNames>
+        <Item Value="CriticalLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Price">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Addnew">
+      <AttrNames>
+        <Item Value="Addnew"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainProducts1Iterator" id="Image">
+      <AttrNames>
+        <Item Value="Image"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="ProductsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action IterBinding="MainProducts1Iterator" id="Delete" InstanceName="ProductsAppModuleAMDataControl.MainProducts1"
+            DataControl="ProductsAppModuleAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ProductDiscount1Iterator" id="CreateInsert"
+            InstanceName="ProductsAppModuleAMDataControl.ProductDiscount1" DataControl="ProductsAppModuleAMDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ProductAddition1Iterator" id="CreateInsert1"
+            InstanceName="ProductsAppModuleAMDataControl.ProductAddition1" DataControl="ProductsAppModuleAMDataControl"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <methodAction id="deleteChild" RequiresUpdateModel="true" Action="invokeMethod" MethodName="deleteChild"
+                  IsViewObjectMethod="false" DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.deleteChild_ProductsAppModuleAMDataControl_dataProvider_deleteChild_result">
+      <NamedData NDName="productId" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <methodAction id="setActiveProducts" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveProducts"
+                  IsViewObjectMethod="false" DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.setActiveProducts_ProductsAppModuleAMDataControl_dataProvider_setActiveProducts_result"/>
+    <methodAction id="setWaitingProducts" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setWaitingProducts" IsViewObjectMethod="false"
+                  DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.setWaitingProducts_ProductsAppModuleAMDataControl_dataProvider_setWaitingProducts_result"/>
+    <methodAction id="nonAcceptedAddRequests" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="nonAcceptedAddRequests" IsViewObjectMethod="false"
+                  DataControl="ProductsAppModuleAMDataControl"
+                  InstanceName="data.ProductsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.ProductsAppModuleAMDataControl.methodResults.nonAcceptedAddRequests_ProductsAppModuleAMDataControl_dataProvider_nonAcceptedAddRequests_result"/>
+  </bindings>
+</pageDefinition>

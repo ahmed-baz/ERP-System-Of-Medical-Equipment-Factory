@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WorkersMaritalStatusAssoc"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="MaritalStatus"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.medical.app.model.bc.entity.Individuals.MaritalStatusEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MaritalStatus"/>
+      <Attr Name="_foreignKey" Value="oracle.medical.app.model.bc.entity.Individuals.MaritalStatusEO.SysC007135"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.MaritalStatusEO.MaritalStatusId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Workers"
+    Cardinality="-1"
+    Owner="oracle.medical.app.model.bc.entity.Individuals.WorkersEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Workers"/>
+      <Attr Name="_foreignKey" Value="oracle.medical.app.model.bc.entity.Individuals.WorkersEO.WorkersMaritalStatus"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.WorkersEO.MaritalStatusId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

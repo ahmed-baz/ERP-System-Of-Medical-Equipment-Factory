@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="50px" id="gr1">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" id="gr2">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" valign="stretch" halign="stretch">
+        <af:panelDashboard id="pd1" rowHeight="250px">
+          <af:panelBox id="pb1" showDisclosure="false" showHeader="never" background="medium">
+            <af:panelFormLayout id="pfl1">
+              <af:selectOneChoice value="#{bindings.MilitaryRankId.inputValue}" label="#{bindings.MilitaryRankId.label}"
+                                  required="#{bindings.MilitaryRankId.hints.mandatory}"
+                                  shortDesc="#{bindings.MilitaryRankId.hints.tooltip}" readOnly="true" id="soc1"
+                                  labelStyle="text-align:left">
+                <f:selectItems value="#{bindings.MilitaryRankId.items}" id="si2"/>
+                <f:validator binding="#{bindings.MilitaryRankId.validator}"/>
+              </af:selectOneChoice>
+              <af:separator id="s1"/>
+              <af:inputText value="#{bindings.FirstName.inputValue}" required="#{bindings.FirstName.hints.mandatory}"
+                            columns="#{bindings.FirstName.hints.displayWidth}"
+                            maximumLength="#{bindings.FirstName.hints.precision}"
+                            shortDesc="#{bindings.FirstName.hints.tooltip}" id="it1" readOnly="true"
+                            label="#{bindings.FirstName.hints.label}" labelStyle="text-align:left">
+                <f:validator binding="#{bindings.FirstName.validator}"/>
+              </af:inputText>
+              <af:separator id="s3"/>
+              <af:inputText value="#{bindings.LastName.inputValue}" required="#{bindings.LastName.hints.mandatory}"
+                            columns="#{bindings.LastName.hints.displayWidth}"
+                            maximumLength="#{bindings.LastName.hints.precision}"
+                            shortDesc="#{bindings.LastName.hints.tooltip}" id="it2" readOnly="true"
+                            label="#{bindings.LastName.hints.label}" labelStyle="text-align:left">
+                <f:validator binding="#{bindings.LastName.validator}"/>
+              </af:inputText>
+              <af:separator id="s2"/>
+              <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                            required="#{bindings.Email.hints.mandatory}" columns="#{bindings.Email.hints.displayWidth}"
+                            maximumLength="#{bindings.Email.hints.precision}"
+                            shortDesc="#{bindings.Email.hints.tooltip}" id="it3" readOnly="true"
+                            labelStyle="text-align:left">
+                <f:validator binding="#{bindings.Email.validator}"/>
+              </af:inputText>
+              <af:separator id="s4"/>
+              <af:inputText value="#{bindings.PhoneNumber.inputValue}" label="#{bindings.PhoneNumber.hints.label}"
+                            required="#{bindings.PhoneNumber.hints.mandatory}"
+                            columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                            maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                            shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it4" readOnly="true"
+                            labelStyle="text-align:left">
+                <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+              </af:inputText>
+              <af:separator id="s5"/>
+              <af:selectOneChoice value="#{bindings.RoleId.inputValue}" label="#{bindings.RoleId.label}"
+                                  required="#{bindings.RoleId.hints.mandatory}"
+                                  shortDesc="#{bindings.RoleId.hints.tooltip}" readOnly="true" id="soc2"
+                                  labelStyle="text-align:left">
+                <f:selectItems value="#{bindings.RoleId.items}" id="si1"/>
+                <f:validator binding="#{bindings.RoleId.validator}"/>
+              </af:selectOneChoice>
+              <af:separator id="s6"/>
+            </af:panelFormLayout>
+            <f:facet name="toolbar"/>
+          </af:panelBox>
+          <af:panelBox id="pb2" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl2">
+              <f:facet name="footer">
+                <af:panelGridLayout id="pgl3">
+                  <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
+                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4" halign="end" valign="middle">
+                      <af:button text="Change Password" id="b1" action="#{UserProfileBean.changePasswordAction}"/>
+                    </af:gridCell>
+                  </af:gridRow>
+                </af:panelGridLayout>
+              </f:facet>
+              <af:inputText label="Old Password" id="it5" labelStyle="text-align:left"
+                            value="#{UserProfileBean.oldpassword}" secret="true"
+                            binding="#{UserProfileBean.oldpasswordIText}" partialTriggers="b1 b2 b3"/>
+              <af:separator id="s7"/>
+              <af:inputText label="New Password" id="it6" labelStyle="text-align:left"
+                            value="#{UserProfileBean.newpassword1}" secret="true"
+                            binding="#{UserProfileBean.newPass1IText}" partialTriggers="b1"/>
+              <af:separator id="s8"/>
+              <af:inputText label="Confirm Password" id="it7" labelStyle="text-align:left"
+                            value="#{UserProfileBean.newpassword2}" secret="true"
+                            binding="#{UserProfileBean.newPass2IText}" partialTriggers="b1"/>
+              <af:outputText value="Invalid password" id="ot1" inlineStyle="color:red;"
+                             binding="#{UserProfileBean.invalidPassword}" partialTriggers="b1" visible="false"/>
+              <af:outputText value="password should be at least 8 digits" id="ot2" inlineStyle="color:red;"
+                             binding="#{UserProfileBean.shortPassword}" partialTriggers="b1" visible="false"/>
+              <af:outputText value="password doesn't match" id="ot3" inlineStyle="color:red;"
+                             binding="#{UserProfileBean.differentPassword}" partialTriggers="b1" visible="false"/>
+              <af:panelGroupLayout id="pgl5" rendered="false">
+                <af:button id="b2" icon="/resources/images/pass-12px.jpg" inlineStyle="padding:2px;margin:2px"
+                           action="#{UserProfileBean.showPassword}" partialTriggers="b3"
+                           binding="#{UserProfileBean.showBTN}"/>
+                <af:button id="b3" icon="/resources/images/pass-12px.jpg" inlineStyle="padding:2px;margin:2px"
+                           action="#{UserProfileBean.hidePassword}" partialTriggers="b2"
+                           binding="#{UserProfileBean.hideBTN}" visible="false"/>
+              </af:panelGroupLayout>
+              <af:separator id="s9"/>
+            </af:panelFormLayout>
+          </af:panelBox>
+          <af:panelBox id="pb3" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl2" halign="center" layout="vertical">
+              <af:activeImage source="/userimageservlet?id=#{LoginBean.user.userId.value}" id="ai1"
+                              inlineStyle="height:180px;width:200px"/>
+              <af:button text="Upload New" id="b4">
+                <af:showPopupBehavior popupId="p1"/>
+              </af:button>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </af:panelDashboard>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="50px" marginBottom="5px" id="gr3">
+      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p3" contentDelivery="lazyUncached"
+            binding="#{UserProfileBean.savedIcon}" partialTriggers="b1">
+    <af:dialog id="d3" type="ok">
+      <af:panelGroupLayout id="pgl9" layout="vertical" halign="center">
+        <af:image source="/resources/images/JD-16-128.png" id="i3"/>
+      </af:panelGroupLayout>
+      <f:facet name="buttonBar"/>
+    </af:dialog>
+  </af:popup>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p1" binding="#{UserProfileBean.newImagepopup}">
+    <af:dialog id="d1" type="none">
+      <f:facet name="buttonBar"/>
+      <af:panelGroupLayout id="pgl7" halign="center" valign="middle" layout="vertical">
+        <af:panelBox id="pb4" showDisclosure="false" inlineStyle="width:420px" titleHalign="center">
+          <af:panelGroupLayout id="pgl16" layout="vertical" halign="center">
+            <af:image id="i2" inlineStyle="width:140px;height:120px"
+                      source="/userimageservlet?id=#{LoginBean.user.userId.value}"/>
+            <af:panelGroupLayout id="pgl8" layout="horizontal">
+              <af:inputFile label="New Image" id="if1" value="#{UserProfileBean.myFile}"/>
+              <af:button text="Upload" id="b5" inlineStyle="padding:2px;margin:2px"
+                         action="#{UserProfileBean.uploadNewImage}"/>
+              <af:button text="Cancel" id="b6" inlineStyle="padding:2px;margin:2px"
+                         action="#{UserProfileBean.cancelNewImagepopup}"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1"
+                id="Ores_BTF_Ores_BTF_CreateInsertPageDef" Package="Task_Flows.Store" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="AddNweOres1" RangeSize="25" DataControl="StoreAppModuleAMDataControl" id="AddNweOres1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="AddNweOres1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.UsersAppModuleAM">
+      <AppModuleConfig name="UsersAppModuleAMLocal" ApplicationName="oracle.medical.app.model.bc.module.UsersAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.UsersAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="UsersAppModuleAMShared" ApplicationName="oracle.medical.app.model.bc.module.UsersAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.UsersAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.StoreAppModuleAM">
+      <AppModuleConfig name="StoreAppModuleAMLocal" ApplicationName="oracle.medical.app.model.bc.module.StoreAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.StoreAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="StoreAppModuleAMShared" ApplicationName="oracle.medical.app.model.bc.module.StoreAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.StoreAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.StoreActionsAppModuleAM">
+      <AppModuleConfig name="StoreActionsAppModuleAMLocal" ApplicationName="oracle.medical.app.model.bc.module.StoreActionsAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.StoreActionsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="StoreActionsAppModuleAMShared" ApplicationName="oracle.medical.app.model.bc.module.StoreActionsAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.StoreActionsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.ProductsAppModuleAM">
+      <AppModuleConfig name="ProductsAppModuleAMLocal" ApplicationName="oracle.medical.app.model.bc.module.ProductsAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.ProductsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="ProductsAppModuleAMShared" ApplicationName="oracle.medical.app.model.bc.module.ProductsAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.ProductsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM">
+      <AppModuleConfig name="IndividualsAppModuleAMLocal" ApplicationName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="IndividualsAppModuleAMShared" ApplicationName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM" DeployPlatform="LOCAL" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.SettingsAppModuleAM">
+      <AppModuleConfig name="SettingsAppModuleAMLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="oracle.medical.app.model.bc.module.SettingsAppModuleAM" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.SettingsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="SettingsAppModuleAMShared" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="oracle.medical.app.model.bc.module.SettingsAppModuleAM" jbo.project="oracle.medical.app.model.MedicalDevicesModel">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.SettingsAppModuleAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

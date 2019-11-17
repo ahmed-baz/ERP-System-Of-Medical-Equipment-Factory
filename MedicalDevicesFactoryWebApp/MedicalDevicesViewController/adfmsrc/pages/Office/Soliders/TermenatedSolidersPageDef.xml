@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="TermenatedSolidersPageDef"
+                Package="pages.Office.Soliders">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TerminatedPrivates1" RangeSize="10" DataControl="IndividualsAppModuleAMDataControl"
+              id="TerminatedPrivates1Iterator"/>
+    <searchRegion Criteria="TerminatedPrivatesVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="TerminatedPrivates1Iterator"
+                  id="TerminatedPrivatesVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TerminatedPrivates1Iterator" id="TerminatedPrivates1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.Individuals.soliders.TerminatedPrivatesVO"
+                      Name="TerminatedPrivates10">
+        <AttrNames>
+          <Item Value="MilitaryRankId"/>
+          <Item Value="FullName"/>
+          <Item Value="MilitaryNumber"/>
+          <Item Value="RecruitmentDate"/>
+          <Item Value="JoinDate"/>
+          <Item Value="TerminationDate"/>
+          <Item Value="QualificationId"/>
+          <Item Value="SpecializationId"/>
+          <Item Value="MilitaryServiceId"/>
+          <Item Value="Ssn"/>
+          <Item Value="BirthDate"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="CityId"/>
+          <Item Value="Address"/>
+          <Item Value="TripleNumber"/>
+          <Item Value="TrainingCenterId"/>
+          <Item Value="TaskId"/>
+          <Item Value="UniversityId"/>
+          <Item Value="MaritalStatusId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

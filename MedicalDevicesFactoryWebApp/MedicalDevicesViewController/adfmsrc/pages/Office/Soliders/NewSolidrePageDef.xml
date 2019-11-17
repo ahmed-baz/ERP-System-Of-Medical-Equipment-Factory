@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="NewSolidrePageDef"
+                Package="pages.Office.Soliders">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NewSoldier1" RangeSize="25" DataControl="IndividualsAppModuleAMDataControl"
+              id="NewPrivates1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="FullName">
+      <AttrNames>
+        <Item Value="FullName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="MilitaryNumber">
+      <AttrNames>
+        <Item Value="MilitaryNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="Ssn">
+      <AttrNames>
+        <Item Value="Ssn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="BirthDate">
+      <AttrNames>
+        <Item Value="BirthDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="RecruitmentDate">
+      <AttrNames>
+        <Item Value="RecruitmentDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="JoinDate">
+      <AttrNames>
+        <Item Value="JoinDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="TerminationDate">
+      <AttrNames>
+        <Item Value="TerminationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_UniversityId" id="UniversityId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_MilitaryServiceId" id="MilitaryServiceId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_TrainingCenterId" id="TrainingCenterId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_DepartmentId" id="DepartmentId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_TaskId" id="TaskId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="Image">
+      <AttrNames>
+        <Item Value="Image"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_CityId" id="CityId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_MaritalStatusId" id="MaritalStatusId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="NewPrivates1Iterator" id="TripleNumber">
+      <AttrNames>
+        <Item Value="TripleNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_QualificationId" id="QualificationId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_SpecializationId" id="SpecializationId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="NewPrivates1Iterator" StaticList="false" Uses="LOV_MilitaryRankId" id="MilitaryRankId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <action id="Rollback" DataControl="IndividualsAppModuleAMDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action id="Commit" DataControl="IndividualsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

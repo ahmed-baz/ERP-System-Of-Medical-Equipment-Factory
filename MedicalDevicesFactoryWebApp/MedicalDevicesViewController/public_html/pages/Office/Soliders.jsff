@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="30px" id="gr1">
+      <af:gridCell marginStart="5px" width="30%" id="gc1" valign="middle">
+        <af:button id="b3" inlineStyle="padding:2px;margin:2px"
+                   icon="/resources/images/undo_arrow_left_edit_back-16.png" action="#{RegionBean.officeBTF}"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="40%" id="gc2" halign="center" valign="middle">
+        <af:button text="إضافــة جنـــدي جديـــد" id="b2" inlineStyle="padding:2px;margin:2px" action="NewSolidre"
+                   icon="/resources/images/Add.gif"/>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="30%" marginEnd="5px" id="gc3" halign="end" valign="middle">
+        <af:button text="قـــوة الأحتيــــاط" id="b5" inlineStyle="padding:2px;margin:2px" action="TermenatedSoliders"/>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" marginBottom="5px" id="gr2">
+      <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc4" halign="stretch" valign="stretch">
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+          <af:panelHeader text="البحث في الجنود" id="ph1" icon="/resources/images/search_magnifi-20.png">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.PrivatesVOCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.PrivatesVOCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.PrivatesVOCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.PrivatesVOCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1" saveQueryMode="hidden" displayMode="compact" rows="3"/>
+          </af:panelHeader>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.Privates1.collectionModel}" var="row" rows="#{bindings.Privates1.rangeSize}"
+                      emptyText="#{bindings.Privates1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.Privates1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Privates1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.Privates1.rangeSize}"
+                      filterModel="#{bindings.PrivatesVOCriteriaQuery.queryDescriptor}"
+                      queryListener="#{bindings.PrivatesVOCriteriaQuery.processQuery}" filterVisible="true"
+                      varStatus="vs" id="resId1" scrollPolicy="page" width="100%" autoHeightRows="0">
+              <af:column id="c1" width="20" align="center">
+                <af:button id="b1"/>
+              </af:column>
+              <af:column id="c2" width="20" align="center">
+                <af:outputText value="#{vs.index+1}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.MilitaryNumber.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.Privates1.hints.MilitaryNumber.label}" id="resId1c1"
+                         align="center">
+                <af:link shortDesc="#{bindings.Privates1.hints.MilitaryNumber.tooltip}" id="ot1"
+                         text="#{row.MilitaryNumber}" action="SelectedSolider"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.FullName.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.Privates1.hints.FullName.label}" id="resId1c2" align="center"
+                         width="200">
+                <af:outputText value="#{row.FullName}" shortDesc="#{bindings.Privates1.hints.FullName.tooltip}"
+                               id="ot2"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.TerminationDate.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.Privates1.hints.TerminationDate.label}" id="resId1c3"
+                         align="center" width="120">
+                <f:facet name="filter">
+                  <af:inputDate value="#{bindings.PrivatesVOCriteriaQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TerminationDate.value}"
+                                id="id1">
+                    <af:convertDateTime pattern="#{bindings.Privates1.hints.TerminationDate.format}"/>
+                  </af:inputDate>
+                </f:facet>
+                <af:outputText value="#{row.TerminationDate}"
+                               shortDesc="#{bindings.Privates1.hints.TerminationDate.tooltip}" id="ot3">
+                  <af:convertDateTime pattern="#{bindings.Privates1.hints.TerminationDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.QualificationId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.Privates1.hints.QualificationId.label}" id="resId1c4"
+                         align="center" width="130">
+                <af:selectOneChoice value="#{row.bindings.QualificationId.inputValue}"
+                                    label="#{row.bindings.QualificationId.label}"
+                                    required="#{bindings.Privates1.hints.QualificationId.mandatory}"
+                                    shortDesc="#{bindings.Privates1.hints.QualificationId.tooltip}" readOnly="true"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.QualificationId.items}" id="si1"/>
+                  <f:validator binding="#{row.bindings.QualificationId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.SpecializationId.name}" filterable="true"
+                         sortable="true" headerText="#{bindings.Privates1.hints.SpecializationId.label}" id="resId1c5"
+                         align="center" width="160">
+                <af:selectOneChoice value="#{row.bindings.SpecializationId.inputValue}"
+                                    label="#{row.bindings.SpecializationId.label}"
+                                    required="#{bindings.Privates1.hints.SpecializationId.mandatory}"
+                                    shortDesc="#{bindings.Privates1.hints.SpecializationId.tooltip}" readOnly="true"
+                                    id="soc2">
+                  <f:selectItems value="#{row.bindings.SpecializationId.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.SpecializationId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.DepartmentId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.Privates1.hints.DepartmentId.label}" id="resId1c6" align="center">
+                <af:selectOneChoice value="#{row.bindings.DepartmentId.inputValue}"
+                                    label="#{row.bindings.DepartmentId.label}"
+                                    required="#{bindings.Privates1.hints.DepartmentId.mandatory}"
+                                    shortDesc="#{bindings.Privates1.hints.DepartmentId.tooltip}" readOnly="true"
+                                    id="soc3">
+                  <f:selectItems value="#{row.bindings.DepartmentId.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.TaskId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.Privates1.hints.TaskId.label}" id="resId1c7" align="center">
+                <af:selectOneChoice value="#{row.bindings.TaskId.inputValue}" label="#{row.bindings.TaskId.label}"
+                                    required="#{bindings.Privates1.hints.TaskId.mandatory}"
+                                    shortDesc="#{bindings.Privates1.hints.TaskId.tooltip}" readOnly="true" id="soc4">
+                  <f:selectItems value="#{row.bindings.TaskId.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.TaskId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+              <af:column sortProperty="#{bindings.Privates1.hints.CityId.name}" filterable="true" sortable="true"
+                         headerText="#{bindings.Privates1.hints.CityId.label}" id="resId1c8" align="center">
+                <af:selectOneChoice value="#{row.bindings.CityId.inputValue}" label="#{row.bindings.CityId.label}"
+                                    required="#{bindings.Privates1.hints.CityId.mandatory}"
+                                    shortDesc="#{bindings.Privates1.hints.CityId.tooltip}" readOnly="true" id="soc5">
+                  <f:selectItems value="#{row.bindings.CityId.items}" id="si5"/>
+                  <f:validator binding="#{row.bindings.CityId.validator}"/>
+                </af:selectOneChoice>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:gridCell>
+    </af:gridRow>
+  </af:panelGridLayout>
+</ui:composition>

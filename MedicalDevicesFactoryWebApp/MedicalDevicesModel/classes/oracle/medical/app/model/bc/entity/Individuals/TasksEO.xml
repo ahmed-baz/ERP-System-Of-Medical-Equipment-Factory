@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TasksEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="TASKS"
+  AliasName="TasksEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="TaskId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="TASK_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="TASKS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Task"
+    IsNotNull="true"
+    Precision="105"
+    ColumnName="TASK"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="TASKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="105"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Privates"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivateTaskAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivateTaskAssoc.Privates"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivateTaskAssoc.Tasks"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC007030"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007030"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.TasksEO.TaskId"/>
+    </AttrArray>
+  </Key>
+</Entity>

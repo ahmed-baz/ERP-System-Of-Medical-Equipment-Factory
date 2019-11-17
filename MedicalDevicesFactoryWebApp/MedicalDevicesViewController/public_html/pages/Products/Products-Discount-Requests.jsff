@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="طلبات السحب من المنتجات" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t2">
+          <af:button id="b4" icon="/resources/images/undo_arrow_left_edit_back-16.png"
+                     inlineStyle="padding:2px;margin:2px" action="#{RegionBean.adminTasksBTF}"/>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.ProductDiscount2.collectionModel}" var="row"
+                rows="#{bindings.ProductDiscount2.rangeSize}"
+                emptyText="#{bindings.ProductDiscount2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.ProductDiscount2.collectionModel.selectedRow}"
+                selectionListener="#{bindings.ProductDiscount2.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.ProductDiscount2.rangeSize}"
+                filterModel="#{bindings.ProductDiscount2Query.queryDescriptor}"
+                queryListener="#{bindings.ProductDiscount2Query.processQuery}" filterVisible="true" varStatus="vs"
+                id="t1" autoHeightRows="0">
+        <af:column id="c10" align="center" width="20">
+          <af:button id="b1"/>
+        </af:column>
+        <af:column id="c4" align="center" width="20" headerText="#">
+          <af:outputText value="#{vs.index+1}" id="ot9"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.ProductCode.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.ProductDiscount2.hints.ProductCode.label}" id="c1" align="center">
+          <af:outputText value="#{row.ProductCode}" shortDesc="#{bindings.ProductDiscount2.hints.ProductCode.tooltip}"
+                         id="ot1"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.ProductName.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.ProductDiscount2.hints.ProductName.label}" id="c2" align="center">
+          <af:outputText value="#{row.ProductName}" shortDesc="#{bindings.ProductDiscount2.hints.ProductName.tooltip}"
+                         id="ot2"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.TotalQuantity.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.ProductDiscount2.hints.TotalQuantity.label}" id="c3"
+                   align="center">
+          <af:outputText value="#{row.TotalQuantity}"
+                         shortDesc="#{bindings.ProductDiscount2.hints.TotalQuantity.tooltip}" id="ot3">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductDiscount2.hints.TotalQuantity.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.CriticalLimit.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.ProductDiscount2.hints.CriticalLimit.label}" id="c5"
+                   align="center">
+          <af:outputText value="#{row.CriticalLimit}"
+                         shortDesc="#{bindings.ProductDiscount2.hints.CriticalLimit.tooltip}" id="ot4">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductDiscount2.hints.CriticalLimit.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.Quantity.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.ProductDiscount2.hints.Quantity.label}" id="c7" align="center">
+          <af:outputText value="#{row.Quantity}" shortDesc="#{bindings.ProductDiscount2.hints.Quantity.tooltip}"
+                         id="ot5">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductDiscount2.hints.Quantity.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.OrderNo.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.ProductDiscount2.hints.OrderNo.label}" id="c9" align="center">
+          <af:outputText value="#{row.OrderNo}" shortDesc="#{bindings.ProductDiscount2.hints.OrderNo.tooltip}" id="ot6">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductDiscount2.hints.OrderNo.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.Client.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.ProductDiscount2.hints.Client.label}" id="c11" align="center">
+          <af:outputText value="#{row.Client}" shortDesc="#{bindings.ProductDiscount2.hints.Client.tooltip}" id="ot7"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ProductDiscount2.hints.Date.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.ProductDiscount2.hints.Date.label}" id="c12" align="center">
+          <f:facet name="filter">
+            <af:inputDate value="#{bindings.ProductDiscount2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Date.value}"
+                          id="id1">
+              <af:convertDateTime pattern="#{bindings.ProductDiscount2.hints.Date.format}"/>
+            </af:inputDate>
+          </f:facet>
+          <af:outputText value="#{row.Date}" shortDesc="#{bindings.ProductDiscount2.hints.Date.tooltip}" id="ot8">
+            <af:convertDateTime pattern="#{bindings.ProductDiscount2.hints.Date.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column id="c6" align="center" width="50" headerText="Approve">
+          <af:button id="b2" icon="/resources/images/approve.gif" inlineStyle="padding:2px;margin:2px"
+                     action="#{ProductActionsBean.approveDiscountRequest}"/>
+        </af:column>
+        <af:column id="c8" align="center" width="50" headerText="Cancel">
+          <af:button id="b3" icon="/resources/images/remove_from_shortlist.gif" inlineStyle="padding:2px;margin:2px"
+                     action="#{ProductActionsBean.deleteDiscountRequest}"/>
+        </af:column>
+      </af:table>
+    </af:panelCollection>
+  </af:panelHeader>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached"
+            binding="#{ProductActionsBean.breakLimitpopup}">
+    <af:dialog id="d1" type="ok">
+      <f:facet name="buttonBar"/>
+      <af:panelGroupLayout id="pgl5" halign="center" layout="vertical">
+        <af:outputText value="The request will break the limit .. " id="ot11"
+                       inlineStyle="color:red; font-weight:bold;"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

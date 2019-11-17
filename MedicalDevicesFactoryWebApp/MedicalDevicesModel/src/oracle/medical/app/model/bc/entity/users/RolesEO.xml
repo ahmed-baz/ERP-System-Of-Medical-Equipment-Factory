@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RolesEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ROLES"
+  AliasName="RolesEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="RoleId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="ROLE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ROLES"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Role"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="ROLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ROLES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Users"
+    Association="oracle.medical.app.model.bc.entity.users.assoc.UsersRolesAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.users.assoc.UsersRolesAssoc.Users"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.users.assoc.UsersRolesAssoc.Roles"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC007516"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007516"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.users.RolesEO.RoleId"/>
+    </AttrArray>
+  </Key>
+</Entity>

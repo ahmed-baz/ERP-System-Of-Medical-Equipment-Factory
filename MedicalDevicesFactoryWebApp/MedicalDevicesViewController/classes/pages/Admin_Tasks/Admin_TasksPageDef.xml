@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="Admin_TasksPageDef"
+                Package="pages.Admin_Tasks">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="setActiveOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setActiveOre_StoreAppModuleAMDataControl_dataProvider_setActiveOre_result"/>
+    <methodAction id="setWaitingOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setWaitingOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setWaitingOre_StoreAppModuleAMDataControl_dataProvider_setWaitingOre_result"/>
+    <methodAction id="filterAddQuantity" RequiresUpdateModel="true" Action="invokeMethod" MethodName="filterAddQuantity"
+                  IsViewObjectMethod="false" DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.filterAddQuantity_StoreActionsAppModuleAMDataControl_dataProvider_filterAddQuantity_result"/>
+    <methodAction id="filterDiscountQuantity" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="filterDiscountQuantity" IsViewObjectMethod="false"
+                  DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.filterDiscountQuantity_StoreActionsAppModuleAMDataControl_dataProvider_filterDiscountQuantity_result"/>
+  </bindings>
+</pageDefinition>

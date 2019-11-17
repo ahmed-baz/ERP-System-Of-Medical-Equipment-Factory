@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:panelDashboard id="pd1" rowHeight="160px" columns="4">
+    <af:panelBox text="مركـز التدريـــــــــب" id="pb2" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg2" halign="center" layout="vertical">
+        <af:link id="l1" action="Camps"
+                 icon="/resources/images/demo/camp-128px.png"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="الســـــــــــــلاح" id="pb3" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg3" halign="center" layout="vertical">
+        <af:link id="l3" icon="/resources/images/military-data1-110px.png" action="MilitaryService"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="المـــــؤهـــــــل" id="pb4" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg4" halign="center" layout="vertical">
+        <af:link id="l4" action="Qualification"
+                 icon="/resources/images/qualification-128px.png"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="التخصـــــص" id="pb5" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg5" halign="center" layout="vertical">
+        <af:link id="l5" icon="/resources/images/demo/report1-128px.png" action="Specialization"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="الجامعــــــة" id="pb6" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg6" halign="center" layout="vertical">
+        <af:link id="l6" icon="/resources/images/demo/university-128px.png" action="University"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="العامــــل القائــــــم بـــه" id="pb7" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '104' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg7" halign="center" layout="vertical">
+        <af:link id="l7" icon="/resources/images/demo/report3-100px.png" action="Tasks"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="أنواع الخامـــات" id="pb8" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg8" halign="center" layout="vertical">
+        <af:link id="l8" icon="/resources/images/projectsIcon-100px.png" action="RawMaterialType"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+    <af:panelBox text="الأقســــام" id="pb9" showDisclosure="false"
+                 rendered="#{LoginBean.user.roleId eq '100'  or LoginBean.user.roleId eq '103' ? true : false}">
+      <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pg9" halign="center" layout="vertical">
+        <af:link id="l9" icon="/resources/images/demo/departments-128px.png" action="Departments"/>
+      </af:panelGroupLayout>
+    </af:panelBox>
+  </af:panelDashboard>
+</ui:composition>

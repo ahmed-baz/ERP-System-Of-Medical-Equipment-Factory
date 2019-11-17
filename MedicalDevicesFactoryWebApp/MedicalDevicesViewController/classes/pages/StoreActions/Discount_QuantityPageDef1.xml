@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="Discount_QuantityPageDef1"
+                Package="pages.StoreActions">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DiscountQuantity1" RangeSize="25" DataControl="StoreAppModuleAMDataControl"
+              id="DiscountQuantity1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DiscountQuantity1Iterator" id="DiscountQuantity">
+      <AttrNames>
+        <Item Value="DiscountQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DiscountQuantity1Iterator" id="OrderNo">
+      <AttrNames>
+        <Item Value="OrderNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DiscountQuantity1Iterator" StaticList="false" Uses="LOV_DepartmentId" id="DepartmentId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DiscountQuantity1Iterator" id="Limit">
+      <AttrNames>
+        <Item Value="Limit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DiscountQuantity1Iterator" id="DiscountDate">
+      <AttrNames>
+        <Item Value="DiscountDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

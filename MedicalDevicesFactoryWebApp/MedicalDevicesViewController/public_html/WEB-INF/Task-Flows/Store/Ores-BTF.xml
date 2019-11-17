@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Ores-BTF">
+    <default-activity>Ores</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__7">
+      <managed-bean-name>OreBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.ores.OreBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name>NewOreBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.ores.NewOreBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__15">
+      <managed-bean-name>SelectedOreBean</managed-bean-name>
+      <managed-bean-class>oracle.medical.app.beans.ores.SelectedOreBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="Ores">
+      <page>/pages/Store/Ores.jsff</page>
+    </view>
+    <view id="AddNewOre">
+      <page>/pages/Store/AddNewOre.jsff</page>
+    </view>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="Back">
+      <outcome>
+        <name>Back</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-call id="ExportOres-BTF">
+      <task-flow-reference>
+        <document>/WEB-INF/Task-Flows/Store/ExportOres-BTF.xml</document>
+        <id>ExportOres-BTF</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <view id="SelectedOre">
+      <page>/pages/Store/SelectedOre.jsff</page>
+    </view>
+    <task-flow-call id="AddRequest-BTF">
+      <task-flow-reference>
+        <document>/WEB-INF/Task-Flows/Store/AddRequest-BTF.xml</document>
+        <id>AddRequest-BTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="DiscountRequest-BTF">
+      <task-flow-reference>
+        <document>/WEB-INF/Task-Flows/Store/DiscountRequest-BTF.xml</document>
+        <id>DiscountRequest-BTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Ores</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>AddNewOre</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Back</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>ExportOres</from-outcome>
+        <to-activity-id>ExportOres-BTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>Selected</from-outcome>
+        <to-activity-id>SelectedOre</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>AddNewOre</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>AddNewOre</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>Roolback</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>Back</from-outcome>
+        <to-activity-id>Ores</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>SelectedOre</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>Ores</from-outcome>
+        <to-activity-id>Ores</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>DiscountRequest-BTF</from-outcome>
+        <to-activity-id>DiscountRequest-BTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>AddRequest-BTF</from-outcome>
+        <to-activity-id>AddRequest-BTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

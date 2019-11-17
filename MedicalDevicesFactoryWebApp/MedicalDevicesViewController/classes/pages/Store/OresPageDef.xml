@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="OresPageDef"
+                Package="pages.Store">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MainOres1" RangeSize="8" DataControl="StoreAppModuleAMDataControl" id="MainOres1Iterator"/>
+    <searchRegion Criteria="MainOresVOCriteria1" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MainOres1Iterator" id="MainOresVOCriteria1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="MainOres1Iterator" id="OreId">
+      <AttrNames>
+        <Item Value="OreId"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="MainOres1Iterator" StaticList="false" Uses="LOV_OresTypeId" id="OresTypeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="MainOres1Iterator" StaticList="false" Uses="LOV_LengthUnit" id="LengthUnit"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="MainOres1Iterator" StaticList="false" Uses="LOV_WidthUnit" id="WidthUnit" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="MainOres1Iterator" StaticList="false" Uses="LOV_ThiknessUnit" id="ThiknessUnit"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="MainOres1Iterator" StaticList="false" Uses="LOV_Unit" id="Unit" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="MainOres1Iterator" id="Supplier">
+      <AttrNames>
+        <Item Value="Supplier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="Date">
+      <AttrNames>
+        <Item Value="Date"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="OreCode">
+      <AttrNames>
+        <Item Value="OreCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="OreName">
+      <AttrNames>
+        <Item Value="OreName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="Length">
+      <AttrNames>
+        <Item Value="Length"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="Width">
+      <AttrNames>
+        <Item Value="Width"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="Thikness">
+      <AttrNames>
+        <Item Value="Thikness"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="Quentity">
+      <AttrNames>
+        <Item Value="Quentity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="CriticalLimit">
+      <AttrNames>
+        <Item Value="CriticalLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="Price">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MainOres1Iterator" id="BillNo">
+      <AttrNames>
+        <Item Value="BillNo"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="MainOres1Iterator" StaticList="false" Uses="LOV_Active" id="Active" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="MainOres1Iterator" id="Addnew">
+      <AttrNames>
+        <Item Value="Addnew"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="MainOres1Iterator" id="Delete" InstanceName="StoreAppModuleAMDataControl.MainOres1"
+            DataControl="StoreAppModuleAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="StoreAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <methodAction id="setActiveOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setActiveOre_StoreAppModuleAMDataControl_dataProvider_setActiveOre_result"/>
+    <methodAction id="setWaitingOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setWaitingOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setWaitingOre_StoreAppModuleAMDataControl_dataProvider_setWaitingOre_result"/>
+    <methodAction id="deleteRequests" RequiresUpdateModel="true" Action="invokeMethod" MethodName="deleteRequests"
+                  IsViewObjectMethod="false" DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.deleteRequests_StoreActionsAppModuleAMDataControl_dataProvider_deleteRequests_result">
+      <NamedData NDName="oreId" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <tree IterBinding="MainOres1Iterator" id="MainOres1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.stores.MainOresVO" Name="MainOres10">
+        <AttrNames>
+          <Item Value="OreCode"/>
+          <Item Value="OreName"/>
+          <Item Value="OresTypeId"/>
+          <Item Value="Quentity"/>
+          <Item Value="CriticalLimit"/>
+          <Item Value="Unit"/>
+          <Item Value="Price"/>
+          <Item Value="Date"/>
+          <Item Value="BillNo"/>
+          <Item Value="Length"/>
+          <Item Value="LengthUnit"/>
+          <Item Value="Width"/>
+          <Item Value="WidthUnit"/>
+          <Item Value="Thikness"/>
+          <Item Value="ThiknessUnit"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="ExportOresPageDef"
+                Package="pages.Store">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MainOres1" RangeSize="15" DataControl="StoreAppModuleAMDataControl" id="MainOres1Iterator"/>
+    <searchRegion Binds="MainOres1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MainOres1Query"/>
+    <searchRegion Criteria="MainOresVOCriteria1" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MainOres1Iterator" id="MainOresVOCriteria1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MainOres1Iterator" id="MainOres1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.stores.MainOresVO" Name="MainOres10">
+        <AttrNames>
+          <Item Value="OreCode"/>
+          <Item Value="OreName"/>
+          <Item Value="OresTypeId"/>
+          <Item Value="Length"/>
+          <Item Value="LengthUnit"/>
+          <Item Value="Width"/>
+          <Item Value="WidthUnit"/>
+          <Item Value="Thikness"/>
+          <Item Value="ThiknessUnit"/>
+          <Item Value="Quentity"/>
+          <Item Value="CriticalLimit"/>
+          <Item Value="Unit"/>
+          <Item Value="Price"/>
+          <Item Value="Date"/>
+          <Item Value="BillNo"/>
+          <Item Value="Supplier"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

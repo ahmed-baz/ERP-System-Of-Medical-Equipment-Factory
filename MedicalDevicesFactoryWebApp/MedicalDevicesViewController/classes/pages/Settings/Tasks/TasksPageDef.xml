@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="TasksPageDef"
+                Package="pages.Settings.Tasks">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Tasks1" RangeSize="10" DataControl="SettingsAppModuleAMDataControl" id="Tasks1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Tasks1Iterator" id="Tasks1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.settings.TasksVO" Name="Tasks10">
+        <AttrNames>
+          <Item Value="Task"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Tasks1Iterator" id="Delete" InstanceName="SettingsAppModuleAMDataControl.Tasks1"
+            DataControl="SettingsAppModuleAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="Tasks1Iterator" id="CreateInsert" InstanceName="SettingsAppModuleAMDataControl.Tasks1"
+            DataControl="SettingsAppModuleAMDataControl" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" DataControl="SettingsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MilitaryRanksEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MILITARY_RANKS"
+  AliasName="MilitaryRanksEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="MilitaryRankId"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="MILITARY_RANK_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MILITARY_RANKS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="MilitaryRank"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="MILITARY_RANK"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MILITARY_RANKS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Officers"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.OfficersRankAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.OfficersRankAssoc.Officers"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.officers.OfficersRankAssoc.MilitaryRanks"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Privates"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivatesRankAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivatesRankAssoc.Privates"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.privates.PrivatesRankAssoc.MilitaryRanks"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Sergeants"
+    Association="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsRankAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsRankAssoc.Sergeants"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.Individuals.assoc.sergeants.SergeantsRankAssoc.MilitaryRanks"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC007001"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007001"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.Individuals.MilitaryRanksEO.MilitaryRankId"/>
+    </AttrArray>
+  </Key>
+</Entity>

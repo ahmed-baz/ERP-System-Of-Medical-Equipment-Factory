@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="مصنع الأجهزة الطبيــــــة ق.م تسجيل الدخول" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:decorativeBox id="db3" theme="medium">
+                <f:facet name="center">
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="100%" id="gr1">
+                            <af:gridCell marginStart="5px" width="20%" id="gc2">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText id="it1" labelStyle="text-align:left;font-weight:bold;color:blue"
+                                                  value="#{LoginBean.userName}" rows="1" contentStyle="padding:4px"
+                                                  placeholder="User Name"/>
+                                    <af:inputText id="it2" labelStyle="text-align:left;font-weight:bold;color:blue"
+                                                  secret="true" value="#{LoginBean.password}" contentStyle="padding:4px"
+                                                  placeholder="Password"/>
+                                    <af:outputText value="Invalid user name or password" id="ot3"
+                                                   inlineStyle="color:red" partialTriggers="b1" visible="false"
+                                                   binding="#{LoginBean.invalidUserText}"/>
+                                    <af:outputText value="User Name or password is empty" id="ot4"
+                                                   inlineStyle="color:red;" partialTriggers="b1" visible="false"
+                                                   binding="#{LoginBean.emptyText}"/>
+                                    <af:button text="Login" id="b1" inlineStyle="padding:2px;font-weight:bold;"
+                                               action="#{LoginBean.CheckLogin}" selected="true"/>
+                                </af:panelFormLayout>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="60%" id="gc3" halign="center" valign="stretch">
+                                <af:carousel currentItemKey="#{bindings.AppImages1.treeModel.rootCurrencyRowKey}"
+                                             value="#{bindings.AppImages1.treeModel}" var="item" id="c1"
+                                             inlineStyle="width:640px;height:558px" styleClass="AFStretchWidth">
+                                    <f:facet name="nodeStamp">
+                                        <af:carouselItem id="ci1">
+                                            <af:image source="/imageservlet?id=#{item.bindings.ImageId.inputValue}
+" id="i1"/>
+                                        </af:carouselItem>
+                                    </f:facet>
+                                </af:carousel>
+                            </af:gridCell>
+                            <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc4"/>
+                        </af:gridRow>
+                        <af:gridRow marginTop="5px" height="50px" marginBottom="5px" id="gr4">
+                            <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc5" halign="stretch"
+                                         valign="stretch">
+                                <af:panelGridLayout id="pgl3">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                        <af:gridCell marginStart="5px" width="50%" id="gc1" valign="stretch">
+                                            <af:decorativeBox id="db1" theme="dark">
+                                                <f:facet name="center">
+                                                    <af:panelGroupLayout id="pgl1" layout="horizontal">
+                                                        <af:outputFormatted value="Developed By Ahmed Baz" id="of1"
+                                                                            inlineStyle="margin-left:10px; font-weight:bold;"/>
+                                                        <af:outputFormatted value="Copyright" id="of5"
+                                                                            inlineStyle="margin-left:10px; font-weight:bold;"/>
+                                                        <af:link id="l1" icon="/resources/images/copyright-20px.png"
+                                                                 disabled="true" inlineStyle="margin-left:4px"/>
+                                                        <af:outputFormatted value="2020  Baz Software Co-Op All rights reserved "
+                                                                            id="of4"
+                                                                            inlineStyle="margin-left:5px; font-weight:bold;"/>
+                                                    </af:panelGroupLayout>
+                                                </f:facet>
+                                            </af:decorativeBox>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc6" halign="end"
+                                                     valign="stretch">
+                                            <af:decorativeBox id="db2" theme="dark">
+                                                <f:facet name="center">
+                                                    <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                                        <af:outputFormatted value="Contact Us : " id="of2"
+                                                                            inlineStyle="margin-left:10px; font-weight:bold;"/>
+                                                        <af:link text="Facebook" id="l3"
+                                                                 inlineStyle="padding:2px; font-weight:bold;"
+                                                                 targetFrame="_blank"
+                                                                 destination="https://www.facebook.com/SourceCode1024"/>
+                                                        <af:link text="Twitter" id="l4"
+                                                                 inlineStyle="padding:2px; font-weight:bold;"
+                                                                 targetFrame="_blank"
+                                                                 destination="https://www.twitter.com/ahmedbaz1024"/>
+                                                        <af:link text="LinkedIn" id="l5"
+                                                                 inlineStyle="padding:2px; font-weight:bold;"
+                                                                 targetFrame="_blank"
+                                                                 destination="https://www.linkedin.com/in/ahmedbaz1024"/>
+                                                        <af:outputFormatted value="Gmail : ahmedbaz1024@gmail.com"
+                                                                            id="of3"
+                                                                            inlineStyle="margin-left:10px; font-weight:bold;"/>
+                                                    </af:panelGroupLayout>
+                                                </f:facet>
+                                            </af:decorativeBox>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
+                </f:facet>
+            </af:decorativeBox>
+        </af:form>
+    </af:document>
+</f:view>

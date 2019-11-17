@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl4">
+    <af:gridRow marginTop="5px" height="40px" id="gr3">
+      <af:gridCell marginStart="5px" width="34%" id="gc5"/>
+      <af:gridCell marginStart="5px" width="33%" id="gc6" halign="center" valign="middle">
+        <af:panelGroupLayout id="pgl5" halign="center" valign="middle" layout="horizontal">
+          <af:button text=" إضافة صنف جديد" id="b4" inlineStyle="padding:2px;margin:2px" action="AddNewOre"
+                     icon="/resources/images/Add.gif"/>
+        </af:panelGroupLayout>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc7" halign="end" valign="middle">
+        <af:panelGroupLayout id="pgl6" halign="center" valign="middle" layout="horizontal">
+          <af:button id="b3" inlineStyle="padding:2px;margin:2px" text="Export" action="ExportOres"/>
+          <af:button id="b8" inlineStyle="padding:2px;margin:2px" action="#{RegionBean.mainHomeBTF}"
+                     icon="/resources/images/undo_arrow_left_edit_back-16.png"/>
+        </af:panelGroupLayout>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" id="gr4">
+      <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc8" halign="stretch">
+        <af:panelGroupLayout id="pgl1" layout="vertical">
+          <af:panelHeader text="البحث فــي الخامــــات" id="ph1" icon="/resources/images/search_magnifi-20.png">
+            <af:query id="qryId2" headerText="Search" disclosed="true"
+                      value="#{bindings.MainOresVOCriteria1Query.queryDescriptor}"
+                      model="#{bindings.MainOresVOCriteria1Query.queryModel}"
+                      queryListener="#{bindings.MainOresVOCriteria1Query.processQuery}"
+                      queryOperationListener="#{bindings.MainOresVOCriteria1Query.processQueryOperation}"
+                      resultComponentId="::t2" displayMode="compact" saveQueryMode="hidden"
+                      labelWidth="text-align:left" rows="2"/>
+          </af:panelHeader>
+          <af:table value="#{bindings.MainOres1.collectionModel}" var="row" rows="#{bindings.MainOres1.rangeSize}"
+                    emptyText="#{bindings.MainOres1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.MainOres1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.MainOres1.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.MainOres1.rangeSize}" filterVisible="true" varStatus="vs" id="t2"
+                    width="100%" autoHeightRows="0" scrollPolicy="page"
+                    queryListener="#{bindings.MainOres1Query.processQuery}">
+            <af:column id="c9" width="20" align="center">
+              <af:button id="b13"/>
+            </af:column>
+            <af:column id="c18" align="center" width="20">
+              <af:activeOutputText id="l3" value="#{vs.index+1}"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.OreCode.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.OreCode.label}" id="c1" align="center" width="80">
+              <af:link text="#{row.OreCode}" id="l2" action="Selected"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.OreName.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.OreName.label}" id="c2" align="center" width="140"
+                       displayIndex="-1">
+              <af:link id="l6" text="#{row.OreName}" action="Selected"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.OresTypeId.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.OresTypeId.label}" id="c3" align="center" width="80">
+              <af:selectOneChoice value="#{row.bindings.OresTypeId.inputValue}" label="#{row.bindings.OresTypeId.label}"
+                                  required="#{bindings.MainOres1.hints.OresTypeId.mandatory}"
+                                  shortDesc="#{bindings.MainOres1.hints.OresTypeId.tooltip}" readOnly="true" id="soc1"
+                                  contentStyle="font-weight:bold;">
+                <f:selectItems value="#{row.bindings.OresTypeId.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.OresTypeId.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.Length.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.Length.label}" id="c4" align="center" width="70">
+              <af:panelGroupLayout id="pgl01">
+                <af:outputText value="#{row.Length}" shortDesc="#{bindings.MainOres1.hints.Length.tooltip}" id="ot3"
+                               inlineStyle="font-weight:bold;">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.MainOres1.hints.Length.format}"/>
+                </af:outputText>
+                <af:selectOneChoice value="#{row.bindings.LengthUnit.inputValue}"
+                                    label="#{row.bindings.LengthUnit.label}"
+                                    required="#{bindings.MainOres1.hints.LengthUnit.mandatory}"
+                                    shortDesc="#{bindings.MainOres1.hints.LengthUnit.tooltip}" readOnly="true" id="soc2"
+                                    inlineStyle="color:Orange;margin-left:6px" contentStyle="font-weight:bold;">
+                  <f:selectItems value="#{row.bindings.LengthUnit.items}" id="si2"/>
+                  <f:validator binding="#{row.bindings.LengthUnit.validator}"/>
+                </af:selectOneChoice>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.Width.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.Width.label}" id="c8" align="center" width="75">
+              <af:panelGroupLayout id="pgl2">
+                <af:outputText value="#{row.Width}" shortDesc="#{bindings.MainOres1.hints.Width.tooltip}" id="ot4"
+                               inlineStyle="font-weight:bold;">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.MainOres1.hints.Width.format}"/>
+                </af:outputText>
+                <af:selectOneChoice value="#{row.bindings.WidthUnit.inputValue}" label="#{row.bindings.WidthUnit.label}"
+                                    required="#{bindings.MainOres1.hints.WidthUnit.mandatory}"
+                                    shortDesc="#{bindings.MainOres1.hints.WidthUnit.tooltip}" readOnly="true" id="soc3"
+                                    inlineStyle="color:Orange;margin-left:6px" contentStyle="font-weight:bold;">
+                  <f:selectItems value="#{row.bindings.WidthUnit.items}" id="si3"/>
+                  <f:validator binding="#{row.bindings.WidthUnit.validator}"/>
+                </af:selectOneChoice>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.Thikness.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.Thikness.label}" id="c10" align="center" width="70">
+              <af:panelGroupLayout id="pgl3">
+                <af:outputText value="#{row.Thikness}" shortDesc="#{bindings.MainOres1.hints.Thikness.tooltip}" id="ot5"
+                               inlineStyle="font-weight:bold;">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.MainOres1.hints.Thikness.format}"/>
+                </af:outputText>
+                <af:selectOneChoice value="#{row.bindings.ThiknessUnit.inputValue}"
+                                    label="#{row.bindings.ThiknessUnit.label}"
+                                    required="#{bindings.MainOres1.hints.ThiknessUnit.mandatory}"
+                                    shortDesc="#{bindings.MainOres1.hints.ThiknessUnit.tooltip}" readOnly="true"
+                                    id="soc4" inlineStyle="color:Orange;margin-left:6px"
+                                    contentStyle="font-weight:bold;">
+                  <f:selectItems value="#{row.bindings.ThiknessUnit.items}" id="si4"/>
+                  <f:validator binding="#{row.bindings.ThiknessUnit.validator}"/>
+                </af:selectOneChoice>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.Quentity.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.Quentity.label}" id="c12" align="center" width="60">
+              <af:outputText value="#{row.Quentity}" shortDesc="#{bindings.MainOres1.hints.Quentity.tooltip}" id="ot6"
+                             inlineStyle="color:blue;font-weight:bold;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.MainOres1.hints.Quentity.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.CriticalLimit.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.CriticalLimit.label}" id="c13" align="center" width="70">
+              <af:outputText value="#{row.CriticalLimit}" shortDesc="#{bindings.MainOres1.hints.CriticalLimit.tooltip}"
+                             id="ot7" inlineStyle="color:blue;font-weight:bold;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.MainOres1.hints.CriticalLimit.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.Unit.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.Unit.label}" id="c14" align="center" width="50">
+              <af:selectOneChoice value="#{row.bindings.Unit.inputValue}" label="#{row.bindings.Unit.label}"
+                                  required="#{bindings.MainOres1.hints.Unit.mandatory}"
+                                  shortDesc="#{bindings.MainOres1.hints.Unit.tooltip}" readOnly="true" id="soc5"
+                                  contentStyle="font-weight:bold;">
+                <f:selectItems value="#{row.bindings.Unit.items}" id="si5"/>
+                <f:validator binding="#{row.bindings.Unit.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.Price.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.Price.label}" id="c15" align="center" width="60">
+              <af:outputText value="#{row.Price}" shortDesc="#{bindings.MainOres1.hints.Price.tooltip}" id="ot8"
+                             inlineStyle="color:blue; font-weight:bold;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.MainOres1.hints.Price.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.MainOres1.hints.BillNo.name}" filterable="true" sortable="true"
+                       headerText="#{bindings.MainOres1.hints.BillNo.label}" id="c16" align="center" width="60">
+              <af:outputText value="#{row.BillNo}" shortDesc="#{bindings.MainOres1.hints.BillNo.tooltip}" id="ot9"
+                             inlineStyle="color:red;font-weight:bold;">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.MainOres1.hints.BillNo.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.MainOres1.hints.Date.label}" id="c7" align="center" sortable="true"
+                       sortProperty="#{bindings.MainOres1.hints.Date.name}">
+              <af:outputText value="#{row.Date}" shortDesc="#{bindings.MainOres1.hints.Date.tooltip}" id="ot10">
+                <af:convertDateTime pattern="#{bindings.MainOres1.hints.Date.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column id="c6" width="50" align="center" headerText="Edit"
+                       rendered="#{LoginBean.user.roleId eq '100' or LoginBean.user.roleId eq '103' ? true : false}">
+              <af:button id="b11" icon="/resources/images/edit.gif" inlineStyle="padding:2px;margin:2px">
+                <af:showPopupBehavior popupId=":::p2" triggerType="action"/>
+              </af:button>
+            </af:column>
+          </af:table>
+        </af:panelGroupLayout>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="10px" marginBottom="5px" id="gr5">
+      <af:gridCell marginStart="5px" columnSpan="3" marginEnd="5px" id="gc9"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
+            binding="#{OreBean.updatedOrePopup}">
+    <af:dialog id="d2" type="none">
+      <af:panelFormLayout id="pfl2" rows="6">
+        <af:panelLabelAndMessage label="Code" id="plam2" labelStyle="text-align:left">
+          <af:panelGroupLayout id="pgl10" layout="horizontal" inlineStyle="margin-left:10px">
+            <af:inputText value="#{bindings.OreCode.inputValue}" required="#{bindings.OreCode.hints.mandatory}"
+                          columns="30" maximumLength="#{bindings.OreCode.hints.precision}"
+                          shortDesc="#{bindings.OreCode.hints.tooltip}" id="it2" labelStyle="text-align:left">
+              <f:validator binding="#{bindings.OreCode.validator}"/>
+            </af:inputText>
+          </af:panelGroupLayout>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="Name" id="plam1" labelStyle="text-align:left">
+          <af:panelGroupLayout id="pgl18" layout="horizontal">
+            <af:inputText value="#{bindings.OreName.inputValue}" required="#{bindings.OreName.hints.mandatory}"
+                          columns="30" maximumLength="#{bindings.OreName.hints.precision}"
+                          shortDesc="#{bindings.OreName.hints.tooltip}" id="it3">
+              <f:validator binding="#{bindings.OreName.validator}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.OresTypeId.inputValue}"
+                                required="#{bindings.OresTypeId.hints.mandatory}"
+                                shortDesc="#{bindings.OresTypeId.hints.tooltip}" id="soc11">
+              <f:selectItems value="#{bindings.OresTypeId.items}" id="si11"/>
+              <f:validator binding="#{bindings.OresTypeId.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Length.hints.label}" id="plam3" labelStyle="text-align:left">
+          <af:panelGroupLayout id="pgl11" layout="horizontal" inlineStyle="margin-left:10px">
+            <af:inputText value="#{bindings.Length.inputValue}"
+                          required="#{bindings.Length.hints.mandatory}" columns="30"
+                          maximumLength="#{bindings.Length.hints.precision}"
+                          shortDesc="#{bindings.Length.hints.tooltip}" id="it4" contentStyle="text-align:left">
+              <f:validator binding="#{bindings.Length.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.Length.format}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.LengthUnit.inputValue}"
+                                required="#{bindings.LengthUnit.hints.mandatory}"
+                                shortDesc="#{bindings.LengthUnit.hints.tooltip}" id="soc12"
+                                inlineStyle="margin-left:15px">
+              <f:selectItems value="#{bindings.LengthUnit.items}" id="si12"/>
+              <f:validator binding="#{bindings.LengthUnit.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Width.hints.label}" id="plam4" labelStyle="text-align:left">
+          <af:panelGroupLayout id="pgl12" layout="horizontal" inlineStyle="margin-left:10px">
+            <af:inputText value="#{bindings.Width.inputValue}" required="#{bindings.Width.hints.mandatory}"
+                          columns="30"
+                          maximumLength="#{bindings.Width.hints.precision}" shortDesc="#{bindings.Width.hints.tooltip}"
+                          id="it5">
+              <f:validator binding="#{bindings.Width.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.Width.format}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.WidthUnit.inputValue}"
+                                required="#{bindings.WidthUnit.hints.mandatory}"
+                                shortDesc="#{bindings.WidthUnit.hints.tooltip}" id="soc13"
+                                inlineStyle="margin-left:15px">
+              <f:selectItems value="#{bindings.WidthUnit.items}" id="si13"/>
+              <f:validator binding="#{bindings.WidthUnit.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Thikness.hints.label}" id="plam5" labelStyle="text-align:left">
+          <af:panelGroupLayout id="pgl13" layout="horizontal" inlineStyle="margin-left:10px">
+            <af:inputText value="#{bindings.Thikness.inputValue}" required="#{bindings.Thikness.hints.mandatory}"
+                          columns="30" maximumLength="#{bindings.Thikness.hints.precision}"
+                          shortDesc="#{bindings.Thikness.hints.tooltip}" id="it6">
+              <f:validator binding="#{bindings.Thikness.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.Thikness.format}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.ThiknessUnit.inputValue}"
+                                required="#{bindings.ThiknessUnit.hints.mandatory}"
+                                shortDesc="#{bindings.ThiknessUnit.hints.tooltip}" id="soc14"
+                                inlineStyle="margin-left:15px">
+              <f:selectItems value="#{bindings.ThiknessUnit.items}" id="si14"/>
+              <f:validator binding="#{bindings.ThiknessUnit.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Quentity.hints.label}" id="plam6" labelStyle="text-align:left">
+          <af:panelGroupLayout id="pgl15" layout="horizontal">
+            <af:inputText value="#{bindings.Quentity.inputValue}" required="#{bindings.Quentity.hints.mandatory}"
+                          columns="30" maximumLength="#{bindings.Quentity.hints.precision}"
+                          shortDesc="#{bindings.Quentity.hints.tooltip}" id="it7">
+              <f:validator binding="#{bindings.Quentity.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.Quentity.format}"/>
+            </af:inputText>
+            <af:selectOneChoice value="#{bindings.Unit.inputValue}" required="#{bindings.Unit.hints.mandatory}"
+                                shortDesc="#{bindings.Unit.hints.tooltip}" id="soc15">
+              <f:selectItems value="#{bindings.Unit.items}" id="si15"/>
+              <f:validator binding="#{bindings.Unit.validator}"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:panelLabelAndMessage>
+        <af:inputText value="#{bindings.CriticalLimit.inputValue}" label="#{bindings.CriticalLimit.hints.label}"
+                      required="#{bindings.CriticalLimit.hints.mandatory}"
+                      columns="30"
+                      maximumLength="#{bindings.CriticalLimit.hints.precision}"
+                      shortDesc="#{bindings.CriticalLimit.hints.tooltip}" id="it8" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.CriticalLimit.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.CriticalLimit.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Price.inputValue}" label="#{bindings.Price.hints.label}"
+                      required="#{bindings.Price.hints.mandatory}" columns="30"
+                      maximumLength="#{bindings.Price.hints.precision}" shortDesc="#{bindings.Price.hints.tooltip}"
+                      id="it9" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.Price.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.Price.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.BillNo.inputValue}" label="#{bindings.BillNo.hints.label}"
+                      required="#{bindings.BillNo.hints.mandatory}" columns="30"
+                      maximumLength="#{bindings.BillNo.hints.precision}" shortDesc="#{bindings.BillNo.hints.tooltip}"
+                      id="it10" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.BillNo.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.BillNo.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Supplier.inputValue}" label="#{bindings.Supplier.hints.label}"
+                      required="#{bindings.Supplier.hints.mandatory}" columns="30"
+                      maximumLength="#{bindings.Supplier.hints.precision}"
+                      shortDesc="#{bindings.Supplier.hints.tooltip}" id="it11" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.Supplier.validator}"/>
+        </af:inputText>
+        <af:inputDate value="#{bindings.Date.inputValue}" label="#{bindings.Date.hints.label}"
+                      required="#{bindings.Date.hints.mandatory}" columns="#{bindings.Date.hints.displayWidth}"
+                      shortDesc="#{bindings.Date.hints.tooltip}" id="id3" labelStyle="text-align:left">
+          <f:validator binding="#{bindings.Date.validator}"/>
+          <af:convertDateTime pattern="#{bindings.Date.format}"/>
+        </af:inputDate>
+        <af:selectOneRadio value="#{bindings.Active.inputValue}" label="#{bindings.Active.label}"
+                           required="#{bindings.Active.hints.mandatory}" shortDesc="#{bindings.Active.hints.tooltip}"
+                           id="sor1" labelStyle="text-align:left" layout="horizontal" autoSubmit="true">
+          <f:selectItems value="#{bindings.Active.items}" id="si16"/>
+          <f:validator binding="#{bindings.Active.validator}"/>
+        </af:selectOneRadio>
+        
+      </af:panelFormLayout>
+      <f:facet name="buttonBar">
+        <af:button id="b12" icon="/resources/images/save.png" inlineStyle="padding:2px;margin:2px"
+                   action="#{OreBean.saveUpdatedOre}"/>
+        <af:button text="Cancel" id="b1" inlineStyle="padding:2px;margin:2px" action="#{OreBean.cancelUpdatepop}"/>
+      </f:facet>
+    </af:dialog>
+  </af:popup>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+            contentDelivery="lazyUncached" binding="#{OreBean.savedIcon}">
+    <af:dialog id="d5" type="ok">
+      <f:facet name="buttonBar"/>
+      <af:panelGroupLayout id="pgl19" halign="center" layout="vertical">
+        <af:activeImage source="/resources/images/JD-16-128.png" id="ai1"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

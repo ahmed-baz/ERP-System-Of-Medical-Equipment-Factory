@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.StoreAppModuleAM">
+      <AppModuleConfig name="16CAB7B19B2" IsLazyLoadingTrue="true" DBconnection="java:comp/env/jdbc/AppConnectionDS" ApplicationName="oracle.medical.app.model.bc.module.StoreAppModuleAM" jbo.project="oracle.medical.app.model.MedicalDevicesModel" BC4JConfigName="StoreAppModuleAMLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DeployPlatform="LOCAL" JDBCName="AppConnection">
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle" jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.StoreAppModuleAM"/>
+         <Tester FullProxyInterfaceName="oracle.medical.app.model.bc.module.common.StoreAppModuleAM"/>
+         <Custom ns0:LastUsedConfiguration="StoreAppModuleAMLocal" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.ProductsAppModuleAM">
+      <AppModuleConfig name="16D59F4DE7B" IsLazyLoadingTrue="true" DBconnection="java:comp/env/jdbc/AppConnectionDS" ApplicationName="oracle.medical.app.model.bc.module.ProductsAppModuleAM" jbo.project="oracle.medical.app.model.MedicalDevicesModel" BC4JConfigName="ProductsAppModuleAMLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DeployPlatform="LOCAL" JDBCName="AppConnection">
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle" jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.ProductsAppModuleAM"/>
+         <Tester FullProxyInterfaceName="oracle.medical.app.model.bc.module.common.ProductsAppModuleAM"/>
+         <Custom ns0:LastUsedConfiguration="ProductsAppModuleAMLocal" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.UsersAppModuleAM">
+      <AppModuleConfig name="16D4F191AE3" IsLazyLoadingTrue="true" DBconnection="java:comp/env/jdbc/AppConnectionDS" ApplicationName="oracle.medical.app.model.bc.module.UsersAppModuleAM" jbo.project="oracle.medical.app.model.MedicalDevicesModel" BC4JConfigName="UsersAppModuleAMLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DeployPlatform="LOCAL" JDBCName="AppConnection">
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle" jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.UsersAppModuleAM"/>
+         <Tester FullProxyInterfaceName="oracle.medical.app.model.bc.module.common.UsersAppModuleAM"/>
+         <Custom ns0:LastUsedConfiguration="UsersAppModuleAMLocal" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM">
+      <AppModuleConfig name="16D551FCA3D" IsLazyLoadingTrue="true" DBconnection="java:comp/env/jdbc/AppConnectionDS" ApplicationName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM" jbo.project="oracle.medical.app.model.MedicalDevicesModel" BC4JConfigName="IndividualsAppModuleAMLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" DeployPlatform="LOCAL" JDBCName="AppConnection">
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle" jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="oracle.medical.app.model.bc.module.IndividualsAppModuleAM"/>
+         <Tester FullProxyInterfaceName="oracle.medical.app.model.bc.module.common.IndividualsAppModuleAM"/>
+         <Custom ns0:LastUsedConfiguration="IndividualsAppModuleAMLocal" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/AppConnectionDS" ns0:_testers_credentials_needed="false" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

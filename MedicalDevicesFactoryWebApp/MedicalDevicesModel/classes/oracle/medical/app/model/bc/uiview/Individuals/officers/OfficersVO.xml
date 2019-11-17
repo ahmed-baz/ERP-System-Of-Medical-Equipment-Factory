@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OfficersVO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <Variable
+    Name="pFullName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pMiliteryNumber"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
+  <ViewAccessor
+    Name="CityVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.CityVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="QualificationVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.QualificationVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SpecializationVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.SpecializationVO"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SpecializationVOCriteria"
+      FullName="oracle.medical.app.model.bc.dropdownlist.SpecializationVO.SpecializationVOCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="pQualificationId">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[QualificationId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="MilitaryRanksVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.MilitaryRanksVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MilitaryServiceVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.MilitaryServiceVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MaritalStatusVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.MaritalStatusVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UniversitiesVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.UniversitiesVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="IndividualsDropDownVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.IndividualsDropDownVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MilitaryRankTypeVO1"
+    ViewObjectName="oracle.medical.app.model.bc.dropdownlist.MilitaryRankTypeVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CityId"
+    ListVOName="CityVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CityId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="City"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_QualificationId"
+    ListVOName="QualificationVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="QualificationId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="QualificationId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Qualification"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SpecializationId"
+    ListVOName="SpecializationVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SpecializationId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SpecializationId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Specialization"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MilitaryRankId"
+    ListVOName="MilitaryRanksVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MilitaryRankId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MilitaryRankId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MilitaryRank"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MilitaryServiceId"
+    ListVOName="MilitaryServiceVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MilitaryServiceId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MilitaryServiceId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MilitaryServiceType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MaritalStatusId"
+    ListVOName="MaritalStatusVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MaritalStatusId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MaritalStatusId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MaritalStatus"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_UniversityId"
+    ListVOName="UniversitiesVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="UniversityId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UniversityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="University"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Active"
+    ListVOName="IndividualsDropDownVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Active"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Status"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MilitaryRankType"
+    ListVOName="MilitaryRankTypeVO1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MilitaryRankType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MilitaryRankTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MilitaryRankType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="OfficersEO"
+    Entity="oracle.medical.app.model.bc.entity.Individuals.OfficersEO"/>
+  <ViewAttribute
+    Name="OfficerId"
+    PrecisionRule="true"
+    EntityAttrName="OfficerId"
+    EntityUsage="OfficersEO"
+    AliasName="OFFICER_ID"/>
+  <ViewAttribute
+    Name="FullName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="FullName"
+    EntityUsage="OfficersEO"
+    AliasName="FULL_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.FullName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MilitaryNumber"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MilitaryNumber"
+    EntityUsage="OfficersEO"
+    AliasName="MILITARY_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.MilitaryNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Ssn"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Ssn"
+    EntityUsage="OfficersEO"
+    AliasName="SSN">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.Ssn_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BirthDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BirthDate"
+    EntityUsage="OfficersEO"
+    AliasName="BIRTH_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.BirthDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.BirthDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RecruitmentDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RecruitmentDate"
+    EntityUsage="OfficersEO"
+    AliasName="RECRUITMENT_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.RecruitmentDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.RecruitmentDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.RecruitmentDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JoinDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JoinDate"
+    EntityUsage="OfficersEO"
+    AliasName="JOIN_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.JoinDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.JoinDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.JoinDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TerminationDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TerminationDate"
+    EntityUsage="OfficersEO"
+    AliasName="TERMINATION_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.TerminationDate_LABEL"/>
+        <FMT_FORMATTER
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.TerminationDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.TerminationDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CityId"
+    PrecisionRule="true"
+    EntityAttrName="CityId"
+    EntityUsage="OfficersEO"
+    AliasName="CITY_ID"
+    LOVName="LOV_CityId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.CityId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Address"
+    PrecisionRule="true"
+    EntityAttrName="Address"
+    EntityUsage="OfficersEO"
+    AliasName="ADDRESS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="OfficersEO"
+    AliasName="PHONE_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Image"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="Image"
+    EntityUsage="OfficersEO"
+    AliasName="IMAGE"/>
+  <ViewAttribute
+    Name="QualificationId"
+    PrecisionRule="true"
+    EntityAttrName="QualificationId"
+    EntityUsage="OfficersEO"
+    AliasName="QUALIFICATION_ID"
+    LOVName="LOV_QualificationId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.QualificationId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SpecializationId"
+    PrecisionRule="true"
+    EntityAttrName="SpecializationId"
+    EntityUsage="OfficersEO"
+    AliasName="SPECIALIZATION_ID"
+    LOVName="LOV_SpecializationId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.SpecializationId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MilitaryRankId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MilitaryRankId"
+    EntityUsage="OfficersEO"
+    AliasName="MILITARY_RANK_ID"
+    LOVName="LOV_MilitaryRankId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.MilitaryRankId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MilitaryRankType"
+    PrecisionRule="true"
+    EntityAttrName="MilitaryRankType"
+    EntityUsage="OfficersEO"
+    AliasName="MILITARY_RANK_TYPE"
+    LOVName="LOV_MilitaryRankType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MilitaryServiceId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MilitaryServiceId"
+    EntityUsage="OfficersEO"
+    AliasName="MILITARY_SERVICE_ID"
+    LOVName="LOV_MilitaryServiceId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.MilitaryServiceId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MaritalStatusId"
+    PrecisionRule="true"
+    EntityAttrName="MaritalStatusId"
+    EntityUsage="OfficersEO"
+    AliasName="MARITAL_STATUS_ID"
+    LOVName="LOV_MaritalStatusId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.MaritalStatusId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UniversityId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UniversityId"
+    EntityUsage="OfficersEO"
+    AliasName="UNIVERSITY_ID"
+    LOVName="LOV_UniversityId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO.UniversityId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="OfficersEO"
+    AliasName="ACTIVE"
+    LOVName="LOV_Active">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="OfficersVOCriteria"
+    ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="OfficersVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FullName"
+        ViewAttribute="FullName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":pFullName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="MilitaryNumber"
+        ViewAttribute="MilitaryNumber"
+        Operator="="
+        Conjunction="AND"
+        Value=":pMiliteryNumber"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="OfficersVOWhereCriteria"
+      ViewObjectName="oracle.medical.app.model.bc.uiview.Individuals.officers.OfficersVO"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="OfficersVOWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="OfficersVOWhereCriteria_OfficersVOWhereCriteria_row_0_Active"
+          ViewAttribute="Active"
+          Operator="="
+          Conjunction="AND"
+          Value="'Y'"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.medical.app.model.MedicalDevicesModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

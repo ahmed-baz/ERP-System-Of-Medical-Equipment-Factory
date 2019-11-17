@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGridLayout id="pgl1">
+    <af:gridRow marginTop="5px" height="30px" id="gr1">
+      <af:gridCell marginStart="5px" width="65%" id="gc1"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc2"/>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="100%" id="gr2">
+      <af:gridCell marginStart="5px" width="65%" id="gc3" valign="middle" halign="stretch">
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+          <af:panelCollection id="pc1">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:button id="b2" inlineStyle="padding:2px;margin:2px"
+                           icon="/resources/images/undo_arrow_left_edit_back-16.png" action="Settings"/>
+                <af:button actionListener="#{bindings.CreateInsert.execute}"
+                           disabled="#{!bindings.CreateInsert.enabled}" id="b4" icon="/resources/images/Add.gif"
+                           inlineStyle="padding:2px;margin:2px"/>
+                <af:button actionListener="#{bindings.Delete.execute}"
+                           disabled="#{!bindings.Delete.enabled}" id="b5" icon="/resources/images/delete-16px.png"
+                           inlineStyle="padding:2px;margin:2px"/>
+                <af:button id="b3" inlineStyle="padding:2px;margin:2px" icon="/resources/images/save.png"
+                           action="#{SettingsBean.saveCamps}"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.Camp1.collectionModel}" var="row" rows="#{bindings.Camp1.rangeSize}"
+                      emptyText="#{bindings.Camp1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.Camp1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Camp1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.Camp1.rangeSize}" id="t1" width="100%" varStatus="vs" scrollPolicy="page"
+                      partialTriggers="::b4 ::b5">
+              <af:column id="c1" width="30" align="center">
+                <af:button id="b1"/>
+              </af:column>
+              <af:column id="c2" width="30" align="center" headerText="#">
+                <af:outputText value="#{vs.index+1}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Camp1.hints.Camp.name}" sortable="true"
+                         headerText="#{bindings.Camp1.hints.Camp.label}" id="c3" align="center" width="300">
+                <af:inputText value="#{row.bindings.Camp.inputValue}" label="#{bindings.Camp1.hints.Camp.label}"
+                              required="#{bindings.Camp1.hints.Camp.mandatory}"
+                              columns="#{bindings.Camp1.hints.Camp.displayWidth}"
+                              maximumLength="#{bindings.Camp1.hints.Camp.precision}"
+                              shortDesc="#{bindings.Camp1.hints.Camp.tooltip}" id="it3"
+                              contentStyle="text-align:center;">
+                  <f:validator binding="#{row.bindings.Camp.validator}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelGroupLayout>
+      </af:gridCell>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc4" halign="center" valign="middle">
+        <af:panelBox id="pb1" showDisclosure="false">
+          <af:panelGroupLayout id="pgl2" layout="vertical" halign="center">
+            <af:image source="/resources/images/demo/camp-128px.png" id="i1" inlineStyle="width:200px;height:200px"/>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:gridCell>
+    </af:gridRow>
+    <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr3">
+      <af:gridCell marginStart="5px" width="65%" id="gc5"/>
+      <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc6"/>
+    </af:gridRow>
+  </af:panelGridLayout>
+  <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+            contentDelivery="lazyUncached" binding="#{SettingsBean.camps_popup}">
+    <af:dialog id="d5" type="ok">
+      <af:panelGroupLayout id="pgl19" halign="center" layout="vertical">
+        <af:activeImage source="/resources/images/JD-16-128.png" id="ai1"/>
+      </af:panelGroupLayout>
+    </af:dialog>
+  </af:popup>
+</ui:composition>

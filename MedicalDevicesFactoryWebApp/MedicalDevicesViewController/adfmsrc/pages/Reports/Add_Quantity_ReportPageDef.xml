@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="Add_Quantity_ReportPageDef"
+                Package="pages.Reports">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AddQuantityReport2" RangeSize="10" DataControl="StoreActionsAppModuleAMDataControl"
+              id="AddQuantityReport2Iterator"/>
+    <searchRegion Criteria="AddQuantityReportVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AddQuantityReport2Iterator" id="AddQuantityReportVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AddQuantityReport2Iterator" id="AddQuantityReport2">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.storeActions.AddQuantityReportVO"
+                      Name="AddQuantityReport20">
+        <AttrNames>
+          <Item Value="OreCode"/>
+          <Item Value="OreName"/>
+          <Item Value="OresTypeId"/>
+          <Item Value="Length"/>
+          <Item Value="LengthUnit"/>
+          <Item Value="Width"/>
+          <Item Value="WidthUnit"/>
+          <Item Value="Thikness"/>
+          <Item Value="ThiknessUnit"/>
+          <Item Value="AdditionQuantity"/>
+          <Item Value="Unit"/>
+          <Item Value="BillNo"/>
+          <Item Value="AdditionDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

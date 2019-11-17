@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.1" id="LoginPagePageDef"
+                Package="oracle.medical.app.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="AppImages1Iterator" Binds="AppImages1" DataControl="UsersAppModuleAMDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AppImages1Iterator" id="ImageId">
+      <AttrNames>
+        <Item Value="ImageId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AppImages1Iterator" id="Image">
+      <AttrNames>
+        <Item Value="Image"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="checkLogin" RequiresUpdateModel="true" Action="invokeMethod" MethodName="checkLogin"
+                  IsViewObjectMethod="false" DataControl="UsersAppModuleAMDataControl"
+                  InstanceName="data.UsersAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.UsersAppModuleAMDataControl.methodResults.checkLogin_UsersAppModuleAMDataControl_dataProvider_checkLogin_result">
+      <NamedData NDName="email" NDType="java.lang.String"/>
+      <NamedData NDName="password" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="AppImages1Iterator" id="AppImages1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.users.AppImagesVO" Name="AppImages10">
+        <AttrNames>
+          <Item Value="ImageId"/>
+          <Item Value="Image"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="Add_RequestsPageDef"
+                Package="pages.StoreActions">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OresAddition1" RangeSize="15" DataControl="StoreActionsAppModuleAMDataControl"
+              id="OresAddition1Iterator"/>
+    <searchRegion Binds="OresAddition1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="OresAddition1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OresAddition1Iterator" id="OresAddition1">
+      <nodeDefinition DefName="oracle.medical.app.model.bc.uiview.storeActions.OresAdditionVO" Name="OresAddition10">
+        <AttrNames>
+          <Item Value="OreId"/>
+          <Item Value="Code"/>
+          <Item Value="OreName"/>
+          <Item Value="OresType"/>
+          <Item Value="Length"/>
+          <Item Value="LengthUnit"/>
+          <Item Value="Width"/>
+          <Item Value="WidthUnit"/>
+          <Item Value="Thikness"/>
+          <Item Value="ThiknessUnit"/>
+          <Item Value="AdditionQuantity"/>
+          <Item Value="Quantity"/>
+          <Item Value="CriticalLimit"/>
+          <Item Value="Unit"/>
+          <Item Value="BillNo"/>
+          <Item Value="AdditionDate"/>
+          <Item Value="OreAdditionId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="OresAddition1Iterator" id="OreAdditionId">
+      <AttrNames>
+        <Item Value="OreAdditionId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OresAddition1Iterator" id="OreId">
+      <AttrNames>
+        <Item Value="OreId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OresAddition1Iterator" id="AdditionQuantity">
+      <AttrNames>
+        <Item Value="AdditionQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OresAddition1Iterator" id="Delete"
+            InstanceName="StoreActionsAppModuleAMDataControl.OresAddition1"
+            DataControl="StoreActionsAppModuleAMDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="StoreActionsAppModuleAMDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <methodAction id="approveAddRequests" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="approveAddRequests" IsViewObjectMethod="false"
+                  DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.approveAddRequests_StoreActionsAppModuleAMDataControl_dataProvider_approveAddRequests_result">
+      <NamedData NDName="requestId" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="oreId" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="quantity" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <methodAction id="setActiveOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setActiveOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setActiveOre_StoreAppModuleAMDataControl_dataProvider_setActiveOre_result"/>
+    <methodAction id="setWaitingOre" RequiresUpdateModel="true" Action="invokeMethod" MethodName="setWaitingOre"
+                  IsViewObjectMethod="false" DataControl="StoreAppModuleAMDataControl"
+                  InstanceName="data.StoreAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreAppModuleAMDataControl.methodResults.setWaitingOre_StoreAppModuleAMDataControl_dataProvider_setWaitingOre_result"/>
+    <methodAction id="filterAddReport" RequiresUpdateModel="true" Action="invokeMethod" MethodName="filterAddReport"
+                  IsViewObjectMethod="false" DataControl="StoreActionsAppModuleAMDataControl"
+                  InstanceName="data.StoreActionsAppModuleAMDataControl.dataProvider"
+                  ReturnName="data.StoreActionsAppModuleAMDataControl.methodResults.filterAddReport_StoreActionsAppModuleAMDataControl_dataProvider_filterAddReport_result"/>
+  </bindings>
+</pageDefinition>

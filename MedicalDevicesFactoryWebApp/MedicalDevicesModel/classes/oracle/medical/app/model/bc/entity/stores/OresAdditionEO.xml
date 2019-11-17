@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="windows-1256" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OresAdditionEO"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ORES_ADDITION"
+  AliasName="OresAdditionEO"
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  RowClass="oracle.medical.app.model.bc.entity.stores.OresAdditionEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="OreAdditionId"
+    Precision="10"
+    Scale="0"
+    ColumnName="ORE_ADDITION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES_ADDITION"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="OreId"
+    Precision="10"
+    Scale="0"
+    ColumnName="ORE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES_ADDITION"/>
+  <Attribute
+    Name="AdditionQuantity"
+    Precision="10"
+    Scale="5"
+    ColumnName="ADDITION_QUANTITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES_ADDITION">
+    <validation:CompareValidationBean
+      Name="AdditionQuantityRule0"
+      ResId="oracle.medical.app.model.bc.entity.stores.OresAdditionEO.AdditionQuantity_Rule_0"
+      OnAttribute="AdditionQuantity"
+      OperandType="LITERAL"
+      Inverse="false"
+      CompareType="GREATERTHAN"
+      CompareValue="0"/>
+  </Attribute>
+  <Attribute
+    Name="BillNo"
+    Precision="10"
+    Scale="0"
+    ColumnName="BILL_NO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ORES_ADDITION"/>
+  <Attribute
+    Name="AdditionDate"
+    ColumnName="ADDITION_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="ORES_ADDITION"/>
+  <Attribute
+    Name="Accepted"
+    Precision="1"
+    ColumnName="ACCEPTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ORES_ADDITION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Ores"
+    Association="oracle.medical.app.model.bc.entity.stores.assoc.AddQuantityFKAssoc"
+    AssociationEnd="oracle.medical.app.model.bc.entity.stores.assoc.AddQuantityFKAssoc.Ores"
+    AssociationOtherEnd="oracle.medical.app.model.bc.entity.stores.assoc.AddQuantityFKAssoc.OresAddition"
+    Type="oracle.medical.app.model.bc.entity.stores.OresEOImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC007270"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007270"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.stores.OresAdditionEO.OreAdditionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OresAddQuantity">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C007245"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORES_ADD_QUANTITY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.stores.OresAdditionEO.OreId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_OresAdditionEO">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C008041"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_ORES_ADDITION_EO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.medical.app.model.bc.entity.stores.OresAdditionEO.OreId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.medical.app.model.MedicalDevicesModelBundle"/>
+  </ResourceBundle>
+</Entity>
